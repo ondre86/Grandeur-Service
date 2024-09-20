@@ -200,19 +200,22 @@ button
 
     &.btn-main
         background-color: $gold
-        img
-            height: 16px
-            width: 16px
+
 
     &.btn-alt
         background-color: transparent
-        img
-            height: 16px
-            width: 16px
+
+    svg
+        path
+            @extend %trans
 
     &:hover
         background-color: white
         color: $grey-main-100
+
+        svg
+            path
+                fill: $grey-main-100
 
 main
     margin: 100px 0 0 0

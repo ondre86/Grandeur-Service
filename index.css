@@ -97,7 +97,7 @@ nav {
   max-width: 1600px;
 }
 
-button, nav ul a, nav a svg path {
+button svg path, button, nav ul a, nav a svg path {
   transition: all 0.3s;
 }
 
@@ -184,20 +184,15 @@ button {
 button.btn-main {
   background-color: #b68f40;
 }
-button.btn-main img {
-  height: 16px;
-  width: 16px;
-}
 button.btn-alt {
   background-color: transparent;
-}
-button.btn-alt img {
-  height: 16px;
-  width: 16px;
 }
 button:hover {
   background-color: white;
   color: rgb(30, 30, 30);
+}
+button:hover svg path {
+  fill: rgb(30, 30, 30);
 }
 
 main {
