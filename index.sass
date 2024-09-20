@@ -191,7 +191,7 @@ nav
                 color: $gold
 
 button
-    @extend %fitHeight, %trans
+    @extend %fitHeight, %trans, %flex, %center, %gap-5
     padding: .5rem .75rem
     font-size: 1.1rem
     border: 1px solid white
@@ -200,8 +200,15 @@ button
 
     &.btn-main
         background-color: $gold
+        img
+            height: 16px
+            width: 16px
+
     &.btn-alt
         background-color: transparent
+        img
+            height: 16px
+            width: 16px
 
     &:hover
         background-color: white

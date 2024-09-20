@@ -64,7 +64,7 @@
   font-weight: 600;
   font-style: italic;
 }
-nav ul, nav, .flex, section, header, .flex-v {
+button, nav ul, nav, .flex, section, header, .flex-v {
   display: flex;
 }
 
@@ -72,9 +72,13 @@ section, header, .flex-v {
   flex-direction: column;
 }
 
-nav ul, nav, header, .center {
+button, nav ul, nav, header, .center {
   justify-content: center;
   align-items: center;
+}
+
+button {
+  gap: 0.5rem;
 }
 
 nav ul {
@@ -180,8 +184,16 @@ button {
 button.btn-main {
   background-color: #b68f40;
 }
+button.btn-main img {
+  height: 16px;
+  width: 16px;
+}
 button.btn-alt {
   background-color: transparent;
+}
+button.btn-alt img {
+  height: 16px;
+  width: 16px;
 }
 button:hover {
   background-color: white;
