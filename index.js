@@ -5,4 +5,10 @@ function $(element) {
 addEventListener('DOMContentLoaded', ()=>{
     console.log("ji")
     intro = gsap.timeline()
+    .from(".hero-content-wrap", {
+        y:50,
+        opacity: 0,
+        duration: .75,
+        ease: "power1.inOut"
+    })
 })

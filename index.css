@@ -167,11 +167,15 @@ nav ul {
   list-style-type: none;
 }
 nav ul a {
-  padding: 0.5rem;
+  padding: 1rem;
   font-size: 1.1rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
 }
 nav ul a:hover {
-  color: #b68f40;
+  background-color: rgb(42, 42, 42);
+  border-color: white;
 }
 
 button {
@@ -180,15 +184,20 @@ button {
   border: 1px solid white;
   border-radius: 0.35rem;
   cursor: pointer;
+  font-weight: 600;
 }
 button.btn-main {
-  background-color: #b68f40;
+  background-color: white;
+  color: black;
 }
 button.btn-alt {
   background-color: transparent;
+  color: #eac57b;
+  border-color: #eac57b;
 }
 button:hover {
-  background-color: white;
+  background-color: #eac57b;
+  border-color: #b68f40;
   color: rgb(30, 30, 30);
 }
 button:hover svg path {
@@ -234,7 +243,7 @@ section#use-case::before {
   gap: 15%;
   padding: 5%;
   border-radius: 1rem;
-  background: rgba(0, 0, 0, 0.61);
+  background: rgba(0, 0, 0, 0.655);
   backdrop-filter: blur(25px);
 }
 .hero-content-wrap .hero-img-wrap img {

@@ -1,10 +1,16 @@
 /////////////////////////////////////////////////////
 // COLOR VARIABLES
 $gold: #b68f40
+$gold-light: #eac57b
+$gold-dark: #6A5425
 $grey-main-100: rgba(30,30,30,1)
-$grey-main-75: rgba(0,0,0,.75)
-$grey-main-50: rgba(0,0,0,.5)
-$grey-main-25: rgba(0,0,0,.25)
+$grey-main-75: rgba(30,30,30,.75)
+$grey-main-50: rgba(30,30,30,.5)
+$grey-main-25: rgba(30,30,30,.25)
+$grey-acc-100: rgba(42,42,42,1)
+$grey-acc-75: rgba(42,42,42,.75)
+$grey-acc-50: rgba(42,42,42,.5)
+$grey-acc-25: rgba(42,42,42,.25)
 
 /////////////////////////////////////////////////////
 // FONTS
@@ -184,11 +190,15 @@ nav
 
         a
             @extend %trans
-            padding: .5rem
+            padding: 1rem
             font-size: 1.1rem
+            text-decoration: none
+            border: 1px solid transparent
+            border-radius: 8px 
 
             &:hover
-                color: $gold
+                background-color: $grey-acc-100
+                border-color: white
 
 button
     @extend %fitHeight, %trans, %flex, %center, %gap-5
@@ -197,20 +207,24 @@ button
     border: 1px solid white
     border-radius: .35rem
     cursor: pointer
+    font-weight: 600
 
     &.btn-main
-        background-color: $gold
-
+        background-color: white
+        color: black
 
     &.btn-alt
         background-color: transparent
+        color: $gold-light
+        border-color: $gold-light
 
     svg
         path
             @extend %trans
 
     &:hover
-        background-color: white
+        background-color: $gold-light
+        border-color: $gold
         color: $grey-main-100
 
         svg
@@ -257,7 +271,7 @@ section
     padding: 5%
     border-radius: 1rem
 
-    background: rgba(0, 0, 0, 0.61)
+    background: rgba(0, 0, 0, 0.655)
     backdrop-filter: blur(25px)
 
     .hero-img-wrap
