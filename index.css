@@ -64,7 +64,7 @@
   font-weight: 600;
   font-style: italic;
 }
-section#why-us, button, nav ul, nav, .flex, .card, section, header, .flex-v {
+section#use-case, section#why-us, button, nav ul, nav, .flex, .card, section, header, .flex-v {
   display: flex;
 }
 
@@ -85,7 +85,7 @@ button {
   gap: 2rem;
 }
 
-section#why-us {
+section#use-case, section#why-us {
   gap: 3rem;
 }
 
@@ -228,7 +228,6 @@ section#hero {
 }
 section#why-us {
   position: relative;
-  height: 100px;
 }
 section#why-us::before {
   position: absolute;
@@ -241,7 +240,6 @@ section#why-us::before {
   background-position: 0px 0px;
   background-image: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.1) 25%, rgb(30, 30, 30) 100%);
 }
-
 .hero-content-wrap {
   display: grid;
   grid-template-columns: 45% 40%;
@@ -267,6 +265,7 @@ section#why-us::before {
   padding: 1.5rem;
   border: 1px solid #555555;
   border-radius: 1rem;
+  justify-content: space-between;
 }
 .card:hover {
   box-shadow: 0px 0px 10px 5px #555555;

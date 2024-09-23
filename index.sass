@@ -253,7 +253,6 @@ section
     &#why-us
         @extend %flex, %gap3
         position: relative
-        height: 100px
         &::before
             position: absolute
             top: -40px
@@ -265,6 +264,8 @@ section
             background-position: 0px 0px
             background-image: linear-gradient(180deg, $grey-main-0 0%, $grey-main-10 25%, $grey-main-100 100%)
 
+    &#use-case
+        @extend %flex, %gap3
 
 // classes
 
@@ -296,6 +297,7 @@ section
     padding: 1.5rem
     border: 1px solid $grey-acc2-100
     border-radius: 1rem
+    justify-content: space-between
 
     &:hover
         box-shadow: 0px 0px 10px 5px $grey-acc2-100
