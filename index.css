@@ -64,15 +64,15 @@
   font-weight: 600;
   font-style: italic;
 }
-.hero-content-wrap, form label, form > div:not(form > div:last-of-type) > div > div, form > div:not(form > div:last-of-type) > div, button, nav ul, nav, .flex, .card, form > div:not(form > div:last-of-type), form, section, header, .flex-v {
+.hero-content-wrap, footer div ul li a, footer div ul li, footer nav ul, footer, form label, form > div:not(form > div:nth-last-child(2)) > div > div, form > div:not(form > div:nth-last-child(2)) > div, button, header nav ul, header nav, .flex, .card, footer div ul, footer nav, form > div:not(form > div:nth-last-child(2)), form, section, header, .flex-v {
   display: flex;
 }
 
-.card, form > div:not(form > div:last-of-type), form, section, header, .flex-v {
+.card, footer div ul, footer nav, form > div:not(form > div:nth-last-child(2)), form, section, header, .flex-v {
   flex-direction: column;
 }
 
-.hero-content-wrap, section#contact, button, nav ul, nav, header, .center {
+.hero-content-wrap, footer div ul li a, footer nav ul, footer nav, section#contact, button, header nav ul, header nav, header, .center {
   justify-content: center;
   align-items: center;
 }
@@ -81,7 +81,7 @@ button {
   gap: 0.5rem;
 }
 
-form > div:not(form > div:last-of-type) > div > div, form > div:not(form > div:last-of-type) > div, form > div:not(form > div:last-of-type) {
+footer div ul li a, footer div ul, form > div:not(form > div:nth-last-child(2)) > div > div, form > div:not(form > div:nth-last-child(2)) > div, form > div:not(form > div:nth-last-child(2)) {
   gap: 1rem;
 }
 
@@ -89,28 +89,32 @@ form > div:not(form > div:last-of-type) > div > div, form > div:not(form > div:l
   gap: 2rem;
 }
 
-section {
+footer nav, section {
   gap: 3rem;
 }
 
-.hero-content-wrap, form input#i-type-other, nav, header {
+.hero-content-wrap, form input#i-type-other, header nav, header {
   width: 100%;
 }
 
-button, nav ul, nav {
+footer div ul li a {
+  width: fit-content;
+}
+
+footer nav ul, button, header nav ul, header nav {
   height: fit-content;
 }
 
-nav {
+header nav {
   max-width: 1600px;
 }
 
-.card, form input, details, button svg path, button, nav ul a, nav a svg path {
+.card, footer div ul li a, footer nav ul a, footer a svg path, form input, form > div:last-of-type input, details, button svg path, button, header nav ul a, header nav a svg path {
   transition: all 0.3s;
 }
 
-.card:hover, details:hover {
-  box-shadow: 0px 0px 10px 3px #555555;
+footer div ul li a:hover, details:hover {
+  box-shadow: 0px 0px 10px 3px rgb(85, 85, 85);
 }
 
 .gap-5 {
@@ -169,28 +173,27 @@ header {
   z-index: 99999;
   background-color: rgb(30, 30, 30);
 }
-
-nav {
+header nav {
   justify-content: space-between;
 }
-nav a {
+header nav a {
   height: 70px;
 }
-nav a:hover svg path {
-  fill: #b68f40;
+header nav a:hover svg path {
+  fill: rgb(182, 143, 64);
 }
-nav ul {
+header nav ul {
   list-style-type: none;
   gap: 0.75rem;
 }
-nav ul a {
+header nav ul a {
   padding: 1rem;
   font-size: 1.1rem;
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 0.35rem;
 }
-nav ul a:hover {
+header nav ul a:hover {
   background-color: rgb(42, 42, 42);
   border-color: white;
 }
@@ -209,12 +212,12 @@ button.btn-main {
 }
 button.btn-alt {
   background-color: transparent;
-  color: #eac57b;
-  border-color: #eac57b;
+  color: rgb(234, 197, 123);
+  border-color: rgb(234, 197, 123);
 }
 button:hover {
-  background-color: #eac57b;
-  border-color: #b68f40;
+  background-color: rgb(234, 197, 123);
+  border-color: rgb(182, 143, 64);
   color: rgb(30, 30, 30);
 }
 button:hover svg path {
@@ -253,7 +256,7 @@ section#why-us::before {
 details {
   background-color: rgb(35, 35, 35);
   padding: 0 2rem;
-  border: 1px solid #555555;
+  border: 1px solid rgb(85, 85, 85);
   border-radius: 1rem;
   cursor: pointer;
 }
@@ -269,7 +272,7 @@ details summary a {
   font-weight: 600;
 }
 details summary::marker {
-  color: #b68f40;
+  color: rgb(182, 143, 64);
 }
 details p {
   margin: 0 0 1rem 2rem;
@@ -277,15 +280,28 @@ details p {
 
 form {
   background-color: rgb(35, 35, 35);
-  border: 1px solid #555555;
+  border: 1px solid rgb(85, 85, 85);
   border-radius: 1rem;
   padding: 2rem;
   width: 50%;
   max-width: 600px;
 }
-form > div:not(form > div:last-of-type) > div > div {
+form > div:not(form > div:nth-last-child(2)) > div > div {
   width: 33%;
   justify-content: left;
+}
+form > div:last-of-type {
+  margin: 1rem 0 0 0;
+}
+form > div:last-of-type input {
+  background-color: rgb(182, 143, 64);
+  color: rgb(30, 30, 30);
+  font-weight: 600;
+  padding: 0.66rem 0;
+  cursor: pointer;
+}
+form > div:last-of-type input:hover {
+  background-color: white;
 }
 form label {
   width: 100%;
@@ -297,10 +313,63 @@ form input {
   color-scheme: dark;
   padding: 0.35rem;
   background-color: rgb(30, 30, 30);
-  border: 1px solid #555555;
+  border: 1px solid rgb(85, 85, 85);
   border-radius: 0.35rem;
   font-size: 1.15rem;
 }
+footer {
+  background-color: rgb(35, 35, 35);
+  padding: 2.5% 10%;
+  justify-content: space-between;
+}
+footer a:hover svg path {
+  fill: rgb(182, 143, 64);
+}
+footer nav ul {
+  list-style-type: none;
+  gap: 1rem;
+}
+footer nav ul a {
+  padding: 1rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 0.35rem;
+  background-color: rgb(42, 42, 42);
+}
+footer nav ul a:hover {
+  border-color: white;
+}
+footer nav ul:first-of-type a {
+  border-color: rgb(182, 143, 64);
+}
+footer nav ul:first-of-type a:hover {
+  background-color: rgb(106, 84, 37);
+}
+footer div ul {
+  list-style-type: none;
+}
+footer div ul li {
+  justify-content: end;
+}
+footer div ul li a {
+  text-decoration: none;
+  padding: 1rem;
+  background-color: rgb(42, 42, 42);
+  border: 1px solid white;
+  border-radius: 0.35rem;
+}
+footer div ul li a:hover {
+  border-color: rgb(182, 143, 64);
+  background-color: rgb(106, 84, 37);
+}
+footer div ul li a img {
+  width: 20px;
+}
+footer div span {
+  font-size: 0.8rem;
+}
+
 .hero-content-wrap {
   display: grid;
   grid-template-columns: 45% 40%;
@@ -325,7 +394,7 @@ form input {
 .card {
   background-color: rgb(35, 35, 35);
   padding: 1.5rem;
-  border: 1px solid #555555;
+  border: 1px solid rgb(85, 85, 85);
   border-radius: 1rem;
   justify-content: space-between;
 }

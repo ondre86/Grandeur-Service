@@ -1,14 +1,15 @@
 /////////////////////////////////////////////////////
 // COLOR VARIABLES
-$gold: #b68f40
-$gold-light: #eac57b
-$gold-dark: #6A5425
+$gold: rgba(182,143,64,1)
+$gold-light: rgb(234,197,123,1)
+$gold-dark: rgb(106,84,37,1)
 $grey-main-100: rgba(30,30,30,1)
 $grey-main-10: rgba(30,30,30,.1)
 $grey-main-0: rgba(30,30,30,0)
 $grey-acc-100: rgba(35,35,35,1)
 $grey-acc2-100: rgba(42,42,42,1)
-$grey-acc3-100:#555555
+$grey-acc3-100:rgba(85,85,85,1)
+
 
 
 /////////////////////////////////////////////////////
@@ -120,7 +121,7 @@ $grey-acc3-100:#555555
 %trans
     transition: all .3s
 
-%hover
+%card-hover
     &:hover
         box-shadow: 0px 0px 10px 3px $grey-acc3-100
 
@@ -178,37 +179,37 @@ header
     background-color: $grey-main-100
 
 
-nav 
-    @extend %fullWidth, %fitHeight, %flex, %maxWidth, %center
-    justify-content: space-between
-
-    a
-        height: 70px
-        svg
-            path
-                @extend %trans
-
-        &:hover
-            svg
-                path
-                    fill: $gold
-
-    ul  
-        @extend %flex, %center, %fitHeight
-        list-style-type: none
-        gap: .75rem
+    nav 
+        @extend %fullWidth, %fitHeight, %flex, %maxWidth, %center
+        justify-content: space-between
 
         a
-            @extend %trans
-            padding: 1rem
-            font-size: 1.1rem
-            text-decoration: none
-            border: 1px solid transparent
-            border-radius: .35rem 
+            height: 70px
+            svg
+                path
+                    @extend %trans
 
             &:hover
-                background-color: $grey-acc2-100
-                border-color: white
+                svg
+                    path
+                        fill: $gold
+
+        ul  
+            @extend %flex, %center, %fitHeight
+            list-style-type: none
+            gap: .75rem
+
+            a
+                @extend %trans
+                padding: 1rem
+                font-size: 1.1rem
+                text-decoration: none
+                border: 1px solid transparent
+                border-radius: .35rem 
+
+                &:hover
+                    background-color: $grey-acc2-100
+                    border-color: white
 
 button
     @extend %fitHeight, %trans, %flex, %center, %gap-5
@@ -273,7 +274,7 @@ section
         @extend %center
 
 details
-    @extend %hover, %trans
+    @extend %card-hover, %trans
     background-color: $grey-acc-100
     padding: 0 2rem
     border: 1px solid $grey-acc3-100
@@ -306,7 +307,7 @@ form
     width: 50%
     max-width: 600px
 
-    & > div:not(form > div:last-of-type)
+    & > div:not(form > div:nth-last-child(2))
         @extend %flex-v, %gap1
 
         & > div 
@@ -316,7 +317,21 @@ form
                 @extend %flex, %gap1
                 width: 33%
                 justify-content: left
-                
+
+    & > div:last-of-type
+        margin: 1rem 0 0 0 
+
+        input
+            @extend %trans
+            background-color: $gold
+            color: $grey-main-100 
+            font-weight: 600       
+            padding: .66rem 0  
+            cursor: pointer
+
+            &:hover
+                background-color: white
+
 
     label
         @extend %flex
@@ -336,6 +351,76 @@ form
 
         &#i-type-other
             @extend %fullWidth
+
+footer
+    @extend %flex
+    background-color: $grey-acc-100
+    padding: 2.5% 10%
+    justify-content: space-between
+
+    a
+        svg
+            path
+                @extend %trans
+
+        &:hover
+            svg
+                path
+                    fill: $gold
+
+    nav
+        @extend %flex-v, %center, %gap3
+
+        ul  
+            @extend %flex, %center, %fitHeight
+            list-style-type: none
+            gap: 1rem
+
+            a
+                @extend %trans
+                padding: 1rem
+                font-size: 1.1rem
+                text-decoration: none
+                border: 1px solid transparent
+                border-radius: .35rem 
+                background-color: $grey-acc2-100
+
+
+                &:hover
+                    border-color: white
+
+        ul:first-of-type
+            a 
+                border-color: $gold
+
+                &:hover
+                    background-color: $gold-dark
+
+    div
+        ul 
+            @extend %flex-v, %gap1
+            list-style-type: none
+            
+            li
+                @extend %flex
+                justify-content: end
+
+                a
+                    @extend %flex, %trans, %gap1, %center, %fitWidth, %card-hover
+                    text-decoration: none
+                    padding: 1rem
+                    background-color: $grey-acc2-100
+                    border: 1px solid white
+                    border-radius: .35rem
+
+                    &:hover
+                        border-color: $gold
+                        background-color: $gold-dark
+
+                    img
+                        width: 20px
+        span
+            font-size: .80rem
 
 // classes
 
@@ -363,7 +448,7 @@ form
     grid-template-rows: auto
 
 .card
-    @extend %flex-v, %gap2, %trans, %hover
+    @extend %flex-v, %gap2, %trans
     background-color: $grey-acc-100
     padding: 1.5rem
     border: 1px solid $grey-acc3-100
