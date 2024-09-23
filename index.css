@@ -309,7 +309,7 @@ form label[for=i-type5] {
 }
 form input {
   color-scheme: dark;
-  padding: 0.35rem;
+  padding: 0.35rem 0.85rem;
   background-color: rgb(30, 30, 30);
   border: 1px solid rgb(85, 85, 85);
   border-radius: 0.35rem;
