@@ -64,24 +64,29 @@
   font-weight: 600;
   font-style: italic;
 }
-.hero-content-wrap, footer div ul li a, .contact-btn-wrap ul li a, footer div ul li, .contact-btn-wrap ul li, footer nav ul, footer, form label, form > div:not(form > div:nth-last-child(2)) > div > div, form > div:not(form > div:nth-last-child(2)) > div, button, header nav ul, header nav, .flex, .card, footer div ul, .contact-btn-wrap ul, footer nav, form > div:not(form > div:nth-last-child(2)), form, section, header, .flex-v {
+.hero-content-wrap, footer div ul li a, .contact-btn-wrap ul li a, footer div ul li, .contact-btn-wrap ul li, footer nav ul, footer, form label, .button, header nav ul, header nav, header, .flex, .card, footer div ul, .contact-btn-wrap ul, footer nav, form div, form, section, main, .flex-v {
   display: flex;
 }
 
-.card, footer div ul, .contact-btn-wrap ul, footer nav, form > div:not(form > div:nth-last-child(2)), form, section, header, .flex-v {
+.card, footer div ul, .contact-btn-wrap ul, footer nav, form div, form, section, main, .flex-v {
   flex-direction: column;
 }
 
-.hero-content-wrap, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul, footer nav, section#contact, button, header nav ul, header nav, header, .center {
+.card-wrap.staff-card-wrap .card, .hero-content-wrap, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul, footer nav, section#hero, main, .button, header nav ul, header nav, header, .center {
   justify-content: center;
   align-items: center;
 }
 
-button {
+section {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.button {
   gap: 0.5rem;
 }
 
-footer div ul li a, .contact-btn-wrap ul li a, footer div ul, .contact-btn-wrap ul, form > div:not(form > div:nth-last-child(2)) > div > div, form > div:not(form > div:nth-last-child(2)) > div, form > div:not(form > div:nth-last-child(2)) {
+footer div ul li a, .contact-btn-wrap ul li a, footer div ul, .contact-btn-wrap ul, form div {
   gap: 1rem;
 }
 
@@ -93,15 +98,15 @@ footer nav, section {
   gap: 3rem;
 }
 
-.hero-content-wrap, form input#i-type-other, header nav, header {
+.hero-content-wrap, header nav, header {
   width: 100%;
 }
 
-footer div ul li a, .contact-btn-wrap ul li a {
+footer div ul li a, .contact-btn-wrap ul li a, .fit-width {
   width: fit-content;
 }
 
-footer nav ul, button, header nav ul, header nav {
+footer nav ul, .button, header nav ul, header nav {
   height: fit-content;
 }
 
@@ -109,7 +114,7 @@ header nav {
   max-width: 1600px;
 }
 
-.card, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul a, footer a svg path, form label, form > div:last-of-type input, details, button svg path, button, header nav ul a, header nav a svg path {
+.about-text a, .card a, .card, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul a, footer a svg path, form label, details, .button svg path, .button, header nav ul a, header nav #nav-home svg path {
   transition: all 0.3s;
 }
 
@@ -162,6 +167,20 @@ h2 {
   font-size: 2.5rem;
 }
 
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+h4 {
+  font-size: 1.33rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
 strong * {
   font-weight: bold;
 }
@@ -176,10 +195,10 @@ header {
 header nav {
   justify-content: space-between;
 }
-header nav a {
+header nav #nav-home {
   height: 70px;
 }
-header nav a:hover svg path {
+header nav #nav-home:hover svg path {
   fill: rgb(182, 143, 64);
 }
 header nav ul {
@@ -198,41 +217,59 @@ header nav ul a:hover {
   border-color: white;
 }
 
-button {
+.button {
   padding: 0.5rem 0.75rem;
   font-size: 1.1rem;
   border: 1px solid white;
   border-radius: 0.35rem;
   cursor: pointer;
   font-weight: 600;
+  text-decoration: none;
 }
-button.btn-main {
+.button.btn-main {
   background-color: white;
   color: black;
 }
-button.btn-alt {
+.button.btn-alt {
   background-color: transparent;
   color: rgb(234, 197, 123);
   border-color: rgb(234, 197, 123);
 }
-button:hover {
+.button:hover {
   background-color: rgb(234, 197, 123);
   border-color: rgb(182, 143, 64);
   color: rgb(30, 30, 30);
 }
-button:hover svg path {
+.button:hover svg path {
   fill: rgb(30, 30, 30);
 }
 
 main {
-  margin: 100px 0 0 0;
+  margin: 90px 0 0 0;
 }
 
 section {
-  padding: 5% 10%;
+  padding: 100px;
   font-size: clamp(18px, 1rem, 24px);
 }
+section * {
+  max-width: 1600px;
+}
+section h1 {
+  font-weight: 600;
+  padding: 0 0 1rem 0;
+  border-bottom: 1px solid rgb(85, 85, 85);
+}
+section h2 {
+  font-weight: 500;
+  font-style: italic;
+}
+section p {
+  max-width: 800px;
+}
 section#hero {
+  min-height: calc(100vh - 90px);
+  width: 100%;
   overflow-anchor: none;
   background-image: url(assets/interior-transformed.webp);
   background-position: 0% 0%;
@@ -253,8 +290,23 @@ section#why-us::before {
   background-position: 0px 0px;
   background-image: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.1) 25%, rgb(30, 30, 30) 100%);
 }
+section#contact:not(.contact-page) {
+  max-width: 1600px;
+  flex-direction: row;
+  padding-top: 130px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+}
 section.contact-page {
   padding-top: 2.5%;
+}
+section#staff, section#fleet {
+  padding-top: 0px;
+}
+section#fleet span {
+  margin: 2rem 0 0 0;
+  font-size: 1.5rem;
 }
 
 details {
@@ -285,25 +337,8 @@ form {
   border: 1px solid rgb(85, 85, 85);
   border-radius: 1rem;
   padding: 2rem;
-  width: 50%;
+  min-width: 400px;
   max-width: 600px;
-}
-form > div:not(form > div:nth-last-child(2)) > div > div {
-  width: 33%;
-  justify-content: left;
-}
-form > div:last-of-type {
-  margin: 1rem 0 0 0;
-}
-form > div:last-of-type input {
-  background-color: rgb(182, 143, 64);
-  color: rgb(30, 30, 30);
-  font-weight: 600;
-  padding: 0.66rem 0;
-  cursor: pointer;
-}
-form > div:last-of-type input:hover {
-  background-color: white;
 }
 form label {
   width: 100%;
@@ -311,7 +346,7 @@ form label {
 form label[for=i-type5] {
   align-items: center;
 }
-form input {
+form input, form textarea {
   color-scheme: dark;
   padding: 0.35rem 0.85rem;
   background-color: rgb(30, 30, 30);
@@ -319,17 +354,22 @@ form input {
   border-radius: 0.35rem;
   font-size: 1.15rem;
 }
-form input[type=checkbox], form input[type=datetime-local] {
+form input[type=checkbox], form input[type=datetime-local], form textarea[type=checkbox], form textarea[type=datetime-local] {
   cursor: pointer;
   accent-color: rgb(182, 143, 64);
 }
-form input[type=checkbox] ~ label, form input[type=datetime-local] ~ label {
+form input[type=checkbox] ~ label, form input[type=datetime-local] ~ label, form textarea[type=checkbox] ~ label, form textarea[type=datetime-local] ~ label {
   cursor: pointer;
 }
-form input[type=checkbox] ~ label:hover, form input[type=datetime-local] ~ label:hover {
+form input[type=checkbox] ~ label:hover, form input[type=datetime-local] ~ label:hover, form textarea[type=checkbox] ~ label:hover, form textarea[type=datetime-local] ~ label:hover {
   color: rgb(234, 197, 123);
 }
-form input:focus, form input:focus-within, form input:focus-visible {
+form input[type=submit], form textarea[type=submit] {
+  background-color: rgb(234, 197, 123);
+  color: rgb(30, 30, 30);
+  font-weight: 600;
+}
+form input:focus, form input:focus-within, form input:focus-visible, form textarea:focus, form textarea:focus-within, form textarea:focus-visible {
   outline: 1px solid rgb(182, 143, 64);
 }
 
@@ -407,25 +447,66 @@ footer div span, .contact-btn-wrap span {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
 }
+.card-wrap.staff-card-wrap {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.card-wrap.fleet-card-wrap {
+  grid-template-columns: 1fr 1fr;
+}
+.card-wrap.fleet-card-wrap .card {
+  max-width: 335px;
+}
 
 .card {
   background-color: rgb(35, 35, 35);
   padding: 1.5rem;
   border: 1px solid rgb(85, 85, 85);
   border-radius: 1rem;
+  min-width: 175px;
+}
+.card:not(#why-us .card-wrap .card) {
   justify-content: space-between;
 }
-.card h3 {
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  width: fit-content;
+.card a {
+  color: rgb(234, 197, 123);
+  text-underline-offset: 0.25rem;
+}
+.card a:hover {
+  color: white;
 }
 .card .card-icon {
   width: 52px;
   height: 70px;
 }
+.card .card-icon.flip {
+  transform: rotateY(180deg);
+}
 .card .card-icon#icon-handshake {
   width: 80px;
   height: 70px;
+}
+.card.staff-card img, .card.fleet-card img {
+  width: 100%;
+  object-fit: contain;
+}
+.card.staff-card img {
+  height: 100px;
+  clip-path: circle();
+}
+.card.fleet-card img {
+  height: 300px;
+}
+
+.about-text a {
+  color: rgb(234, 197, 123);
+  text-underline-offset: 0.25rem;
+}
+.about-text a:hover {
+  color: white;
+}
+.about-text ul {
+  padding: 0.5rem 0 0 1rem;
+}
+.about-text ul li {
+  font-style: italic;
 }/*# sourceMappingURL=index.css.map */

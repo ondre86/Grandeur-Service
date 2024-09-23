@@ -87,8 +87,8 @@ $grey-acc3-100:rgba(85,85,85,1)
     justify-content: center
     align-items: center
 %topCenter
-    justify-content: center
-    align-items: flex-start
+    justify-content: flex-start
+    align-items: center
 
 %gap-5
     gap: .5rem
@@ -141,6 +141,8 @@ $grey-acc3-100:rgba(85,85,85,1)
 .gap4
     gap: 4rem
 
+.fit-width
+    @extend %fitWidth
 
 .font2
     font-family: bask
@@ -164,12 +166,24 @@ h1
 h2  
     font-size: 2.5rem
 
+h3
+    font-size: 1.5rem
+    font-weight: 600
+    letter-spacing: .5px
+    width: fit-content
+
+h4
+    font-size: 1.33rem
+    font-weight: 600
+    letter-spacing: .5px
+    width: fit-content
+
 strong
     *
         font-weight: bold
 
 header
-    @extend %fullWidth, %flex-v, %center
+    @extend %fullWidth, %flex, %center
     padding: 10px 10% 10px 10%
     position: fixed
     top: 0
@@ -181,7 +195,7 @@ header
         @extend %fullWidth, %fitHeight, %flex, %maxWidth, %center
         justify-content: space-between
 
-        a
+        #nav-home
             height: 70px
             svg
                 path
@@ -209,7 +223,7 @@ header
                     background-color: $grey-acc2-100
                     border-color: white
 
-button
+.button
     @extend %fitHeight, %trans, %flex, %center, %gap-5
     padding: .5rem .75rem
     font-size: 1.1rem
@@ -217,6 +231,7 @@ button
     border-radius: .35rem
     cursor: pointer
     font-weight: 600
+    text-decoration: none
 
     &.btn-main
         background-color: white
@@ -241,14 +256,32 @@ button
                 fill: $grey-main-100
 
 main
-    margin: 100px 0 0 0
+    @extend %flex-v, %center
+    margin: 90px 0 0 0
 
 section 
-    @extend %flex-v, %gap3
-    padding: 5% 10%
+    @extend %flex-v, %gap3, %topCenter
+    padding: 100px
     font-size: clamp(18px, 1rem, 24px)
 
+    * 
+        max-width: 1600px
+
+    h1
+        font-weight: 600
+        // font-style: italic
+        padding: 0 0 1rem 0
+        border-bottom: 1px solid $grey-acc3-100
+    h2
+        font-weight: 500
+        font-style: italic
+    p
+        max-width: 800px
+
     &#hero
+        @extend %center
+        min-height: calc( 100vh - 90px )
+        width: 100%
         overflow-anchor: none
         background-image: url(assets/interior-transformed.webp)
         background-position: 0% 0%
@@ -268,10 +301,25 @@ section
             background-position: 0px 0px
             background-image: linear-gradient(180deg, $grey-main-0 0%, $grey-main-10 25%, $grey-main-100 100%)
 
-    &#contact
-        @extend %center
+    &#contact:not(.contact-page)
+        max-width: 1600px
+        flex-direction: row
+        padding-top: 130px
+        display: grid
+        grid-template-columns: 1fr 1fr
+        align-items: flex-start
     &.contact-page
         padding-top: 2.5% 
+
+    &#staff, &#fleet
+        padding-top: 0px
+
+    &#fleet
+        span
+            margin: 2rem 0 0 0
+            font-size: 1.5rem
+
+
 
 details
     @extend %card-hover, %trans
@@ -302,33 +350,11 @@ form
     border: 1px solid $grey-acc3-100
     border-radius: 1rem
     padding: 2rem
-    width: 50%
+    min-width: 400px
     max-width: 600px
 
-    & > div:not(form > div:nth-last-child(2))
+    div
         @extend %flex-v, %gap1
-
-        & > div 
-            @extend %flex, %gap1
-
-            & > div 
-                @extend %flex, %gap1
-                width: 33%
-                justify-content: left
-
-    & > div:last-of-type
-        margin: 1rem 0 0 0 
-
-        input
-            @extend %trans
-            background-color: $gold
-            color: $grey-main-100 
-            font-weight: 600       
-            padding: .66rem 0  
-            cursor: pointer
-
-            &:hover
-                background-color: white
 
 
     label
@@ -338,7 +364,7 @@ form
         &[for=i-type5]
             align-items: center
 
-    input
+    input, textarea
         color-scheme: dark
         padding: .35rem .85rem
         background-color: $grey-main-100
@@ -356,8 +382,10 @@ form
                 &:hover
                     color: $gold-light
 
-        &#i-type-other
-            @extend %fullWidth
+        &[type=submit]
+            background-color: $gold-light
+            color: $grey-main-100
+            font-weight: 600
 
         &:focus, &:focus-within, &:focus-visible
             outline: 1px solid $gold
@@ -457,27 +485,69 @@ footer div, .contact-btn-wrap
     grid-template-columns: 1fr 1fr 1fr
     grid-template-rows: auto
 
+    &.staff-card-wrap
+        grid-template-columns: 1fr 1fr 1fr 1fr
+
+        .card
+            @extend %center
+
+    &.fleet-card-wrap
+        grid-template-columns: 1fr 1fr
+        .card
+            max-width: 335px
+
 .card
     @extend %flex-v, %gap2, %trans
     background-color: $grey-acc-100
     padding: 1.5rem
     border: 1px solid $grey-acc3-100
     border-radius: 1rem
-    justify-content: space-between
+    min-width: 175px
 
-    h3
-        font-size: 2rem
-        font-weight: 600
-        letter-spacing: .5px
-        width: fit-content
+    &:not(#why-us .card-wrap .card)
+        justify-content: space-between
+
+    a
+        @extend %trans
+        color: $gold-light
+        text-underline-offset: .25rem
+        &:hover
+            color: white
 
     .card-icon
         width: 52px
         height: 70px
 
+        &.flip
+            transform: rotateY(180deg)
+
         &#icon-handshake
             width: 80px
             height: 70px
+
+    &.staff-card, &.fleet-card
+        img
+            width: 100%
+            object-fit: contain
+    &.staff-card
+        img
+            height: 100px
+            clip-path: circle()
+    &.fleet-card
+        img
+            height: 300px
+
+.about-text
+    a 
+        @extend %trans
+        color: $gold-light
+        text-underline-offset: .25rem
+        &:hover
+            color: white
+    ul
+        padding: .5rem 0 0 1rem
+        li
+            font-style: italic
 
 
 @media screen and (max-width: 1024)
