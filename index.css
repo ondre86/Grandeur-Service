@@ -109,7 +109,7 @@ header nav {
   max-width: 1600px;
 }
 
-.card, footer div ul li a, footer nav ul a, footer a svg path, form > div:last-of-type input, details, button svg path, button, header nav ul a, header nav a svg path {
+.card, footer div ul li a, footer nav ul a, footer a svg path, form label, form > div:last-of-type input, details, button svg path, button, header nav ul a, header nav a svg path {
   transition: all 0.3s;
 }
 
@@ -261,8 +261,6 @@ details {
   cursor: pointer;
 }
 details summary {
-  list-style-position: outside;
-  margin-left: 1rem;
   padding: 1rem 0.5rem;
   font-size: 1.5rem;
   font-weight: 600;
@@ -271,7 +269,7 @@ details summary a {
   font-size: 1.5rem;
   font-weight: 600;
 }
-details summary::marker {
+details summary::marker, details summary::-webkit-details-marker {
   color: rgb(182, 143, 64);
 }
 details p, details ul {
@@ -317,14 +315,18 @@ form input {
   border-radius: 0.35rem;
   font-size: 1.15rem;
 }
-form input[type=checkbox] {
+form input[type=checkbox], form input[type=datetime-local] {
+  cursor: pointer;
+  accent-color: rgb(182, 143, 64);
+}
+form input[type=checkbox] ~ label, form input[type=datetime-local] ~ label {
   cursor: pointer;
 }
-form input[type=checkbox] ~ label {
-  cursor: pointer;
+form input[type=checkbox] ~ label:hover, form input[type=datetime-local] ~ label:hover {
+  color: rgb(234, 197, 123);
 }
-form input:focus {
-  outline-color: rgb(182, 143, 64);
+form input:focus, form input:focus-within, form input:focus-visible {
+  outline: 1px solid rgb(182, 143, 64);
 }
 
 footer {

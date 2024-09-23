@@ -282,8 +282,6 @@ details
     cursor: pointer
 
     summary
-        list-style-position: outside
-        margin-left: 1rem
         padding: 1rem .5rem
         font-size: 1.5rem
         font-weight: 600
@@ -292,7 +290,7 @@ details
             font-size: 1.5rem
             font-weight: 600
 
-        &::marker
+        &::marker, &::-webkit-details-marker
             color: $gold
 
     p, ul
@@ -334,7 +332,7 @@ form
 
 
     label
-        @extend %flex
+        @extend %flex, %trans
         width: 100%
 
         &[for=i-type5]
@@ -348,17 +346,21 @@ form
         border-radius: .35rem
         font-size: 1.15rem
 
-        &[type="checkbox"]
+        &[type="checkbox"], &[type="datetime-local"]
             cursor: pointer
+            accent-color: $gold
 
             & ~ label
                 cursor: pointer
 
+                &:hover
+                    color: $gold-light
+
         &#i-type-other
             @extend %fullWidth
 
-        &:focus
-            outline-color: $gold
+        &:focus, &:focus-within, &:focus-visible
+            outline: 1px solid $gold
 
 footer
     @extend %flex
