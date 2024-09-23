@@ -64,11 +64,11 @@
   font-weight: 600;
   font-style: italic;
 }
-button, nav ul, nav, .flex, section, header, .flex-v {
+section#why-us, button, nav ul, nav, .flex, .card, section, header, .flex-v {
   display: flex;
 }
 
-section, header, .flex-v {
+.card, section, header, .flex-v {
   flex-direction: column;
 }
 
@@ -81,8 +81,12 @@ button {
   gap: 0.5rem;
 }
 
-nav ul {
+.card, .card-wrap, nav ul {
   gap: 2rem;
+}
+
+section#why-us {
+  gap: 3rem;
 }
 
 .hero-content-wrap, nav, header {
@@ -97,7 +101,7 @@ nav {
   max-width: 1600px;
 }
 
-button svg path, button, nav ul a, nav a svg path {
+.card, button svg path, button, nav ul a, nav a svg path {
   transition: all 0.3s;
 }
 
@@ -140,6 +144,10 @@ html, body {
 
 h1 {
   font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
 }
 
 strong * {
@@ -218,15 +226,13 @@ section#hero {
   background-size: cover;
   background-repeat: no-repeat;
 }
-section#use-case {
+section#why-us {
   position: relative;
-  padding-top: 0;
-  margin-top: -40px;
   height: 100px;
 }
-section#use-case::before {
+section#why-us::before {
   position: absolute;
-  top: 0;
+  top: -40px;
   left: 0;
   content: "";
   width: 100%;
@@ -249,4 +255,33 @@ section#use-case::before {
 .hero-content-wrap .hero-img-wrap img {
   width: 100%;
   transform: rotateY(180deg);
+}
+
+.card-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.card {
+  padding: 1.5rem;
+  border: 1px solid #555555;
+  border-radius: 1rem;
+}
+.card:hover {
+  box-shadow: 0px 0px 10px 5px #555555;
+}
+.card h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+.card .card-icon {
+  width: 52px;
+  height: 70px;
+}
+.card .card-icon#icon-handshake {
+  width: 80px;
+  height: 70px;
 }/*# sourceMappingURL=index.css.map */
