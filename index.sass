@@ -190,8 +190,9 @@ nav
                     fill: $gold
 
     ul  
-        @extend %flex, %center, %gap2, %fitHeight
+        @extend %flex, %center, %fitHeight
         list-style-type: none
+        gap: .75rem
 
         a
             @extend %trans
@@ -199,7 +200,7 @@ nav
             font-size: 1.1rem
             text-decoration: none
             border: 1px solid transparent
-            border-radius: 8px 
+            border-radius: .35rem 
 
             &:hover
                 background-color: $grey-acc-100
@@ -240,18 +241,18 @@ main
     margin: 100px 0 0 0
 
 section 
-    @extend %flex-v
+    @extend %flex-v, %gap3
     padding: 5% 10%
     font-size: clamp(18px, 1rem, 24px)
 
     &#hero
+        overflow-anchor: none
         background-image: url(assets/interior-transformed.webp)
         background-position: 0% 0%
         background-size: cover
         background-repeat: no-repeat
 
     &#why-us
-        @extend %flex, %gap3
         position: relative
         &::before
             position: absolute
@@ -265,7 +266,29 @@ section
             background-image: linear-gradient(180deg, $grey-main-0 0%, $grey-main-10 25%, $grey-main-100 100%)
 
     &#use-case
-        @extend %flex, %gap3
+
+details
+    // @extend %flex-v, %gap2
+    padding: 0 2rem
+    border: 1px solid $grey-acc2-100
+    border-radius: 1rem
+
+    summary
+        list-style-position: outside
+        margin-left: 1rem
+        padding: 1rem .5rem
+        font-size: 1.5rem
+        font-weight: 600
+
+        a
+            font-size: 1.5rem
+            font-weight: 600
+
+        &::marker
+            color: $gold
+
+    p
+        margin: 0 0 1rem 2rem
 
 // classes
 
@@ -315,6 +338,7 @@ section
         &#icon-handshake
             width: 80px
             height: 70px
+
 
 @media screen and (max-width: 1024)
 @media screen and (max-width: 500px)
