@@ -317,6 +317,12 @@ form input {
   border-radius: 0.35rem;
   font-size: 1.15rem;
 }
+form input[type=checkbox] {
+  cursor: pointer;
+}
+form input[type=checkbox] ~ label {
+  cursor: pointer;
+}
 form input:focus {
   outline-color: rgb(182, 143, 64);
 }
