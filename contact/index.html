@@ -63,7 +63,82 @@
             </div>
         </nav>
     </header>
-    <main></main>
+    <main>
+        <section id="contact" class="contact-page">
+            <div class="contact-btn-wrap">
+                <ul style="flex-direction: row;">
+                    <li>
+                        <a href="tel:+1-901-562-7605">
+                            <img src="/assets/phone.png" alt="phone">
+                            <span style="font-size: 1rem;">901-562-7605</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:info@grandeurservice.com">
+                            <img src="/assets/mail.png" alt="mail">
+                            <span style="font-size: 1rem;">info@grandeurservice.com</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <h2>Get A Quote</h2>
+            <form action="/" method="post">
+                <div>
+                    <label for="i-name">Full Name *</label>
+                    <input type="text" id="i-name" name="name" placeholder="John Smith" required>
+                </div>
+                <div>
+                    <label for="i-phone">Phone Number *</label>
+                    <input type="tel" id="i-phone" name="phone" placeholder="901-555-5555" required>
+                </div>
+                <div>
+                    <label for="i-email">Email Address *</label>
+                    <input type="email" id="i-email" name="email" placeholder="john.smith@gmail.com" required>
+                </div>
+                <div>
+                    <label for="i-occupatio ">Occupation</label>
+                    <input type="text" id="i-occupation" name="occupation" placeholder="Attorney">
+                </div>
+                <div>
+                    <span>Transport Type: *</span>
+                    <div>
+                        <input type="checkbox" id="i-type1" name="transport-type-1" value="Work">
+                        <label for="i-type1">Work</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="i-type2" name="transport-type-2" value="Personal">
+                        <label for="i-type2">Personal</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="i-type3" name="transport-type-3" value="Travel">
+                        <label for="i-type3">Travel</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="i-type4" name="transport-type-4" value="Events">
+                        <label for="i-type4">Events</label>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="checkbox" id="i-type5" name="transport-type-5" value="Other">
+                            <label for="i-type5">Other</label>
+                        </div>
+                        <input type="text" id="i-type-other" name="transport-type-5-ext" placeholder="Explain further">
+                    </div>
+                </div>
+                <div>
+                    <label for="i-date-time">Reservation Date & Time *</label>
+                    <input type="datetime-local" id="i-date-time" name="date-time" required>
+                </div>
+                <div class="flex gap1">
+                    <input type="checkbox" id="i-notice" name="notice" required>
+                    <label for="i-notice">I acknowledge that Grandeur Services has a two-hour minimum for all reservations.*</label>
+                </div>
+                <div>
+                    <input type="submit" name="submit" id="i-submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </main>
     <footer>
         <a href="/">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 58 1000 800" width="150px">

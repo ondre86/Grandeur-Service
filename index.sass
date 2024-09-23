@@ -79,7 +79,6 @@ $grey-acc3-100:rgba(85,85,85,1)
 // UTILITY
 %flex
     display: flex
-
 %flex-v
     @extend %flex
     flex-direction: column
@@ -87,7 +86,6 @@ $grey-acc3-100:rgba(85,85,85,1)
 %center
     justify-content: center
     align-items: center
-
 %topCenter
     justify-content: center
     align-items: flex-start
@@ -272,6 +270,8 @@ section
 
     &#contact
         @extend %center
+    &.contact-page
+        padding-top: 2.5% 
 
 details
     @extend %card-hover, %trans
@@ -406,31 +406,31 @@ footer
                 &:hover
                     background-color: $gold-dark
 
-    div
-        ul 
-            @extend %flex-v, %gap1
-            list-style-type: none
-            
-            li
-                @extend %flex
-                justify-content: end
+footer div, .contact-btn-wrap
+    ul
+        @extend %flex-v, %gap1
+        list-style-type: none
+        
+        li
+            @extend %flex
+            justify-content: end
 
-                a
-                    @extend %flex, %trans, %gap1, %center, %fitWidth, %card-hover
-                    text-decoration: none
-                    padding: 1rem
-                    background-color: $grey-acc2-100
-                    border: 1px solid white
-                    border-radius: .35rem
+            a
+                @extend %flex, %trans, %gap1, %center, %fitWidth, %card-hover
+                text-decoration: none
+                padding: 1rem
+                background-color: $grey-acc2-100
+                border: 1px solid white
+                border-radius: .35rem
 
-                    &:hover
-                        border-color: $gold
-                        background-color: $gold-dark
+                &:hover
+                    border-color: $gold
+                    background-color: $gold-dark
 
-                    img
-                        width: 20px
-        span
-            font-size: .80rem
+                img
+                    width: 20px
+    span
+        font-size: .80rem
 
 // classes
 

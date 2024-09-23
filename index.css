@@ -64,15 +64,15 @@
   font-weight: 600;
   font-style: italic;
 }
-.hero-content-wrap, footer div ul li a, footer div ul li, footer nav ul, footer, form label, form > div:not(form > div:nth-last-child(2)) > div > div, form > div:not(form > div:nth-last-child(2)) > div, button, header nav ul, header nav, .flex, .card, footer div ul, footer nav, form > div:not(form > div:nth-last-child(2)), form, section, header, .flex-v {
+.hero-content-wrap, footer div ul li a, .contact-btn-wrap ul li a, footer div ul li, .contact-btn-wrap ul li, footer nav ul, footer, form label, form > div:not(form > div:nth-last-child(2)) > div > div, form > div:not(form > div:nth-last-child(2)) > div, button, header nav ul, header nav, .flex, .card, footer div ul, .contact-btn-wrap ul, footer nav, form > div:not(form > div:nth-last-child(2)), form, section, header, .flex-v {
   display: flex;
 }
 
-.card, footer div ul, footer nav, form > div:not(form > div:nth-last-child(2)), form, section, header, .flex-v {
+.card, footer div ul, .contact-btn-wrap ul, footer nav, form > div:not(form > div:nth-last-child(2)), form, section, header, .flex-v {
   flex-direction: column;
 }
 
-.hero-content-wrap, footer div ul li a, footer nav ul, footer nav, section#contact, button, header nav ul, header nav, header, .center {
+.hero-content-wrap, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul, footer nav, section#contact, button, header nav ul, header nav, header, .center {
   justify-content: center;
   align-items: center;
 }
@@ -81,7 +81,7 @@ button {
   gap: 0.5rem;
 }
 
-footer div ul li a, footer div ul, form > div:not(form > div:nth-last-child(2)) > div > div, form > div:not(form > div:nth-last-child(2)) > div, form > div:not(form > div:nth-last-child(2)) {
+footer div ul li a, .contact-btn-wrap ul li a, footer div ul, .contact-btn-wrap ul, form > div:not(form > div:nth-last-child(2)) > div > div, form > div:not(form > div:nth-last-child(2)) > div, form > div:not(form > div:nth-last-child(2)) {
   gap: 1rem;
 }
 
@@ -97,7 +97,7 @@ footer nav, section {
   width: 100%;
 }
 
-footer div ul li a {
+footer div ul li a, .contact-btn-wrap ul li a {
   width: fit-content;
 }
 
@@ -109,11 +109,11 @@ header nav {
   max-width: 1600px;
 }
 
-.card, footer div ul li a, footer nav ul a, footer a svg path, form label, form > div:last-of-type input, details, button svg path, button, header nav ul a, header nav a svg path {
+.card, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul a, footer a svg path, form label, form > div:last-of-type input, details, button svg path, button, header nav ul a, header nav a svg path {
   transition: all 0.3s;
 }
 
-footer div ul li a:hover, details:hover {
+footer div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
   box-shadow: 0px 0px 10px 3px rgb(85, 85, 85);
 }
 
@@ -253,6 +253,10 @@ section#why-us::before {
   background-position: 0px 0px;
   background-image: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.1) 25%, rgb(30, 30, 30) 100%);
 }
+section.contact-page {
+  padding-top: 2.5%;
+}
+
 details {
   background-color: rgb(35, 35, 35);
   padding: 0 2rem;
@@ -358,27 +362,28 @@ footer nav ul:first-of-type a {
 footer nav ul:first-of-type a:hover {
   background-color: rgb(106, 84, 37);
 }
-footer div ul {
+
+footer div ul, .contact-btn-wrap ul {
   list-style-type: none;
 }
-footer div ul li {
+footer div ul li, .contact-btn-wrap ul li {
   justify-content: end;
 }
-footer div ul li a {
+footer div ul li a, .contact-btn-wrap ul li a {
   text-decoration: none;
   padding: 1rem;
   background-color: rgb(42, 42, 42);
   border: 1px solid white;
   border-radius: 0.35rem;
 }
-footer div ul li a:hover {
+footer div ul li a:hover, .contact-btn-wrap ul li a:hover {
   border-color: rgb(182, 143, 64);
   background-color: rgb(106, 84, 37);
 }
-footer div ul li a img {
+footer div ul li a img, .contact-btn-wrap ul li a img {
   width: 20px;
 }
-footer div span {
+footer div span, .contact-btn-wrap span {
   font-size: 0.8rem;
 }
 
