@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-img-wrap flex center">
+                <div class="hero-img-wrap">
                     <img src="/assets/GLE.png" alt="">
                 </div>
             </div>
@@ -170,7 +170,25 @@
                     <p>
                         <strong><em>New Clients</em></strong> will request a quote using our <a href="/contact">contact form.</a> <br>
                         Once your information had been received, our dispatcher will reach out to you with the status of your request and further instructions. <br><br>
-                        <strong><em>Returning Clients</em></strong> will log in to our client portal, <a href="https://www.moovsapp.com/" target="_blank" rel="noopener">Moovs</a>, to reserve a ride.
+                        <strong><em>Returning Clients</em></strong> will log in to our client portal, <a href="https://www.moovsapp.com/" target="_blank" rel="noreferrer">Moovs</a>, to reserve a ride.
+                    </p>
+                </details>
+                <details>
+                    <summary>What is Moovs?</summary>
+                    <p>
+                        <a href="https://moovsapp.com" target="_blank" rel="noreferrer">Moovs</a> is our platform for all of our operations. <br><br>
+                        Clients can make & modify reservations, our dispatchers can communicate with clients and drivers, and our drivers can detail the logistics of every trip, all through Moovs. <br><br>
+
+                        This centralized platform makes things easy and safe for everyone.
+                    </p>
+                </details>
+                <details>
+                    <summary>Why is there a two-hour minimum for bookings?</summary>
+                    <p>
+                        The two-hour minimum for bookings is to ensure that our time is spent wisely and our costs are recovered.<br><br>
+
+                        We don't want to be another Uber or taxi service. <br>
+                        We want to build lasting, trusting relationships with our clients, and we feel that this is necessary to achieve our goal.
                     </p>
                 </details>
                 <details>
@@ -192,27 +210,55 @@
                         Our vehicles are fully detailed at minimum once per week.
                     </p>
                 </details>
-                <details>
-                    <summary>Why is there a two-hour minimum for bookings?</summary>
-                    <p>
-                        The two-hour minimum for bookings is to ensure that our time is spent wisely and our costs are recovered.<br><br>
-
-                        We don't want to be another Uber or taxi service. <br>
-                        We want to build lasting, trusting relationships with our clients, and we feel that this is necessary to achieve our goal.
-                    </p>
-                </details>
-                <details>
-                    <summary>What is <a href="https://moovsapp.com" target="_blank" rel="noopener">Moovs</a>?</summary>
-                    <p>
-                        <a href="https://moovsapp.com" target="_blank" rel="noopener">Moovs</a> is our platform for all of our operations. <br><br>
-                        Clients can make & modify reservations, our dispatchers can communicate with clients and drivers, and our drivers can detail the logistics of every trip, all through Moovs. <br><br>
-
-                        This centralized platform makes things easy and safe for everyone.
-                    </p>
-                </details>
             </div>
         </section>
-        <section id="contact"></section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="/" method="post">
+                <div>
+                    <label for="i-name">Full Name *</label>
+                    <input type="text" id="i-name" name="full-name" placeholder="John Smith" required>
+                </div>
+                <div>
+                    <label for="i-occ">Occupation *</label>
+                    <input type="text" id="i-occ" name="occupation" placeholder="Attorney" required>
+                </div>
+                <div>
+                    <span>Transport Type: *</span>
+                    <div>
+                        <input type="checkbox" id="i-type1" name="transport-type-1" value="Work">
+                        <label for="i-type1">Work</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="i-type2" name="transport-type-2" value="Personal">
+                        <label for="i-type2">Personal</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="i-type3" name="transport-type-3" value="Travel">
+                        <label for="i-type3">Travel</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="i-type4" name="transport-type-4" value="Events">
+                        <label for="i-type4">Events</label>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="checkbox" id="i-type5" name="transport-type-5" value="Other">
+                            <label for="i-type5">Other</label>
+                        </div>
+                        <input type="text" id="i-type-other" name="transport-type-5-ext" placeholder="Explain further">
+                    </div>
+                </div>
+                <div>
+                    <label for="i-date-time">Reservation Date & Time *</label>
+                    <input type="datetime-local" id="i-date-time" name="date-time" required>
+                </div>
+                <div class="flex gap1">
+                    <input type="checkbox" id="i-notice" name="notice" required>
+                    <label for="i-notice">I acknowledge that Grandeur Services has a two-hour minimum for all reservations.*</label>
+                </div>
+            </form>
+        </section>
     </main>
     <footer></footer>
 </body>

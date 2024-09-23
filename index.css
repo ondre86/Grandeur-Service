@@ -64,15 +64,15 @@
   font-weight: 600;
   font-style: italic;
 }
-button, nav ul, nav, .flex, .card, section, header, .flex-v {
+.hero-content-wrap, form label, form > div:not(form > div:last-of-type) > div > div, form > div:not(form > div:last-of-type) > div, button, nav ul, nav, .flex, .card, form > div:not(form > div:last-of-type), form, section, header, .flex-v {
   display: flex;
 }
 
-.card, section, header, .flex-v {
+.card, form > div:not(form > div:last-of-type), form, section, header, .flex-v {
   flex-direction: column;
 }
 
-button, nav ul, nav, header, .center {
+.hero-content-wrap, section#contact, button, nav ul, nav, header, .center {
   justify-content: center;
   align-items: center;
 }
@@ -81,7 +81,11 @@ button {
   gap: 0.5rem;
 }
 
-.card, .card-wrap {
+form > div:not(form > div:last-of-type) > div > div, form > div:not(form > div:last-of-type) > div, form > div:not(form > div:last-of-type) {
+  gap: 1rem;
+}
+
+.card, .card-wrap, form {
   gap: 2rem;
 }
 
@@ -89,7 +93,7 @@ section {
   gap: 3rem;
 }
 
-.hero-content-wrap, nav, header {
+.hero-content-wrap, form input#i-type-other, nav, header {
   width: 100%;
 }
 
@@ -101,8 +105,12 @@ nav {
   max-width: 1600px;
 }
 
-.card, button svg path, button, nav ul a, nav a svg path {
+.card, form input, details, button svg path, button, nav ul a, nav a svg path {
   transition: all 0.3s;
+}
+
+.card:hover, details:hover {
+  box-shadow: 0px 0px 10px 3px #555555;
 }
 
 .gap-5 {
@@ -243,9 +251,11 @@ section#why-us::before {
   background-image: linear-gradient(180deg, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.1) 25%, rgb(30, 30, 30) 100%);
 }
 details {
+  background-color: rgb(35, 35, 35);
   padding: 0 2rem;
   border: 1px solid #555555;
   border-radius: 1rem;
+  cursor: pointer;
 }
 details summary {
   list-style-position: outside;
@@ -265,6 +275,32 @@ details p {
   margin: 0 0 1rem 2rem;
 }
 
+form {
+  background-color: rgb(35, 35, 35);
+  border: 1px solid #555555;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 50%;
+  max-width: 600px;
+}
+form > div:not(form > div:last-of-type) > div > div {
+  width: 33%;
+  justify-content: left;
+}
+form label {
+  width: 100%;
+}
+form label[for=i-type5] {
+  align-items: center;
+}
+form input {
+  color-scheme: dark;
+  padding: 0.35rem;
+  background-color: rgb(30, 30, 30);
+  border: 1px solid #555555;
+  border-radius: 0.35rem;
+  font-size: 1.15rem;
+}
 .hero-content-wrap {
   display: grid;
   grid-template-columns: 45% 40%;
@@ -287,13 +323,11 @@ details p {
 }
 
 .card {
+  background-color: rgb(35, 35, 35);
   padding: 1.5rem;
   border: 1px solid #555555;
   border-radius: 1rem;
   justify-content: space-between;
-}
-.card:hover {
-  box-shadow: 0px 0px 10px 5px #555555;
 }
 .card h3 {
   font-size: 2rem;

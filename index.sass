@@ -6,8 +6,9 @@ $gold-dark: #6A5425
 $grey-main-100: rgba(30,30,30,1)
 $grey-main-10: rgba(30,30,30,.1)
 $grey-main-0: rgba(30,30,30,0)
-$grey-acc-100: rgba(42,42,42,1)
-$grey-acc2-100:#555555
+$grey-acc-100: rgba(35,35,35,1)
+$grey-acc2-100: rgba(42,42,42,1)
+$grey-acc3-100:#555555
 
 
 /////////////////////////////////////////////////////
@@ -119,6 +120,9 @@ $grey-acc2-100:#555555
 %trans
     transition: all .3s
 
+%hover
+    &:hover
+        box-shadow: 0px 0px 10px 3px $grey-acc3-100
 
 .flex
     @extend %flex
@@ -203,7 +207,7 @@ nav
             border-radius: .35rem 
 
             &:hover
-                background-color: $grey-acc-100
+                background-color: $grey-acc2-100
                 border-color: white
 
 button
@@ -265,13 +269,16 @@ section
             background-position: 0px 0px
             background-image: linear-gradient(180deg, $grey-main-0 0%, $grey-main-10 25%, $grey-main-100 100%)
 
-    &#use-case
+    &#contact
+        @extend %center
 
 details
-    // @extend %flex-v, %gap2
+    @extend %hover, %trans
+    background-color: $grey-acc-100
     padding: 0 2rem
-    border: 1px solid $grey-acc2-100
+    border: 1px solid $grey-acc3-100
     border-radius: 1rem
+    cursor: pointer
 
     summary
         list-style-position: outside
@@ -290,10 +297,50 @@ details
     p
         margin: 0 0 1rem 2rem
 
+form
+    @extend %flex-v, %gap2
+    background-color: $grey-acc-100
+    border: 1px solid $grey-acc3-100
+    border-radius: 1rem
+    padding: 2rem
+    width: 50%
+    max-width: 600px
+
+    & > div:not(form > div:last-of-type)
+        @extend %flex-v, %gap1
+
+        & > div 
+            @extend %flex, %gap1
+
+            & > div 
+                @extend %flex, %gap1
+                width: 33%
+                justify-content: left
+                
+
+    label
+        @extend %flex
+        width: 100%
+
+        &[for=i-type5]
+            align-items: center
+
+    input
+        @extend %trans
+        color-scheme: dark
+        padding: .35rem
+        background-color: $grey-main-100
+        border: 1px solid $grey-acc3-100
+        border-radius: .35rem
+        font-size: 1.15rem
+
+        &#i-type-other
+            @extend %fullWidth
+
 // classes
 
 .hero-content-wrap
-    @extend %fullWidth
+    @extend %fullWidth, %flex, %center
     display: grid
     grid-template-columns: 45% 40%
     grid-template-rows: auto
@@ -316,14 +363,12 @@ details
     grid-template-rows: auto
 
 .card
-    @extend %flex-v, %gap2, %trans
+    @extend %flex-v, %gap2, %trans, %hover
+    background-color: $grey-acc-100
     padding: 1.5rem
-    border: 1px solid $grey-acc2-100
+    border: 1px solid $grey-acc3-100
     border-radius: 1rem
     justify-content: space-between
-
-    &:hover
-        box-shadow: 0px 0px 10px 5px $grey-acc2-100
 
     h3
         font-size: 2rem
