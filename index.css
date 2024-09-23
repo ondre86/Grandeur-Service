@@ -109,7 +109,7 @@ header nav {
   max-width: 1600px;
 }
 
-.card, footer div ul li a, footer nav ul a, footer a svg path, form input, form > div:last-of-type input, details, button svg path, button, header nav ul a, header nav a svg path {
+.card, footer div ul li a, footer nav ul a, footer a svg path, form > div:last-of-type input, details, button svg path, button, header nav ul a, header nav a svg path {
   transition: all 0.3s;
 }
 
@@ -274,7 +274,7 @@ details summary a {
 details summary::marker {
   color: rgb(182, 143, 64);
 }
-details p {
+details p, details ul {
   margin: 0 0 1rem 2rem;
 }
 
@@ -317,6 +317,10 @@ form input {
   border-radius: 0.35rem;
   font-size: 1.15rem;
 }
+form input:focus {
+  outline-color: rgb(182, 143, 64);
+}
+
 footer {
   background-color: rgb(35, 35, 35);
   padding: 2.5% 10%;

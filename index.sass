@@ -295,7 +295,7 @@ details
         &::marker
             color: $gold
 
-    p
+    p, ul
         margin: 0 0 1rem 2rem
 
 form
@@ -341,7 +341,6 @@ form
             align-items: center
 
     input
-        @extend %trans
         color-scheme: dark
         padding: .35rem
         background-color: $grey-main-100
@@ -351,6 +350,9 @@ form
 
         &#i-type-other
             @extend %fullWidth
+
+        &:focus
+            outline-color: $gold
 
 footer
     @extend %flex
