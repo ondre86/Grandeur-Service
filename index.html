@@ -183,7 +183,7 @@
                     </p>
                 </details>
                 <details>
-                    <summary>Why is there a two-hour minimum for bookings?</summary>
+                    <summary>Why is there a two-hour minimum for reservations?</summary>
                     <p>
                         The two-hour minimum for bookings is to ensure that our time is spent wisely and our costs are recovered.<br><br>
 
@@ -249,11 +249,19 @@
             <form action="/" method="post">
                 <div>
                     <label for="i-name">Full Name *</label>
-                    <input type="text" id="i-name" name="full-name" placeholder="John Smith" required>
+                    <input type="text" id="i-name" name="name" placeholder="John Smith" required>
                 </div>
                 <div>
-                    <label for="i-occ">Occupation *</label>
-                    <input type="text" id="i-occ" name="occupation" placeholder="Attorney" required>
+                    <label for="i-phone">Phone Number *</label>
+                    <input type="tel" id="i-phone" name="phone" placeholder="901-555-5555" required>
+                </div>
+                <div>
+                    <label for="i-email">Email Address *</label>
+                    <input type="text" id="i-email" name="email" placeholder="john.smith@gmail.com" required>
+                </div>
+                <div>
+                    <label for="i-occupatio ">Occupation</label>
+                    <input type="text" id="i-occupation" name="occupation" placeholder="Attorney">
                 </div>
                 <div>
                     <span>Transport Type: *</span>
