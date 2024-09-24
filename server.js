@@ -53,9 +53,7 @@ app.listen(PORT, (error) =>{
 
 function formatAndSendEmail(req, res){
     senderData = req.body
-    
     text = ''
-
     mailOptions = {
         from: 'REDACTED',
         to: 'ondre86@gmail.com',
@@ -70,9 +68,7 @@ function formatAndSendEmail(req, res){
         }
     }
     console.log(text)
-
     mailOptions.text = text
-
 
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {

@@ -5,58 +5,62 @@ function $(element) {
 if (document.querySelectorAll("form")[0]){
     let form = document.querySelectorAll("form")[0]
     let formData = {
-        input1: document.querySelectorAll("input")[0],
-        input1Value: document.querySelectorAll("input")[0].value,
-        input2: document.querySelectorAll("input")[1],
-        input2Value: document.querySelectorAll("input")[1].value,
-        input3: document.querySelectorAll("input")[2],
-        input3Value: document.querySelectorAll("input")[2].value,
-        input4: document.querySelectorAll("textarea")[0],
-        input4Value: document.querySelectorAll("textarea")[0].value,
+        name: document.querySelectorAll("input")[0],
+        phone: document.querySelectorAll("input")[1],
+        email: document.querySelectorAll("input")[2],
+        msg: document.querySelectorAll("textarea")[0],
         honey: document.querySelectorAll("input")[3],
-        honeyValue: document.querySelectorAll("input")[3].value,
+        submit: document.querySelectorAll("#i-submit")[0]
+    }
+
+    function refreshInputOnType(){
+        formData.name.style.borderColor = "rgba(85,85,85,1)"
+        formData.submit.value = "Submit"
+    }
+    function resetInputValueAfterSubmit(){
+        formData.name.value = formData.phone.value = formData.email.value = formData.msg.value = ''
+    }
+    function errorBorder(){
+        formData.input1.style.borderColor = formData.input2.style.borderColor = formData.input3.style.borderColor = formData.input4.style.borderColor = "red"
     }
     
-    formData.input1.addEventListener("input", ()=>{
-        formData.input1Value = document.querySelectorAll("input")[0].value
-    })
-    formData.input2.addEventListener("input", ()=>{
-        formData.input2Value = document.querySelectorAll("input")[1].value
-    })
-    formData.input3.addEventListener("input", ()=>{
-        formData.input3Value = document.querySelectorAll("input")[2].value
-    })
-    formData.input4.addEventListener("input", ()=>{
-        formData.input4Value = document.querySelectorAll("textarea")[0].value
-    })
-    formData.honey.addEventListener("input", ()=>{
-        formData.honeyValue = document.querySelectorAll("input")[3].value
-    })
+    formData.name.addEventListener("input", refreshInputOnType)
+    formData.phone.addEventListener("input", refreshInputOnType)
+    formData.email.addEventListener("input", refreshInputOnType)
+    formData.msg.addEventListener("input", refreshInputOnType)
     
     form.onsubmit = (e)=>{
         e.preventDefault()
-        console.log(formData)
-        if (formData.honeyValue == ''){
+
+        if (formData.honey.value == ''){
             fetch(`${window.location.href}`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json'
                 },
                 body: JSON.stringify({
-                    client: window.location,
                     data: {
-                        "Name": formData.input1Value,
-                        "Phone Number": formData.input2Value,
-                        "Email Address": formData.input3Value,
-                        "Message": formData.input4Value,
+                        "Name": formData.name.value,
+                        "Phone Number": formData.phone.value,
+                        "Email Address": formData.email.value,
+                        "Message": formData.msg.value,
                     }
                 })
+            })
+            .then((res)=>{ return res.json() })
+            .then(result => {
+                resetInputValueAfterSubmit()
+                if (result.success){
+                    formData.submit.value = "Thank you!"
+                }
+                else {
+                    errorBorder()
+                    formData.submit.value = 'Sorry, there was an error.'
+                }
             })
         }
     }
 }
-
-
 
 addEventListener('DOMContentLoaded', ()=>{
     // MOBILE MENU
@@ -138,5 +142,4 @@ addEventListener('DOMContentLoaded', ()=>{
             }
         }
     })
-
 })
