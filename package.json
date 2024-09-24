@@ -14,8 +14,5 @@
     "express": "^4.21.0",
     "helmet": "^7.1.0",
     "nodemailer": "^6.9.15"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.7"
   }
 }
