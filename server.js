@@ -74,14 +74,14 @@ function formatAndSendEmail(req, res){
     mailOptions.text = text
 
 
-    // transporter.sendMail(mailOptions, function(error, info){
-    //     if (error) {
-    //         res.send({ success: false })
-    //     } 
-    //     else {
-    //         res.send({ success: true })
-    //     }
-    // })
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            res.send({ success: false })
+        } 
+        else {
+            res.send({ success: true })
+        }
+    })
 }
 
 
