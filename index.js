@@ -4,7 +4,7 @@ function $(element) {
 
 addEventListener('DOMContentLoaded', ()=>{
     intro = gsap.timeline()
-    let main = location.pathname.includes("about") || location.pathname.includes("contact") ? ".hero-content-wrap" : "main"
+    let main = location.pathname.includes("about") || location.pathname.includes("contact") ? "main" : ".hero-content-wrap"
 
     intro.from(main, {
         y: 50,
