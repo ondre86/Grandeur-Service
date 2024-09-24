@@ -160,6 +160,9 @@ footer div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
   font-family: infra;
   font-weight: 300;
 }
+*:focus {
+  outline: 3px solid rgb(182, 143, 64);
+}
 
 html, body {
   background-color: rgb(30, 30, 30);
@@ -245,12 +248,12 @@ header nav ul a:hover {
   color: rgb(234, 197, 123);
   border-color: rgb(234, 197, 123);
 }
-.button:hover {
+.button:hover, .button:focus {
   background-color: rgb(234, 197, 123);
   border-color: rgb(182, 143, 64);
   color: rgb(30, 30, 30);
 }
-.button:hover svg path {
+.button:hover svg path, .button:focus svg path {
   fill: rgb(30, 30, 30);
 }
 
@@ -362,6 +365,10 @@ form label {
 form label[for=i-type5] {
   align-items: center;
 }
+form #form-color {
+  position: absolute;
+  top: -20000px;
+}
 form input, form textarea {
   color-scheme: dark;
   padding: 0.35rem 0.85rem;
@@ -388,6 +395,9 @@ form input[type=submit], form textarea[type=submit] {
 form input[type=submit]:hover, form textarea[type=submit]:hover {
   background-color: white;
   cursor: pointer;
+}
+form input[type=submit]:focus, form textarea[type=submit]:focus {
+  background-color: white;
 }
 form input:focus, form input:focus-within, form input:focus-visible, form textarea:focus, form textarea:focus-within, form textarea:focus-visible {
   outline: 1px solid rgb(182, 143, 64);
@@ -436,7 +446,7 @@ footer div ul li a, .contact-btn-wrap ul li a {
   border: 1px solid white;
   border-radius: 0.35rem;
 }
-footer div ul li a:hover, .contact-btn-wrap ul li a:hover {
+footer div ul li a:hover, footer div ul li a:focus, .contact-btn-wrap ul li a:hover, .contact-btn-wrap ul li a:focus {
   border-color: rgb(182, 143, 64);
   background-color: rgb(106, 84, 37);
 }

@@ -163,6 +163,9 @@ $grey-acc3-100:rgba(85,85,85,1)
     font-family: infra
     font-weight: 300
 
+    &:focus
+        outline: 3px solid $gold
+
 html, body  
     background-color: $grey-main-100
     max-width: 100vw
@@ -259,7 +262,7 @@ header
         path
             @extend %trans
 
-    &:hover
+    &:hover, &:focus
         background-color: $gold-light
         border-color: $gold
         color: $grey-main-100
@@ -384,6 +387,10 @@ form
         &[for=i-type5]
             align-items: center
 
+    #form-color
+        position: absolute
+        top: -20000px
+
     input, textarea
         color-scheme: dark
         padding: .35rem .85rem
@@ -411,6 +418,9 @@ form
             &:hover
                 background-color: white
                 cursor: pointer
+
+            &:focus
+                background-color: white
 
         &:focus, &:focus-within, &:focus-visible
             outline: 1px solid $gold
@@ -476,7 +486,7 @@ footer div, .contact-btn-wrap
                 border: 1px solid white
                 border-radius: .35rem
 
-                &:hover
+                &:hover, &:focus
                     border-color: $gold
                     background-color: $gold-dark
 
