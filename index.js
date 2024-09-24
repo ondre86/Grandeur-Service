@@ -3,15 +3,15 @@ function $(element) {
 }
 
 addEventListener('DOMContentLoaded', ()=>{
-    intro = gsap.timeline()
-    let main = location.pathname.includes("about") || location.pathname.includes("contact") ? "main" : ".hero-content-wrap"
+    // intro = gsap.timeline()
+    // let main = location.pathname.includes("about") || location.pathname.includes("contact") ? "main" : ".hero-content-wrap"
 
-    intro.from(main, {
-        y: 50,
-        opacity: 0,
-        duration: .75,
-        ease: "power1.inOut"
-    })
+    // intro.from(main, {
+    //     y: 50,
+    //     opacity: 0,
+    //     duration: .75,
+    //     ease: "power1.inOut"
+    // })
 
     // MOBILE MENU
     let mobileMenu = {
