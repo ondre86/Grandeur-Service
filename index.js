@@ -2,20 +2,16 @@ function $(element) {
     return document.querySelectorAll(element)
 }
 
-addEventListener('load', ()=>{
-    // intro = gsap.timeline()
-    // let main = location.pathname == '/' ? ".hero-content-wrap" : "main"
+addEventListener('DOMContentLoaded', ()=>{
+    intro = gsap.timeline()
+    let main = location.pathname == '/' ? ".hero-content-wrap" : "main"
 
-    // intro.set(main, {
-    //     y: 50,
-    //     opacity: 0
-    // })
-    // intro.to(main, {
-    //     y: 0,
-    //     opacity: 1,
-    //     duration: .75,
-    //     ease: "power1.inOut"
-    // })
+    intro.from(main, {
+        y: 50,
+        opacity: 0,
+        duration: .75,
+        ease: "power1.inOut"
+    })
 
     // MOBILE MENU
     let mobileMenu = {
