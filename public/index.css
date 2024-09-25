@@ -120,7 +120,7 @@ header nav {
   max-width: 1600px;
 }
 
-.about-text a, .card a, .card, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul a, footer a svg path, form input[type=submit], form textarea[type=submit], form label, details, .button svg path, .button, header nav ul a, header nav #nav-home svg path {
+.about-text a, .card a, .card, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul a, form input[type=submit], form textarea[type=submit], form label, details, .button svg path, .button, header nav ul a {
   transition: all 0.3s;
 }
 
@@ -208,12 +208,6 @@ header {
 }
 header nav {
   justify-content: space-between;
-}
-header nav #nav-home {
-  height: 70px;
-}
-header nav #nav-home:hover svg path {
-  fill: rgb(182, 143, 64);
 }
 header nav ul {
   list-style-type: none;
@@ -429,9 +423,6 @@ footer {
   background-color: rgb(35, 35, 35);
   padding: 2.5% 10%;
   justify-content: space-between;
-}
-footer a:hover svg path {
-  fill: rgb(182, 143, 64);
 }
 footer nav ul {
   list-style-type: none;

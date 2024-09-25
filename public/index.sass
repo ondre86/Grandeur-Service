@@ -208,17 +208,6 @@ header
         @extend %fullWidth, %fitHeight, %flex, %maxWidth, %center
         justify-content: space-between
 
-        #nav-home
-            height: 70px
-            svg
-                path
-                    @extend %trans
-
-            &:hover
-                svg
-                    path
-                        fill: $gold
-
         ul  
             @extend %flex, %center, %fitHeight
             list-style-type: none
@@ -451,16 +440,6 @@ footer
     background-color: $grey-acc-100
     padding: 2.5% 10%
     justify-content: space-between
-
-    a
-        svg
-            path
-                @extend %trans
-
-        &:hover
-            svg
-                path
-                    fill: $gold
 
     nav
         @extend %flex-v, %center, %gap3
