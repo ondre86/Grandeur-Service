@@ -21,12 +21,15 @@
     <meta property="twitter:description" content="Personal or corporate travel, weddings or road trips, Grandeur Service is here for you at every turn. We're your luxury black car service, Memphis." />
     <meta property="twitter:image" content="meta.png" />
 
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <link rel="stylesheet" href="index.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script defer src="index.js"></script>
+    <link rel="preload" href="assets/interior-transformed-reduced.webp" as="image" type="image/webp">
+    <link rel="preload" href="assets/GLE.webp" as="image" type="image/webp">
+    <link rel="preload" href="fonts/libre-baskerville/baskervville.italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/infra/Infra-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/infra/Infra-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 </head>
 <body>
     <div class="mm-holster">
@@ -38,10 +41,10 @@
                             <a href="">Home</a>
                         </li>
                         <li class="mm-list-item">
-                            <a href="about/">About</a>
+                            <a href="/about/">About</a>
                         </li>
                         <li class="mm-list-item">
-                            <a href="contact/">Contact</a>
+                            <a href="/contact/">Contact</a>
                         </li>
                     </ul>
                 </li>
@@ -65,8 +68,8 @@
                 <img id="nav-logo" src="logo/horz_white_logo+text_full-name.png" height="68px" width="200px" alt="diamond alongside 'Grandeur Service">
             </a>
             <ul>
-                <li><a href="about/">About</a></li>
-                <li><a href="contact/">Contact</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
                 <a href="" class="button btn-alt">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 200 250">
                         <path d="M0 0 C2.18990678 -0.00202548 4.37981291 -0.00494085 6.56971741 -0.00869751 C11.14118931 -0.01309945 15.71248435 -0.00675939 20.28393555 0.00732422 C26.10817794 0.02440441 31.9320051 0.0145684 37.75623226 -0.00339317 C42.27331094 -0.01429748 46.79029318 -0.01075416 51.30737495 -0.0030098 C53.45331434 -0.00102559 55.59926283 -0.00340359 57.74519157 -0.01044846 C78.46652799 -0.0635585 96.09212727 1.74797354 111.82421875 16.59375 C121.5675395 26.31330656 125.69223941 38.1213533 128.34765625 51.3984375 C128.34765625 67.5684375 128.34765625 83.7384375 128.34765625 100.3984375 C62.34765625 100.3984375 -3.65234375 100.3984375 -71.65234375 100.3984375 C-71.65234375 35.20629776 -71.65234375 35.20629776 -62.65234375 24.3984375 C-61.97945312 23.56570312 -61.3065625 22.73296875 -60.61328125 21.875 C-55.59168045 15.96619058 -50.26200824 11.43767691 -43.65234375 7.3984375 C-43.0078125 6.99882813 -42.36328125 6.59921875 -41.69921875 6.1875 C-28.91887661 -0.9544559 -14.13274431 -0.04634566 0 0 Z " fill="#b68f40" transform="translate(71.65234375,111.6015625)"/>
@@ -116,7 +119,7 @@
                     </div>
                 </div>
                 <div class="hero-img-wrap">
-                    <img src="assets/GLE.png" alt="Mercedez-Benz GLE SUV">
+                    <img src="assets/GLE.webp" alt="Mercedez-Benz GLE SUV">
                 </div>
             </div>
         </section>
@@ -229,7 +232,8 @@
                 <details>
                     <summary>How often are your vehicles cleaned?</summary>
                     <p>
-                        Our vehicles are fully detailed at minimum once per week.
+                        Our vehicles are fully detailed as needed. <br><br>
+                        We take cleanliness very seriously in order to provide experiences of the highest quality. 
                     </p>
                 </details>
                 <details>
@@ -247,7 +251,7 @@
                         Extra fees will apply for the following situations: 
                     </p>
                     <ul>
-                        <li><strong><em>Any round trips above 300 miles</em></strong>
+                        <li><strong><em>Any one-way trips above 300 miles</em></strong>
                             <ul>
                                 <li>30 cents each extra mile.</li>
                             </ul>
@@ -306,7 +310,7 @@
         </section>
     </main>
     <footer>
-        <a href="">
+        <a href="" id="footer-home">
             <img src="logo/vert_white_logo+text_full-name.png" width="150px" alt="Diamond above 'Grandeur Service'">
         </a>
         <nav>
@@ -315,8 +319,8 @@
                 <li><a href="">Get a Quote</a></li>
             </ul>
             <ul>
-                <li><a href="about/">About</a></li>
-                <li><a href="contact/">Contact</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
             </ul>
         </nav>
         <div>
@@ -336,5 +340,7 @@
             </ul>
         </div>
     </footer>
+    <script defer src="gsap.min.js"></script>
+    <script defer src="index.js"></script>
 </body>
 </html>

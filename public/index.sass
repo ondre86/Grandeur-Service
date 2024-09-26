@@ -16,68 +16,21 @@ $grey-acc3-100:rgba(85,85,85,1)
 // libre-baskerville
 @font-face 
     font-family: 'bask'
-    src: url("fonts/libre-baskerville/LibreBaskerville-Regular.ttf")
-    font-weight: 500
-    font-style: normal
-@font-face 
-    font-family: 'bask'
-    src: url("fonts/libre-baskerville/LibreBaskerville-Italic.ttf")
-    font-weight: 500
-    font-style: italic
-@font-face 
-    font-family: 'bask'
-    src: url("fonts/libre-baskerville/LibreBaskerville-Bold.ttf")
-    font-weight: 600
-    font-style: normal
-@font-face 
-    font-family: 'bask'
-    src: url("fonts/libre-baskerville/baskervville.italic.ttf")
+    src: url("fonts/libre-baskerville/baskervville.italic.woff2")
     font-weight: 400
     font-style: italic
-
-
 
 // infra
 @font-face 
     font-family: 'infra'
-    src: url("fonts/infra/Infra-Light.ttf")
-    font-weight: 300
-    font-style: normal
-@font-face 
-    font-family: 'infra'
-    src: url("fonts/infra/Infra-LightItalic.ttf")
-    font-weight: 300
-    font-style: italic
-@font-face 
-    font-family: 'infra'
-    src: url("fonts/infra/Infra-Medium.ttf")
-    font-weight: 400
-    font-style: normal
-@font-face 
-    font-family: 'infra'
-    src: url("fonts/infra/Infra-MediumItalic.ttf")
-    font-weight: 400
-    font-style: italic
-@font-face 
-    font-family: 'infra'
-    src: url("fonts/infra/Infra-Regular.ttf")
+    src: url("fonts/infra/Infra-Regular.woff2")
     font-weight: 500
     font-style: normal
 @font-face 
     font-family: 'infra'
-    src: url("fonts/infra/Infra-RegularItalic.ttf")
-    font-weight: 500
-    font-style: italic
-@font-face 
-    font-family: 'infra'
-    src: url("fonts/infra/Infra-SemiBold.ttf")
+    src: url("fonts/infra/Infra-SemiBold.woff2")
     font-weight: 600
     font-style: normal
-@font-face 
-        font-family: 'infra'
-        src: url("fonts/infra/Infra-SemiBoldItalic.ttf")
-        font-weight: 600
-        font-style: italic
 
 /////////////////////////////////////////////////////    
 // UTILITY
@@ -163,7 +116,7 @@ $grey-acc3-100:rgba(85,85,85,1)
     font-family: infra
     font-weight: 300
 
-    &:focus
+    &:focus:not(#nav-home, #footer-home, summary, p a)
         outline: 3px solid $gold
 
 html, body  
@@ -291,7 +244,7 @@ section
         width: 100%
         position: relative
         overflow-anchor: none
-        background-image: url(assets/interior-transformed.webp)
+        background-image: url(assets/interior-transformed-reduced.webp)
         background-position: 0% 0%
         background-size: cover
         background-repeat: no-repeat
@@ -369,8 +322,12 @@ details
         margin: 0 0 1rem 2rem
 
         a
+            @extend %trans
             font-weight: 600
             color: $gold-light
+
+            &:hover
+                color: white
 
 video
     width: 100%
