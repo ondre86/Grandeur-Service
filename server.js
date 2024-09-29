@@ -5,8 +5,7 @@ const app = express()
 const PORT = 3333
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
+    host: 'smtp.hostinger.com',
     port: 465,
     secure: true,
     auth: {
@@ -15,15 +14,7 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-app.use(helmet({
-    contentSecurityPolicy: {
-        directives: {
-            scriptSrc: ["'self'", 
-                "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js", 
-            ],
-        },
-      },
-}))
+app.use(helmet())
 app.use(express.static('public')).use(express.json()).use(express.text())
 
 app.get('/', (req, res)=>{
