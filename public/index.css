@@ -16,15 +16,15 @@
   font-weight: 600;
   font-style: normal;
 }
-.hero-content-wrap, footer div ul li a, .contact-btn-wrap ul li a, footer div ul li, .contact-btn-wrap ul li, footer nav ul, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .flex, .hamburger-box, .card, footer div ul, .contact-btn-wrap ul, footer nav, form div, form, section, main, .flex-v {
+.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .flex, .hamburger-box, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form div, form, section, main, .flex-v {
   display: flex;
 }
 
-.hamburger-box, .card, footer div ul, .contact-btn-wrap ul, footer nav, form div, form, section, main, .flex-v {
+.hamburger-box, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form div, form, section, main, .flex-v {
   flex-direction: column;
 }
 
-.card-wrap.staff-card-wrap .card, .hero-content-wrap, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul, footer nav, section#hero, main, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .center {
+.card-wrap.staff-card-wrap .card, .hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul, footer nav nav, footer, section#hero, main, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .center {
   justify-content: center;
   align-items: center;
 }
@@ -38,7 +38,7 @@ section {
   gap: 0.5rem;
 }
 
-footer div ul li a, .contact-btn-wrap ul li a, footer div ul, .contact-btn-wrap ul, form div, header nav .nav-btn-wrap {
+footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul, .contact-btn-wrap ul, form div, header nav .nav-btn-wrap {
   gap: 1rem;
 }
 
@@ -46,31 +46,31 @@ footer div ul li a, .contact-btn-wrap ul li a, footer div ul, .contact-btn-wrap 
   gap: 2rem;
 }
 
-footer nav, section {
+footer nav nav, section {
   gap: 3rem;
 }
 
-.hero-content-wrap, section#faq, header nav, header, .full-width {
+.hero-content-wrap, footer nav, section#faq, header nav, header, .full-width {
   width: 100%;
 }
 
-footer div ul li a, .contact-btn-wrap ul li a, .fit-width {
+footer nav div ul li a, .contact-btn-wrap ul li a, .fit-width {
   width: fit-content;
 }
 
-footer nav ul, .button, header nav ul, header nav {
+footer nav nav ul, .button, header nav ul, header nav {
   height: fit-content;
 }
 
-header nav {
+footer nav, header nav {
   max-width: 1600px;
 }
 
-.about-text a, .card a, .card, footer div ul li a, .contact-btn-wrap ul li a, footer nav ul a, form input[type=submit], form textarea[type=submit], form label, details p a, details ul a, details, .button svg path, .button, header nav ul a {
+.about-text a, .card a, .card, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul a, form input[type=submit], form textarea[type=submit], form label, details p a, details ul a, details, .button svg path, .button, header nav ul a {
   transition: all 0.3s;
 }
 
-footer div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
+footer nav div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
   box-shadow: 0px 0px 6px 3px rgb(85, 85, 85);
 }
 
@@ -106,7 +106,7 @@ footer div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
   font-family: infra;
   font-weight: 300;
 }
-*:focus:not(#nav-home, #footer-home, summary, p a) {
+*:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a) {
   outline: 3px solid rgb(182, 143, 64);
 }
 
@@ -276,12 +276,25 @@ section#fleet span {
   font-size: 1.5rem;
 }
 
-#bg-logo {
+#bg-logo, #bg-logo-2, #bg-logo-3 {
   position: absolute;
-  top: 250px;
-  right: 0;
   opacity: 0.05;
   z-index: 0;
+}
+
+#bg-logo {
+  top: 250px;
+  right: 0;
+}
+
+#bg-logo-2 {
+  bottom: 10%;
+  left: 0;
+}
+
+#bg-logo-3 {
+  bottom: 0;
+  left: 0;
 }
 
 details {
@@ -371,13 +384,15 @@ form input:focus, form input:focus-within, form input:focus-visible, form textar
 footer {
   background-color: rgb(35, 35, 35);
   padding: 2.5% 10%;
+}
+footer nav {
   justify-content: space-between;
 }
-footer nav ul {
+footer nav nav ul {
   list-style-type: none;
   gap: 1rem;
 }
-footer nav ul a {
+footer nav nav ul a {
   padding: 1rem;
   font-size: 1.1rem;
   text-decoration: none;
@@ -385,37 +400,37 @@ footer nav ul a {
   border-radius: 0.35rem;
   background-color: rgb(42, 42, 42);
 }
-footer nav ul a:hover {
+footer nav nav ul a:hover {
   border-color: white;
 }
-footer nav ul:first-of-type a {
+footer nav nav ul:first-of-type a {
   border-color: rgb(182, 143, 64);
 }
-footer nav ul:first-of-type a:hover {
+footer nav nav ul:first-of-type a:hover {
   background-color: rgb(106, 84, 37);
 }
 
-footer div ul, .contact-btn-wrap ul {
+footer nav div ul, .contact-btn-wrap ul {
   list-style-type: none;
 }
-footer div ul li, .contact-btn-wrap ul li {
+footer nav div ul li, .contact-btn-wrap ul li {
   justify-content: end;
 }
-footer div ul li a, .contact-btn-wrap ul li a {
+footer nav div ul li a, .contact-btn-wrap ul li a {
   text-decoration: none;
   padding: 1rem;
   background-color: rgb(42, 42, 42);
   border: 1px solid white;
   border-radius: 0.35rem;
 }
-footer div ul li a:hover, footer div ul li a:focus, .contact-btn-wrap ul li a:hover, .contact-btn-wrap ul li a:focus {
+footer nav div ul li a:hover, footer nav div ul li a:focus, .contact-btn-wrap ul li a:hover, .contact-btn-wrap ul li a:focus {
   border-color: rgb(182, 143, 64);
   background-color: rgb(106, 84, 37);
 }
-footer div ul li a img, .contact-btn-wrap ul li a img {
+footer nav div ul li a img, .contact-btn-wrap ul li a img {
   width: 20px;
 }
-footer div span, .contact-btn-wrap span {
+footer nav div span, .contact-btn-wrap span {
   font-size: 0.8rem;
 }
 
@@ -447,11 +462,8 @@ footer div span, .contact-btn-wrap span {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
 }
-.card-wrap.staff-card-wrap {
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
 .card-wrap.fleet-card-wrap {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .card-wrap.fleet-card-wrap .card {
   max-width: 335px;
@@ -475,15 +487,18 @@ footer div span, .contact-btn-wrap span {
   color: white;
 }
 .card .card-icon {
-  width: 52px;
+  width: 54px;
   height: 70px;
 }
 .card .card-icon.flip {
   transform: rotateY(180deg);
 }
 .card .card-icon#icon-handshake {
-  width: 80px;
+  width: 93.1px;
   height: 70px;
+}
+.card .card-icon#icon-checklist {
+  width: 50px;
 }
 .card.staff-card img, .card.fleet-card img {
   width: 100%;
@@ -492,16 +507,48 @@ footer div span, .contact-btn-wrap span {
 .card.staff-card {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 45% 45%;
+  grid-template-rows: 45% 35%;
   gap: 10%;
-  min-height: 300px;
+  min-height: fit-content;
 }
 .card.staff-card img {
-  height: 100px;
+  height: auto;
+  max-height: 350px;
+  width: 100%;
+  object-fit: cover;
   clip-path: circle();
+}
+.card.staff-card img#tarasha {
+  object-position: 0px 15px;
+}
+.card.staff-card img#keith {
+  object-position: 0px 15px;
+}
+.card.staff-card img#jimmy {
+  object-position: 0px 30px;
+}
+.card.staff-card img#jr {
+  object-position: 0px 25px;
+}
+.card.staff-card img#doretha {
+  object-position: 0px 15px;
+}
+.card.staff-card p {
+  text-align: center;
 }
 .card.fleet-card img {
   height: 300px;
+}
+
+.group-img {
+  padding: 10% 5%;
+  height: 90%;
+}
+.group-img img {
+  width: 100%;
+  border: 1px solid rgb(85, 85, 85);
+  border-radius: 2rem;
+  box-shadow: 0px 0px 20px 2px rgb(85, 85, 85);
 }
 
 .about-text a {
@@ -608,16 +655,16 @@ footer div span, .contact-btn-wrap span {
     width: 150px;
     height: 50px;
   }
-  footer {
+  footer nav {
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
+    gap: 2rem;
     padding: 50px 5%;
   }
-  footer a {
+  footer nav a {
     width: fit-content;
   }
-  footer div ul li {
+  footer nav div ul li {
     justify-content: center;
   }
 }
@@ -652,6 +699,9 @@ footer div span, .contact-btn-wrap span {
     column-gap: 10%;
     min-height: 0px;
     min-width: 300px;
+  }
+  .group-img {
+    padding: 10% 0;
   }
   input, textarea {
     width: 100%;
