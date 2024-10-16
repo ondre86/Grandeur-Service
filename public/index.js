@@ -13,15 +13,11 @@ if (document.querySelectorAll("form")[0]){
         submit: document.querySelectorAll("#i-submit")[0]
     }
 
-    function refreshInputOnType(){
-        formData.name.style.borderColor = "rgba(85,85,85,1)"
-        formData.submit.value = "Submit"
-    }
-    function resetInputValueAfterSubmit(){
+    function resetInputValue(){
         formData.name.value = formData.phone.value = formData.email.value = formData.msg.value = ''
         formData.name.placeholder = formData.email.placeholder = formData.phone.placeholder = formData.msg.placeholder = formData.submit.placeholder = ''
     }
-    function disableInputAfterSubmit(){
+    function disableInput(){
         formData.name.disabled = formData.email.disabled = formData.phone.disabled = formData.msg.disabled = formData.submit.disabled = true
     }
     function errorBorder(){
@@ -29,13 +25,9 @@ if (document.querySelectorAll("form")[0]){
         formData.submit.style.outlineColor = "red"
     }
     
-    formData.name.addEventListener("input", refreshInputOnType)
-    formData.phone.addEventListener("input", refreshInputOnType)
-    formData.email.addEventListener("input", refreshInputOnType)
-    formData.msg.addEventListener("input", refreshInputOnType)
-    
     form.onsubmit = (e)=>{
         e.preventDefault()
+        disableInput()
 
         if (formData.honey.value == ''){
             fetch(`${window.location.href}`, {
@@ -54,8 +46,7 @@ if (document.querySelectorAll("form")[0]){
             })
             .then((res)=>{ return res.json() })
             .then(result => {
-                resetInputValueAfterSubmit()
-                disableInputAfterSubmit()
+                resetInputValue()
                 if (result.success){
                     formData.submit.value = "Thank you!"
                 }
@@ -77,55 +68,55 @@ addEventListener('DOMContentLoaded', ()=>{
         hamburgerMiddle: $(".hamburger-inner")[1],
         hamburgerBottom: $(".hamburger-inner")[2],
     }
-    let mmTL = gsap.timeline();
+    let tl = gsap.timeline();
     let mobileMenuToggled = false;
 
-    function mmOpen(){
+    function openMobileMenu(){
         mobileMenuToggled = true;
-        mmTL.to(mobileMenu.hamburgerTop,{
+        tl.to(mobileMenu.hamburgerTop,{
             y: 7,
             duration: .15
         })
-        mmTL.to(mobileMenu.hamburgerBottom,{
+        .to(mobileMenu.hamburgerBottom,{
             y: -7,
             duration: .15
         }, "<<")
-        mmTL.to(mobileMenu.menu,{
+        .to(mobileMenu.menu,{
             display: "flex",  
             transform: "translate(0px, 70px)",
             ease: "power2.out",
             duration: .75
         }, "<")
-        mmTL.to([mobileMenu.hamburgerBottom, mobileMenu.hamburgerTop], {
+        .to([mobileMenu.hamburgerBottom, mobileMenu.hamburgerTop], {
             rotate:45,
             duration: .15
         }, "-=.5")
-        mmTL.to([mobileMenu.hamburgerMiddle], {
+        .to([mobileMenu.hamburgerMiddle], {
             rotate:-45,
             duration: .15
         }, "<")
     }
-    function mmClose(){
+    function closeMobileMenu(){
         mobileMenuToggled = false;
-        mmTL.to([mobileMenu.hamburgerBottom, mobileMenu.hamburgerTop], {
+        tl.to([mobileMenu.hamburgerBottom, mobileMenu.hamburgerTop], {
             rotate: 0,
             duration: .15
         })
-        mmTL.to([mobileMenu.hamburgerMiddle], {
+        .to([mobileMenu.hamburgerMiddle], {
             rotate: 0,
             duration: .15
         }, "<<")
-        mmTL.to(mobileMenu.menu,{
+        .to(mobileMenu.menu,{
             display: "none",
             transform: "translate(0px, -100vh)",
             ease: "power1.in",
             duration: .5
         }, "<")
-        mmTL.to(mobileMenu.hamburgerTop,{
+        .to(mobileMenu.hamburgerTop,{
             y: 0,
             duration: .15
         }, "-=.25")
-        mmTL.to(mobileMenu.hamburgerBottom,{
+        .to(mobileMenu.hamburgerBottom,{
             y: 0,
             duration: .15
         }, "<")
@@ -133,19 +124,16 @@ addEventListener('DOMContentLoaded', ()=>{
 
     mobileMenu.button.addEventListener("click", (e)=>{
         if(mobileMenuToggled == false){
-            mmOpen()
+            openMobileMenu()
         }
         else{
-            mmClose()
+            closeMobileMenu()
         }
     })
 
     addEventListener('resize', (e)=>{
-        if(window.innerWidth > 1024){
-            if(mobileMenuToggled == false){}
-            else{
-                mmClose()
-            }
+        if(window.innerWidth > 1024 && mobileMenuToggled){
+            closeMobileMenu()
         }
     })
 })
