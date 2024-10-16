@@ -115,22 +115,25 @@
             <h2>Leave A Message</h2>
             <form action="/" method="post">
                 <div>
-                    <label for="i-name">Name *</label>
-                    <input type="text" id="i-name" name="name" placeholder="John Smith" required>
+                    <label for="i-name">Name <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span></label>
+                    <input type="text" id="i-name" name="name" placeholder="John Smith" required autocomplete="name">
                 </div>
                 <div>
-                    <label for="i-phone">Phone Number *</label>
-                    <input type="tel" id="i-phone" name="phone" placeholder="901-555-5555" required>
+                    <label for="i-email">Email Address <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span></label>
+                    <input type="email" id="i-email" name="email" placeholder="john.smith@gmail.com" required autocomplete="email">
                 </div>
                 <div>
-                    <label for="i-email">Email Address *</label>
-                    <input type="email" id="i-email" name="email" placeholder="john.smith@gmail.com" required>
+                    <label for="i-phone">Phone Number</label>
+                    <input type="tel" id="i-phone" name="phone" placeholder="901-555-5555" autocomplete="mobile">
                 </div>
                 <div>
-                    <label for="i-msg">Message *</label>
+                    <label for="i-msg">Message <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span></label>
                     <textarea id="i-msg" name="message" rows="4" cols="10" required></textarea>
                 </div>
-                <input id="form-color" type="text" autocomplete="off" tabindex="-1" value="">
+                <div>
+                    <label for="form-color">Color</label>
+                    <input id="form-color" name="color" type="text" autocomplete="off" tabindex="-1" value="">
+                </div>
                 <input type="submit" name="submit" id="i-submit" value="Submit">
             </form>
         </section>

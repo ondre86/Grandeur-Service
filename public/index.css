@@ -343,7 +343,7 @@ form label {
 form label[for=i-type5] {
   align-items: center;
 }
-form #form-color {
+form #form-color, form label[for=form-color] {
   position: absolute;
   top: -20000px;
 }

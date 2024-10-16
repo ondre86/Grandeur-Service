@@ -20,8 +20,12 @@ if (document.querySelectorAll("form")[0]){
     function resetInputValueAfterSubmit(){
         formData.name.value = formData.phone.value = formData.email.value = formData.msg.value = ''
     }
+    function disableInputAfterSubmit(){
+        formData.name.disabled = formData.email.disabled = formData.phone.disabled = formData.msg.disabled = formData.submit.disabled = true
+    }
     function errorBorder(){
-        formData.input1.style.borderColor = formData.input2.style.borderColor = formData.input3.style.borderColor = formData.input4.style.borderColor = "red"
+        formData.name.style.border = formData.email.style.border = formData.phone.style.border = formData.msg.style.border = formData.submit.style.border = "1px solid red"
+        formData.submit.style.outlineColor = "red"
     }
     
     formData.name.addEventListener("input", refreshInputOnType)
@@ -50,12 +54,13 @@ if (document.querySelectorAll("form")[0]){
             .then((res)=>{ return res.json() })
             .then(result => {
                 resetInputValueAfterSubmit()
+                disableInputAfterSubmit()
                 if (result.success){
                     formData.submit.value = "Thank you!"
                 }
                 else {
                     errorBorder()
-                    formData.submit.value = 'Sorry, there was an error.'
+                    formData.submit.value = 'Sorry! Server Error.'
                 }
             })
         }
