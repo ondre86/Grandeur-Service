@@ -380,6 +380,9 @@ form input[type=submit]:focus, form textarea[type=submit]:focus {
 form input:focus, form input:focus-within, form input:focus-visible, form textarea:focus, form textarea:focus-within, form textarea:focus-visible {
   outline: 1px solid rgb(182, 143, 64);
 }
+form input:disabled, form textarea:disabled {
+  background-color: rgb(85, 85, 85);
+}
 
 footer {
   background-color: rgb(35, 35, 35);

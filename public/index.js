@@ -19,6 +19,7 @@ if (document.querySelectorAll("form")[0]){
     }
     function resetInputValueAfterSubmit(){
         formData.name.value = formData.phone.value = formData.email.value = formData.msg.value = ''
+        formData.name.placeholder = formData.email.placeholder = formData.phone.placeholder = formData.msg.placeholder = formData.submit.placeholder = ''
     }
     function disableInputAfterSubmit(){
         formData.name.disabled = formData.email.disabled = formData.phone.disabled = formData.msg.disabled = formData.submit.disabled = true
