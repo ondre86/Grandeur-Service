@@ -570,7 +570,7 @@ footer nav div span, .contact-btn-wrap span {
   width: 100%;
   object-fit: cover;
   clip-path: circle();
-  margin: -3rem 0 -2rem;
+  margin: -3rem 0;
 }
 .card.staff-card img#tarasha {
   object-position: 0px 15px;
@@ -763,14 +763,6 @@ footer nav div span, .contact-btn-wrap span {
   }
   .card-wrap.staff-card-wrap, .card-wrap.fleet-card-wrap {
     grid-template-columns: 1fr;
-  }
-  .card.staff-card {
-    display: grid;
-    grid-template-columns: 45% 45%;
-    grid-template-rows: 1fr;
-    column-gap: 10%;
-    min-height: 0px;
-    min-width: 300px;
   }
   .group-img {
     padding: 10% 0;
