@@ -98,6 +98,10 @@ footer nav div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
   font-family: bask;
 }
 
+.italic {
+  font-style: italic;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -568,24 +572,11 @@ footer nav div span, .contact-btn-wrap span {
   height: auto;
   max-height: 350px;
   width: 100%;
+  max-width: 300px;
   object-fit: cover;
   clip-path: circle();
-  margin: -3rem 0;
-}
-.card.staff-card img#tarasha {
-  object-position: 0px 15px;
-}
-.card.staff-card img#keith {
-  object-position: 0px 15px;
-}
-.card.staff-card img#jimmy {
-  object-position: 0px 30px;
-}
-.card.staff-card img#jr {
-  object-position: 0px 25px;
-}
-.card.staff-card img#doretha {
-  object-position: 0px 15px;
+  object-position: 0px 20px;
+  margin: -1rem 0;
 }
 .card.staff-card p {
   text-align: center;
@@ -595,6 +586,7 @@ footer nav div span, .contact-btn-wrap span {
   display: none;
 }
 .card.staff-card button {
+  font-size: 1.15rem;
   padding: 0.5rem 1rem;
   margin: 1rem 0 0 0;
   cursor: pointer;

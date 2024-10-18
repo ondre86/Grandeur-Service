@@ -108,6 +108,8 @@ $grey-acc3-100:rgba(85,85,85,1)
 
 .font2
     font-family: bask
+.italic
+    font-style: italic
 
 // ELEMENTS
 
@@ -616,21 +618,11 @@ footer nav div, .contact-btn-wrap
             height: auto
             max-height: 350px
             width: 100%
+            max-width: 300px
             object-fit: cover 
             clip-path: circle()
-            margin: -3rem 0
-
-
-            &#tarasha
-                object-position: 0px 15px
-            &#keith
-                object-position: 0px 15px
-            &#jimmy
-                object-position: 0px 30px
-            &#jr
-                object-position: 0px 25px
-            &#doretha
-                object-position: 0px 15px
+            object-position: 0px 20px
+            margin: -1rem 0
 
         p
             text-align: center
@@ -642,6 +634,7 @@ footer nav div, .contact-btn-wrap
 
         button
             @extend %trans
+            font-size: 1.15rem
             padding: .5rem 1rem
             margin: 1rem 0 0 0
             cursor: pointer
