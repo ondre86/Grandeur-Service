@@ -580,7 +580,8 @@ footer nav div span, .contact-btn-wrap span {
 }
 .card.staff-card p {
   text-align: center;
-  max-width: 200px;
+  width: 100%;
+  max-width: 300px;
 }
 .card.staff-card p:last-of-type {
   display: none;
