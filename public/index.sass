@@ -3,9 +3,12 @@
 $gold: rgba(182,143,64,1)
 $gold-light: rgb(234,197,123,1)
 $gold-dark: rgb(106,84,37,1)
-$grey-main-100: rgba(30,30,30,1)
-$grey-main-10: rgba(30,30,30,.1)
-$grey-main-0: rgba(30,30,30,0)
+$grey-main-100: rgba(35,35,35,1)
+$grey-main-75: rgba(35,35,35,.75)
+$grey-main-50: rgba(35,35,35,.5)
+$grey-main-25: rgba(35,35,35,.25)
+$grey-main-10: rgba(35,35,35,.1)
+$grey-main-0: rgba(35,35,35,0)
 $grey-acc-100: rgba(35,35,35,1)
 $grey-acc2-100: rgba(42,42,42,1)
 $grey-acc3-100:rgba(85,85,85,1)
@@ -141,6 +144,7 @@ h3
 h4
     font-size: 1.33rem
     font-weight: 600
+    font-style: italic
     letter-spacing: .5px
     width: fit-content
 
@@ -160,6 +164,12 @@ header
     nav 
         @extend %fullWidth, %fitHeight, %flex, %maxWidth, %center
         justify-content: space-between
+
+        #nav-home
+            &:focus, &:focus-visible, &:focus-within
+                outline: 1px solid $gold
+                outline-offset: .35rem
+                border-radius: .5rem
 
         ul  
             @extend %flex, %center, %fitHeight
@@ -219,7 +229,7 @@ main
     position: relative
 
 section 
-    @extend %flex-v, %gap3, %topCenter
+    @extend %flex-v, %gap3, %topCenter, %trans
     padding: 100px
     font-size: clamp(18px, 1rem, 24px)
     z-index: 10
@@ -245,6 +255,7 @@ section
         position: relative
         overflow-anchor: none
         background-image: url(assets/interior-transformed-reduced.webp)
+        background-image: url(assets/bridge.webp)
         background-position: 0% 0%
         background-size: cover
         background-repeat: no-repeat
@@ -266,10 +277,10 @@ section
             left: 0
             content: ''
             width: 100%
-            height: 40px
+            height: 70px
             background-size: 100% 100%
             background-position: 0px 0px
-            background-image: linear-gradient(180deg, $grey-main-0 0%, $grey-main-10 25%, $grey-main-100 100%)
+            background-image: linear-gradient(180deg, $grey-main-0 0%, $grey-main-10 15%, $grey-main-100 100%)
 
     &#why-us
         position: relative
@@ -414,6 +425,12 @@ footer
         @extend %fullWidth, %maxWidth, %flex
         justify-content: space-between
 
+        #footer-home
+            &:focus, &:focus-visible, &:focus-within
+                outline: 1px solid $gold
+                outline-offset: .35rem
+                border-radius: .5rem
+
 
     nav nav
         @extend %flex-v, %center, %gap3
@@ -473,6 +490,48 @@ footer nav div, .contact-btn-wrap
     ul
         flex-direction: row
 
+.full-screen-img
+    width: 100%
+    height: fit-content
+    max-width: none
+    padding: 0
+    position: relative
+    margin: 25px 0 50px
+    // overflow: hidden
+
+    &::before
+        position: absolute
+        top: 0
+        left: 0
+        content: ''
+        width: 100%
+        height: 100%
+        background-size: 100% 100%
+        background-position: 0px 0px
+        background-image: linear-gradient(0deg, $grey-main-0 0%, $grey-main-10 10%, $grey-main-50 85%, $grey-main-75 90%, $grey-main-100 95%, $grey-main-100 100%)
+    &::after
+        position: absolute
+        bottom: 0px
+        left: 0
+        content: ''
+        width: 100%
+        height: 15%
+        background-size: 100% 100%
+        background-position: 0px 0px
+        background-image: linear-gradient(180deg, $grey-main-0 0%, $grey-main-10 45%, $grey-main-50 65%, $grey-main-75 75%, $grey-main-100 85%, $grey-main-100 100%)
+
+    picture
+        width: 100%
+        max-width: 100%
+
+        img
+            width: 100%
+            max-width: none
+            object-position: 0px 0px
+            object-fit: cover
+
+        
+
 // classes
 
 .hero-content-wrap
@@ -497,7 +556,7 @@ footer nav div, .contact-btn-wrap
             transform: rotateY(180deg)
 
 .card-wrap
-    @extend %gap2
+    @extend %gap2, %trans
     display: grid
     grid-template-columns: 1fr 1fr 1fr
     grid-template-rows: auto
@@ -547,12 +606,11 @@ footer nav div, .contact-btn-wrap
         img
             width: 100%
             object-fit: contain
+
     &.staff-card
-        display: grid
-        grid-template-columns: 1fr
-        grid-template-rows: 45% 35%
-        gap: 10%
+        @extend %flex-v, %center
         min-height: fit-content
+        height: fit-content
         
         img
             height: auto
@@ -560,6 +618,8 @@ footer nav div, .contact-btn-wrap
             width: 100%
             object-fit: cover 
             clip-path: circle()
+            margin: -3rem 0 -2rem
+
 
             &#tarasha
                 object-position: 0px 15px
@@ -574,6 +634,24 @@ footer nav div, .contact-btn-wrap
 
         p
             text-align: center
+            max-width: 200px
+
+            &:last-of-type
+                display: none
+        
+
+        button
+            @extend %trans
+            padding: .5rem 1rem
+            margin: 1rem 0 0 0
+            cursor: pointer
+            border: 1px solid $grey-acc3-100
+            border-radius: .25rem
+            background-color: $grey-acc2-100
+
+            &:hover
+                background-color: rgb(76, 76, 76)
+                border-color: white    
 
     &.fleet-card
         img
@@ -689,11 +767,13 @@ footer nav div, .contact-btn-wrap
                 width: 150px
                 height: 50px
 
+    footer
+        padding: 50px 5%
+
     footer nav
         flex-direction: column
         align-items: center
         gap: 2rem
-        padding: 50px 5%
 
         a
             width: fit-content
@@ -778,3 +858,7 @@ footer nav div, .contact-btn-wrap
         min-width: 0px
         padding: 1rem
 
+    .card
+        &.staff-card
+            grid-template-columns: 1fr
+            grid-template-rows: 45% 45%

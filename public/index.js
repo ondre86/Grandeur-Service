@@ -60,6 +60,65 @@ if (document.querySelectorAll("form")[0]){
 }
 
 addEventListener('DOMContentLoaded', ()=>{
+    for (button of $(".staff-card button")){
+        createFlipAnimation(button)
+    }
+    function createFlipAnimation(element){
+        let flipped = false
+        let staticData = {
+            name: element.parentElement.children[0],
+            title: element.parentElement.children[1],
+            exp: element.parentElement.children[2],
+            bio: element.parentElement.children[3],
+            btn: element.parentElement.children[4],
+        }
+        console.log(staticData)
+
+
+        flip = gsap.timeline()
+
+        element.addEventListener("click", (e)=>{
+
+            if (flipped) {
+                flipped = false
+                flip.to(element.parentElement, {
+                    rotateY: "90deg",
+                    duration: .3
+                })
+                .call(()=>{
+                    console.log(staticData.bio)
+                    staticData.name.style.display = staticData.title.style.display = staticData.exp.style.display = "inherit"
+                    staticData.bio.style.display = "none"
+                    staticData.btn.textContent = "Read Bio"
+                })
+                .to([element.parentElement, staticData.btn], {
+                    rotateY: "0deg",
+                    duration: .3
+                })
+            }
+            else {
+                flipped = true
+                flip.to(element.parentElement, {
+                    rotateY: "90deg",
+                    duration: .3,
+                    ease: "linear"
+                })
+                .call(()=>{
+                    console.log(staticData.bio)
+                    staticData.name.style.display = staticData.title.style.display = staticData.exp.style.display = "none"
+                    staticData.bio.style.display = "inherit"
+                    staticData.btn.textContent = "Close Bio"
+                })
+                .to(element.parentElement, {
+                    rotateY: "0deg",
+                    duration: .3
+                }, "<")
+            }
+
+        })
+    }
+
+
     // MOBILE MENU
     let mobileMenu = {
         menu: $(".mm-holster")[0],
