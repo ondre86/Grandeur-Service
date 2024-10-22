@@ -72,21 +72,17 @@ addEventListener('DOMContentLoaded', ()=>{
             bio: element.parentElement.children[3],
             btn: element.parentElement.children[4],
         }
-        console.log(staticData)
 
-
-        flip = gsap.timeline()
+        flipTL = gsap.timeline()
 
         element.addEventListener("click", (e)=>{
-
             if (flipped) {
                 flipped = false
-                flip.to(element.parentElement, {
+                flipTL.to(element.parentElement, {
                     rotateY: "90deg",
                     duration: .3
                 })
                 .call(()=>{
-                    console.log(staticData.bio)
                     staticData.name.style.display = staticData.title.style.display = staticData.exp.style.display = "inherit"
                     staticData.bio.style.display = "none"
                     staticData.btn.textContent = "Read Bio"
@@ -98,13 +94,12 @@ addEventListener('DOMContentLoaded', ()=>{
             }
             else {
                 flipped = true
-                flip.to(element.parentElement, {
+                flipTL.to(element.parentElement, {
                     rotateY: "90deg",
                     duration: .3,
                     ease: "linear"
                 })
                 .call(()=>{
-                    console.log(staticData.bio)
                     staticData.name.style.display = staticData.title.style.display = staticData.exp.style.display = "none"
                     staticData.bio.style.display = "inherit"
                     staticData.btn.textContent = "Close Bio"
@@ -114,7 +109,6 @@ addEventListener('DOMContentLoaded', ()=>{
                     duration: .3
                 }, "<")
             }
-
         })
     }
 

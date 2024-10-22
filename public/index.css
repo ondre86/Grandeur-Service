@@ -120,6 +120,13 @@ html, body {
   overflow-x: hidden;
 }
 
+a {
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+
 h1 {
   font-size: 3.5rem;
   font-family: "bask";
@@ -522,6 +529,9 @@ footer nav div span, .contact-btn-wrap span {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
 }
+.card-wrap.staff-card-wrap {
+  max-width: 914px;
+}
 .card-wrap.fleet-card-wrap {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
@@ -576,7 +586,13 @@ footer nav div span, .contact-btn-wrap span {
   object-fit: cover;
   clip-path: circle();
   object-position: 0px 20px;
-  margin: -1rem 0;
+  margin: -3rem 0;
+}
+.card.staff-card img#jimmy {
+  object-position: 0px 30px;
+}
+.card.staff-card img#jr {
+  object-position: 0px 30px;
 }
 .card.staff-card p {
   text-align: center;
@@ -756,6 +772,12 @@ footer nav div span, .contact-btn-wrap span {
   }
   .card-wrap.staff-card-wrap, .card-wrap.fleet-card-wrap {
     grid-template-columns: 1fr;
+  }
+  .card-wrap.staff-card-wrap {
+    max-width: 300px;
+  }
+  .card-wrap.staff-card-wrap .staff-card {
+    min-width: 300px;
   }
   .group-img {
     padding: 10% 0;
