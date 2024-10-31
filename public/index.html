@@ -25,13 +25,15 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <link rel="stylesheet" href="index.css">
-    <link rel="preload" href="assets/bridge.webp" as="image" type="image/webp" media="(min-width: 500px)">
+    <link rel="preload" href="assets/bridge3.webp" as="image" type="image/webp" media="(min-width: 500px)">
     <link rel="preload" href="assets/GLE.webp" as="image" type="image/webp" media="(min-width: 500px)">
     <link rel="preload" href="fonts/libre-baskerville/baskervville.italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="fonts/infra/Infra-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="fonts/infra/Infra-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <script defer src="gsap.min.js" type="text/javascript"></script>
-    <script defer src="index.js" type="text/javascript"></script>
+    <script src="lenis.min.js"></script> 
+    <script src="gsap.min.js" type="text/javascript"></script>
+    <script src="ScrollTrigger.min.js"></script>
+    <script src="index.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="mm-holster">
@@ -96,8 +98,8 @@
             <div class="hero-content-wrap">
                 <div class="flex-v gap3">
                     <div class="flex-v gap2">
-                        <div><h1><strong>Your</strong> Luxury <br> Car Service</h1></div>
-                        <span>
+                        <div><h1 class="font2">Your Luxury <br> Car Service</h1></div>
+                        <span class="hero-text">
                             Grandeur Service is a Memphis-based luxury black car service that prides itself on client service, cleanliness, and promptness.
                             <br><br>Let us be your drivers of choice, for wherever life takes you.
                         </span>
@@ -277,7 +279,7 @@
         </section>
         <section id="video">
             <h2>See Us In Action</h2>
-            <video controls preload="none" poster="assets/poster.webp" playsinline>
+            <video preload="none" poster="assets/poster.webp" playsinline autoplay muted>
                 <source src="assets/video.mp4" type="video/mp4">
             </video>
         </section>
@@ -316,12 +318,12 @@
                 </form>
             </div>
         </section>
-        <section class="full-screen-img">
+        <!-- <section class="full-screen-img">
             <picture>
                 <source srcset="assets/Memphis-Tennessee_mobile.jpeg" media="(orientation: portrait)">
                 <img id="skyline-img" src="assets/Memphis-Tennessee_desktop.jpg" alt="skyline view of memphis, with a large pyramid building and the Herman de Soto Bridge, which stretches across the Mississippi River">
             </picture>
-        </section>
+        </section> -->
     </main>
     <footer>
         <nav>

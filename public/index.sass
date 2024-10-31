@@ -4,6 +4,8 @@ $gold: rgba(182,143,64,1)
 $gold-light: rgb(234,197,123,1)
 $gold-dark: rgb(106,84,37,1)
 $grey-main-100: rgba(35,35,35,1)
+$grey-main-93: rgba(35,35,35,.93)
+$grey-main-85: rgba(35,35,35,.85)
 $grey-main-75: rgba(35,35,35,.75)
 $grey-main-50: rgba(35,35,35,.5)
 $grey-main-25: rgba(35,35,35,.25)
@@ -108,8 +110,12 @@ $grey-acc3-100:rgba(85,85,85,1)
 
 .font2
     font-family: bask
+    *
+        font-family: bask
 .italic
     font-style: italic
+    *
+        font-family: italic
 
 // ELEMENTS
 
@@ -128,6 +134,29 @@ html, body
     background-color: $grey-main-100
     max-width: 100vw
     overflow-x: hidden
+
+main
+    opacity: 0
+
+html.lenis, html.lenis body 
+    height: auto
+
+
+.lenis.lenis-smooth 
+    scroll-behavior: auto !important
+
+
+.lenis.lenis-smooth [data-lenis-prevent] 
+    overscroll-behavior: contain
+
+
+.lenis.lenis-stopped 
+    overflow: hidden
+
+
+.lenis.lenis-smooth iframe 
+    pointer-events: none
+
 
 a
     color: inherit
@@ -250,6 +279,7 @@ section
         font-style: italic
         padding: 0 0 1rem 0
         border-bottom: 1px solid $grey-acc3-100
+        word-wrap: break-word
     h2
         font-weight: 500
         font-style: italic
@@ -262,8 +292,7 @@ section
         width: 100%
         position: relative
         overflow-anchor: none
-        background-image: url(assets/interior-transformed-reduced.webp)
-        background-image: url(assets/bridge.webp)
+        background-image: url(assets/bridge3.webp)
         background-position: 0% 0%
         background-size: cover
         background-repeat: no-repeat
@@ -285,10 +314,10 @@ section
             left: 0
             content: ''
             width: 100%
-            height: 70px
+            height: 100px
             background-size: 100% 100%
             background-position: 0px 0px
-            background-image: linear-gradient(180deg, $grey-main-0 0%, $grey-main-10 15%, $grey-main-100 100%)
+            background-image: linear-gradient(#00000000, $grey-main-100)
 
     &#why-us
         position: relative
@@ -552,10 +581,10 @@ footer nav div, .contact-btn-wrap
     border-radius: 1rem
     height: 80%
     z-index: 15
-    box-shadow: 0px 0px 40px 40px $grey-main-100
+    // box-shadow: 0px 0px 40px 40px $grey-main-100
 
-    background: rgba(0, 0, 0, 0.655)
-    backdrop-filter: blur(25px)
+    background: rgba(14, 14, 14, 0.655)
+    backdrop-filter: blur(50px)
     -webkit-backdrop-filter: blur(25px)
 
     .hero-img-wrap
@@ -574,6 +603,7 @@ footer nav div, .contact-btn-wrap
 
         .card
             @extend %center
+            opacity: 0
 
     &.fleet-card-wrap
         grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) )

@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger)
+
 function $(element) {
     return document.querySelectorAll(element)
 }
@@ -59,7 +61,78 @@ if (document.querySelectorAll("form")[0]){
     }
 }
 
+
+
 addEventListener('DOMContentLoaded', ()=>{
+    const lenis = new Lenis()
+
+    function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf);
+
+    introTL = gsap.timeline()
+    .to("main", {
+        opacity: 1,
+        duration: .25
+    })
+    .from(["#hero h1", ".hero-text", ".hero-btn-wrap"], {
+        opacity: 0,
+        y: 20,
+        stagger: .25,
+    })
+    .from(".hero-img-wrap", {
+        opacity: 0,
+        x: 100,
+        duration: 1
+    })
+
+    function scrollInStagger(el){
+        gsap.fromTo(el, {
+            opacity: 0,
+            y: 60,
+        }, {
+            scrollTrigger: el,
+            opacity: 1,
+            y: 0,
+            duration: .33,
+            ease: "power4.inOut",
+            stagger: .2
+        })
+    }
+
+    scrollInStagger('#why-us .card-wrap .card')
+    scrollInStagger('#use-case .card-wrap .card')
+    scrollInStagger('details')
+    scrollInStagger('#contact div')
+    scrollInStagger('#staff .card-wrap .card', true)
+    scrollInStagger('#fleet .card-wrap .card')
+
+    video = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#video',
+            start: "top+=50% bottom",
+            end: '+=50%',
+            scrub: 1
+        },
+    })
+
+    .fromTo('video', {
+        opacity: 0,
+        width: "100px"
+    }, {
+        opacity: 1,
+        width: "100vw",
+        maxWidth: "none",
+    })
+    .to('#video', {
+        paddingLeft: 0,
+        paddingRight: 0
+    }, "<")
+
+
     for (button of $(".staff-card button")){
         createFlipAnimation(button)
     }
