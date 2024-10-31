@@ -4,137 +4,28 @@ function $(element) {
     return document.querySelectorAll(element)
 }
 
-if (document.querySelectorAll("form")[0]){
-    let form = document.querySelectorAll("form")[0]
-    let formData = {
-        name: document.querySelectorAll("input")[0],
-        phone: document.querySelectorAll("input")[1],
-        email: document.querySelectorAll("input")[2],
-        msg: document.querySelectorAll("textarea")[0],
-        honey: document.querySelectorAll("input")[3],
-        submit: document.querySelectorAll("#i-submit")[0]
-    }
-
-    function resetInputValue(){
-        formData.name.value = formData.phone.value = formData.email.value = formData.msg.value = ''
-        formData.name.placeholder = formData.email.placeholder = formData.phone.placeholder = formData.msg.placeholder = formData.submit.placeholder = ''
-    }
-    function disableInput(){
-        formData.name.disabled = formData.email.disabled = formData.phone.disabled = formData.msg.disabled = formData.submit.disabled = true
-    }
-    function errorBorder(){
-        formData.name.style.border = formData.email.style.border = formData.phone.style.border = formData.msg.style.border = formData.submit.style.border = "1px solid red"
-        formData.submit.style.outlineColor = "red"
-    }
-    
-    form.onsubmit = (e)=>{
-        e.preventDefault()
-        disableInput()
-
-        if (formData.honey.value == ''){
-            fetch(`${window.location.href}`, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": 'application/json'
-                },
-                body: JSON.stringify({
-                    data: {
-                        "Name": formData.name.value,
-                        "Phone Number": formData.phone.value,
-                        "Email Address": formData.email.value,
-                        "Message": formData.msg.value,
-                    }
-                })
-            })
-            .then((res)=>{ return res.json() })
-            .then(result => {
-                resetInputValue()
-                if (result.success){
-                    formData.submit.value = "Thank you!"
-                }
-                else {
-                    errorBorder()
-                    formData.submit.value = 'Sorry! Server Error.'
-                }
-            })
-        }
-    }
-}
-
-
-
 addEventListener('DOMContentLoaded', ()=>{
     const lenis = new Lenis()
-
     function raf(time) {
         lenis.raf(time)
         requestAnimationFrame(raf)
     }
+    requestAnimationFrame(raf)
 
-    requestAnimationFrame(raf);
-
-    introTL = gsap.timeline()
-    .to("main", {
-        opacity: 1,
-        duration: .25
-    })
-    .from(["#hero h1", ".hero-text", ".hero-btn-wrap"], {
-        opacity: 0,
-        y: 20,
-        stagger: .25,
-    })
-    .from(".hero-img-wrap", {
-        opacity: 0,
-        x: 100,
-        duration: 1
-    })
+    lenis.options.duration = .6
+    console.log(lenis)
 
     function scrollInStagger(el){
         gsap.fromTo(el, {
             opacity: 0,
-            y: 60,
         }, {
             scrollTrigger: el,
             opacity: 1,
             y: 0,
-            duration: .33,
-            ease: "power4.inOut",
+            duration: 1,
+            ease: "power2.inOut",
             stagger: .2
         })
-    }
-
-    scrollInStagger('#why-us .card-wrap .card')
-    scrollInStagger('#use-case .card-wrap .card')
-    scrollInStagger('details')
-    scrollInStagger('#contact div')
-    scrollInStagger('#staff .card-wrap .card', true)
-    scrollInStagger('#fleet .card-wrap .card')
-
-    video = gsap.timeline({
-        scrollTrigger: {
-            trigger: '#video',
-            start: "top+=50% bottom",
-            end: '+=50%',
-            scrub: 1
-        },
-    })
-
-    .fromTo('video', {
-        opacity: 0,
-        width: "100px"
-    }, {
-        opacity: 1,
-        width: "100vw",
-        maxWidth: "none",
-    })
-    .to('#video', {
-        paddingLeft: 0,
-        paddingRight: 0
-    }, "<")
-
-
-    for (button of $(".staff-card button")){
-        createFlipAnimation(button)
     }
     function createFlipAnimation(element){
         let flipped = false
@@ -185,6 +76,151 @@ addEventListener('DOMContentLoaded', ()=>{
         })
     }
 
+    gsap.to("main", {
+        opacity: 1,
+        duration: .5
+    })
+
+    switch (location.pathname) {
+        case '/':
+            introTL = gsap.timeline()
+            .from(["#hero h1", ".hero-text", ".hero-btn-wrap"], {
+                opacity: 0,
+                y: 20,
+                stagger: .33,
+            })
+            .from(".hero-img-wrap", {
+                opacity: 0,
+                x: 100,
+                duration: 1
+            })
+
+            scrollInStagger('#why-us .card-wrap .card')
+            scrollInStagger('#use-case .card-wrap .card')
+            scrollInStagger('details')
+            scrollInStagger('#contact div')
+
+            break
+
+        case '/about/':
+            for (button of $(".staff-card button")){
+                createFlipAnimation(button)
+            }
+            scrollInStagger('#staff .card-wrap .card')
+            scrollInStagger('#fleet .card-wrap .card')
+            break
+
+        case '/contact/':
+            scrollInStagger('#contact div')
+            
+            break
+    }
+
+    if ($("form")[0]){
+        let form = $("form")[0]
+        let formData = {
+            name: $("input")[0],
+            phone: $("input")[1],
+            email: $("input")[2],
+            msg: $("textarea")[0],
+            honey: $("input")[3],
+            submit: $("#i-submit")[0]
+        }
+    
+        function resetInputValue(){
+            formData.name.value = formData.phone.value = formData.email.value = formData.msg.value = ''
+            formData.name.placeholder = formData.email.placeholder = formData.phone.placeholder = formData.msg.placeholder = formData.submit.placeholder = ''
+        }
+        function disableInput(){
+            formData.name.disabled = formData.email.disabled = formData.phone.disabled = formData.msg.disabled = formData.submit.disabled = true
+        }
+        function errorBorder(){
+            formData.name.style.border = formData.email.style.border = formData.phone.style.border = formData.msg.style.border = formData.submit.style.border = "1px solid red"
+            formData.submit.style.outlineColor = "red"
+        }
+        
+        form.onsubmit = (e)=>{
+            e.preventDefault()
+            disableInput()
+    
+            if (formData.honey.value == ''){
+                fetch(`${window.location.href}`, {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": 'application/json'
+                    },
+                    body: JSON.stringify({
+                        data: {
+                            "Name": formData.name.value,
+                            "Phone Number": formData.phone.value,
+                            "Email Address": formData.email.value,
+                            "Message": formData.msg.value,
+                        }
+                    })
+                })
+                .then((res)=>{ return res.json() })
+                .then(result => {
+                    resetInputValue()
+                    if (result.success){
+                        formData.submit.value = "Thank you!"
+                    }
+                    else {
+                        errorBorder()
+                        formData.submit.value = 'Sorry! Server Error.'
+                    }
+                })
+            }
+        }
+    }
+    
+    if ($("video")[0]){  
+        video = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#video',
+                start: "top+=50% bottom",
+                end: '+=50%',
+                scrub: 1
+            },
+        })
+        .to('video', {
+            opacity: 1,
+            width: "100vw",
+            maxWidth: "none",
+        })
+        .to('#video', {
+            paddingLeft: 0,
+            paddingRight: 0
+        }, "<")
+
+        $("video")[0].addEventListener('mouseover', (event)=>{
+            if (event.target.paused) {
+                event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer"  
+            }
+            else {
+                event.target.style.cursor = "url('/assets/pause.svg') 32 32, pointer"
+            }
+        })
+        function playVideo(event) {
+            if (event.target.paused) {
+                event.target.play()
+                event.target.style.cursor = "url('/assets/pause.svg') 32 32, pointer"
+            }
+            else {
+                event.target.pause()
+                event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer"
+            }
+        }
+        $("video")[0].addEventListener('mouseup', (event)=>{
+            playVideo(event)
+        })
+        $("video")[0].addEventListener('keydown', (event)=>{
+            if (event.key === 'Enter' || event.key === ' '){
+                event.preventDefault()
+                playVideo(event)
+            }
+        })
+    }
+
 
     // MOBILE MENU
     let mobileMenu = {
@@ -194,12 +230,12 @@ addEventListener('DOMContentLoaded', ()=>{
         hamburgerMiddle: $(".hamburger-inner")[1],
         hamburgerBottom: $(".hamburger-inner")[2],
     }
-    let tl = gsap.timeline();
+    let mobileMenuTL = gsap.timeline();
     let mobileMenuToggled = false;
 
     function openMobileMenu(){
         mobileMenuToggled = true;
-        tl.to(mobileMenu.hamburgerTop,{
+        mobileMenuTL.to(mobileMenu.hamburgerTop,{
             y: 7,
             duration: .15
         })
@@ -224,7 +260,7 @@ addEventListener('DOMContentLoaded', ()=>{
     }
     function closeMobileMenu(){
         mobileMenuToggled = false;
-        tl.to([mobileMenu.hamburgerBottom, mobileMenu.hamburgerTop], {
+        mobileMenuTL.to([mobileMenu.hamburgerBottom, mobileMenu.hamburgerTop], {
             rotate: 0,
             duration: .15
         })

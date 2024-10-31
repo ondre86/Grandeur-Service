@@ -127,7 +127,7 @@ $grey-acc3-100:rgba(85,85,85,1)
     font-family: infra
     font-weight: 300
 
-    &:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a)
+    &:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video)
         outline: 3px solid $gold
 
 html, body  
@@ -388,9 +388,14 @@ details
                 color: white
 
 video
+    @extend %trans
     width: 100%
     max-width: 1600px
     border-radius: 1rem
+
+    &:focus
+        outline: 0px solid transparent
+        
 
 form
     @extend %flex-v, %gap2
