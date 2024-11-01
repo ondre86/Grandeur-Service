@@ -181,24 +181,6 @@ addEventListener('DOMContentLoaded', ()=>{
     }
     
     if ($("video")[0]){  
-        video = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#video',
-                start: "top+=50% bottom",
-                end: '+=50%',
-                scrub: 1
-            },
-        })
-        .to('video', {
-            opacity: 1,
-            width: "100vw",
-            maxWidth: "none",
-        })
-        .to('#video', {
-            paddingLeft: 0,
-            paddingRight: 0
-        }, "<")
-
         function playVideo(event) {
             if (event.target.paused) {
                 event.target.play()
@@ -216,7 +198,7 @@ addEventListener('DOMContentLoaded', ()=>{
             const videoHeader = $("#video h2")[0]
             const tapNotice = document.createElement("span")
             tapNotice.innerText = "Tap to play / pause"
-            tapNotice.classList.add("font2")
+            tapNotice.classList.add("font2", "italic")
 
             titleWrap.appendChild(videoHeader)
             titleWrap.appendChild(tapNotice)
@@ -227,6 +209,24 @@ addEventListener('DOMContentLoaded', ()=>{
             })
         }
         else {
+            video = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#video',
+                    start: "top+=50% bottom",
+                    end: '+=50%',
+                    scrub: 1
+                },
+            })
+            .to('video', {
+                opacity: 1,
+                width: "100vw",
+                maxWidth: "none",
+            })
+            .to('#video', {
+                paddingLeft: 0,
+                paddingRight: 0
+            }, "<")
+
             $("video")[0].addEventListener('mouseover', (event)=>{
                 if (event.target.paused) {
                     event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer"  
