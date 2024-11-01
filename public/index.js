@@ -4,6 +4,12 @@ function $(element) {
     return document.querySelectorAll(element)
 }
 
+function is_touch_enabled() {
+    return ( 'ontouchstart' in window ) || 
+           ( navigator.maxTouchPoints > 0 ) || 
+           ( navigator.msMaxTouchPoints > 0 );
+}
+
 addEventListener('DOMContentLoaded', ()=>{
     const lenis = new Lenis()
     function raf(time) {
@@ -18,13 +24,14 @@ addEventListener('DOMContentLoaded', ()=>{
     function scrollInStagger(el){
         gsap.fromTo(el, {
             opacity: 0,
+            y: 30
         }, {
             scrollTrigger: el,
             opacity: 1,
             y: 0,
-            duration: 1,
+            duration: .5,
             ease: "power2.inOut",
-            stagger: .2
+            stagger: .1
         })
     }
     function createFlipAnimation(element){
@@ -192,14 +199,6 @@ addEventListener('DOMContentLoaded', ()=>{
             paddingRight: 0
         }, "<")
 
-        $("video")[0].addEventListener('mouseover', (event)=>{
-            if (event.target.paused) {
-                event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer"  
-            }
-            else {
-                event.target.style.cursor = "url('/assets/pause.svg') 32 32, pointer"
-            }
-        })
         function playVideo(event) {
             if (event.target.paused) {
                 event.target.play()
@@ -210,15 +209,44 @@ addEventListener('DOMContentLoaded', ()=>{
                 event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer"
             }
         }
-        $("video")[0].addEventListener('mouseup', (event)=>{
-            playVideo(event)
-        })
-        $("video")[0].addEventListener('keydown', (event)=>{
-            if (event.key === 'Enter' || event.key === ' '){
-                event.preventDefault()
+
+        if (is_touch_enabled()){
+            const titleWrap = document.createElement("div")
+            titleWrap.classList.add("flex-v", "gap1","center")
+            const videoHeader = $("#video h2")[0]
+            const tapNotice = document.createElement("span")
+            tapNotice.innerText = "Tap to play / pause"
+            tapNotice.classList.add("font2")
+
+            titleWrap.appendChild(videoHeader)
+            titleWrap.appendChild(tapNotice)
+            $('#video')[0].insertAdjacentElement('afterbegin', titleWrap)
+
+            $("video")[0].addEventListener('touchstart', (event)=>{
                 playVideo(event)
-            }
-        })
+            })
+        }
+        else {
+            $("video")[0].addEventListener('mouseover', (event)=>{
+                if (event.target.paused) {
+                    event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer"  
+                }
+                else {
+                    event.target.style.cursor = "url('/assets/pause.svg') 32 32, pointer"
+                }
+            })
+    
+            $("video")[0].addEventListener('mouseup', (event)=>{
+                playVideo(event)
+            })
+
+            $("video")[0].addEventListener('keydown', (event)=>{
+                if (event.key === 'Enter' || event.key === ' '){
+                    event.preventDefault()
+                    playVideo(event)
+                }
+            })
+        }
     }
 
 

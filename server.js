@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-// app.use(helmet())
+app.use(helmet())
 app.use(express.static('public')).use(express.json()).use(express.text())
 
 app.get('/', (req, res)=>{

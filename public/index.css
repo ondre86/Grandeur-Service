@@ -66,7 +66,7 @@ footer nav, header nav {
   max-width: 1600px;
 }
 
-.about-text a, .card.staff-card button, .card a, .card, .card-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul a, form input[type=submit], form textarea[type=submit], form label, details p a, details ul a, details, section, .button svg path, .button, header nav ul a {
+.about-text a, .card.staff-card button, .card a, .card, .card-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul a, form input[type=submit], form textarea[type=submit], form label, video, details p a, details ul a, details, section, .button svg path, .button, header nav ul a {
   transition: all 0.3s;
 }
 
@@ -116,7 +116,7 @@ footer nav div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
   font-family: infra;
   font-weight: 300;
 }
-*:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a) {
+*:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video) {
   outline: 3px solid rgb(182, 143, 64);
 }
 
@@ -375,6 +375,9 @@ video {
   width: 100%;
   max-width: 1600px;
   border-radius: 1rem;
+}
+video:focus {
+  outline: 0px solid transparent;
 }
 
 form {
