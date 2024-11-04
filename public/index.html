@@ -55,7 +55,7 @@
                 </li>
                 <li>
                     <div class="nav-btn-wrap">
-                        <a href="" class="button btn-alt">
+                        <a href="/book/" class="button btn-alt">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 200 250" role="img">
                                 <title>Icon of a Person</title>
                                 <path d="M0 0 C2.18990678 -0.00202548 4.37981291 -0.00494085 6.56971741 -0.00869751 C11.14118931 -0.01309945 15.71248435 -0.00675939 20.28393555 0.00732422 C26.10817794 0.02440441 31.9320051 0.0145684 37.75623226 -0.00339317 C42.27331094 -0.01429748 46.79029318 -0.01075416 51.30737495 -0.0030098 C53.45331434 -0.00102559 55.59926283 -0.00340359 57.74519157 -0.01044846 C78.46652799 -0.0635585 96.09212727 1.74797354 111.82421875 16.59375 C121.5675395 26.31330656 125.69223941 38.1213533 128.34765625 51.3984375 C128.34765625 67.5684375 128.34765625 83.7384375 128.34765625 100.3984375 C62.34765625 100.3984375 -3.65234375 100.3984375 -71.65234375 100.3984375 C-71.65234375 35.20629776 -71.65234375 35.20629776 -62.65234375 24.3984375 C-61.97945312 23.56570312 -61.3065625 22.73296875 -60.61328125 21.875 C-55.59168045 15.96619058 -50.26200824 11.43767691 -43.65234375 7.3984375 C-43.0078125 6.99882813 -42.36328125 6.59921875 -41.69921875 6.1875 C-28.91887661 -0.9544559 -14.13274431 -0.04634566 0 0 Z " fill="#b68f40" transform="translate(71.65234375,111.6015625)"/>
@@ -280,7 +280,7 @@
             <div class="flex-v gap2 center">
                 <h2>Book A Ride</h2>
                 <form action="/" method="post">
-                    <span class="font2 txt-center" style="font-size: 2rem;">Information</span>
+                    <span class="font2 txt-center italic" style="font-size: 2rem; margin-top: 1rem;">Information</span>
                     <div>
                         <label for="i-name">Name 
                             <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
@@ -291,19 +291,19 @@
                         <label for="i-email-address">Email Address 
                             <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
                         </label>
-                        <input type="email" id="i-email-address" name="email-address" placeholder="john.smith@gmail.com" required autocomplete="email">
+                        <input type="email" id="i-email-address" name="email-address" placeholder="john.smith@gmail.com" required autocomplete="email" inputmode="email">
                     </div>
                     <div>
                         <label for="i-phone-number">Phone Number
                             <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
                         </label>
-                        <input type="tel" id="i-phone-number" name="phone-number" placeholder="901-555-5555" required autocomplete="mobile" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10">
+                        <input type="tel" id="i-phone-number" name="phone-number" placeholder="901-555-5555" required autocomplete="mobile" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" inputmode="decimal">
                     </div>
                     <div>
                         <label for="i-party-size">Party Size 
                             <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
                         </label>
-                        <input type="number" id="i-party-size" name="party-size" required min="1" max="15"></input>
+                        <input type="number" id="i-party-size" name="party-size" required min="1" max="15" inputmode="decimal"></input>
                     </div>
                     <div>
                         <label for="i-vehicle-choice">Vehicle Choice</label>
@@ -318,16 +318,16 @@
                         <label for="i-service-type">Type of Service
                             <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
                         </label>
-                        <div class="flex-h">
+                        <div class="flex-h full-width">
                             <input type="radio" name="service-type" value="Hourly" id="i-hourly" required>
                             <label for="i-hourly">Hourly</label>
                         </div>
-                        <div class="flex-h">
+                        <div class="flex-h full-width">
                             <input type="radio" name="service-type" value="One Way" id="i-oneway">
                             <label for="i-oneway">One-Way</label>
                         </div>
                     </div>
-                    <span class="font2 txt-center" style="font-size: 2rem; margin-top: 3rem;">Pick Up</span>
+                    <span class="font2 txt-center italic" style="font-size: 2rem; margin-top: 3rem;">Pick Up</span>
                     <div>
                         <label for="i-pickup-date-time">Date & Time 
                             <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
@@ -352,24 +352,24 @@
                         </label>
                         <input type="text" id="i-pickup-zip" name="pickup-zip" placeholder="37501" required autocomplete="postal-code" maxlength="5">
                     </div>
-                    <span class="font2 txt-center" style="font-size: 2rem; margin-top: 3rem;">Drop Off</span>
+                    <span class="font2 txt-center italic" style="font-size: 2rem; margin-top: 3rem;">Drop Off</span>
                     <div>
                         <label for="i-dropoff-address">Address 
                             <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
                         </label>
-                        <input type="text" id="i-dropoff-address" name="dropoff-address" placeholder="321 1st St." required autocomplete="street-address">
+                        <input type="text" id="i-dropoff-address" name="dropoff-address" placeholder="321 1st St." required autocomplete="off">
                     </div>
                     <div>
                         <label for="i-dropoff-city">City 
                             <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
                         </label>
-                        <input type="text" id="i-dropoff-city" name="dropoff-city" placeholder="Memphis" required autocomplete="address-level2">
+                        <input type="text" id="i-dropoff-city" name="dropoff-city" placeholder="Memphis" required autocomplete="off">
                     </div>
                     <div>
                         <label for="i-dropoff-zip">Zip Code 
                             <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
                         </label>
-                        <input type="text" id="i-dropoff-zip" name="dropoff-zip" placeholder="38117" required autocomplete="postal-code" maxlength="5">
+                        <input type="text" id="i-dropoff-zip" name="dropoff-zip" placeholder="38117" required maxlength="5" autocomplete="off">
                     </div>
                     <div>
                         <label for="i-dropoff-time">Time 

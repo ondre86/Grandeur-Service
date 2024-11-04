@@ -410,12 +410,18 @@ form #form-color, form label[for=form-color] {
   top: -20000px;
 }
 form input, form textarea {
+  width: 100%;
   color-scheme: dark;
   padding: 0.35rem 0.85rem;
   background-color: rgb(35, 35, 35);
   border: 1px solid rgb(85, 85, 85);
   border-radius: 0.35rem;
   font-size: 1.15rem;
+  align-self: flex-start;
+}
+form input[type=radio], form textarea[type=radio] {
+  max-width: fit-content;
+  width: fit-content;
 }
 form input[type=checkbox], form input[type=datetime-local], form textarea[type=checkbox], form textarea[type=datetime-local] {
   cursor: pointer;
@@ -452,10 +458,12 @@ form input:disabled, form textarea:disabled {
   background-color: rgb(85, 85, 85);
 }
 form select {
+  width: 100%;
   background-color: inherit;
   padding: 0.5rem 0.85rem;
   border: 1px solid rgb(85, 85, 85);
   border-radius: 0.35rem;
+  font-size: 1rem;
 }
 
 footer {
@@ -847,6 +855,9 @@ footer nav div span, .contact-btn-wrap span {
   }
 }
 @media (max-width: 500px) {
+  main:has(#hero) {
+    margin: 45px 0 0 0;
+  }
   h1, h2 {
     text-align: center;
   }
@@ -877,7 +888,7 @@ footer nav div span, .contact-btn-wrap span {
   }
   form {
     min-width: 0px;
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
   .card.staff-card {
     grid-template-columns: 1fr;
