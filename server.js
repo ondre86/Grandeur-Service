@@ -16,20 +16,20 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-// app.use(helmet({
-//     contentSecurityPolicy: {
-//         directives: {
-//             scriptSrc: [
-//                 "'self'", 
-//                 "cloud.umami.is"
-//             ],
-//             connectSrc: [
-//                 "'self'",
-//                 "https://api-gateway.umami.dev/api/send"
-//             ],
-//         }
-//     }
-// }))
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            scriptSrc: [
+                "'self'", 
+                "cloud.umami.is"
+            ],
+            connectSrc: [
+                "'self'",
+                "https://api-gateway.umami.dev/api/send"
+            ],
+        }
+    }
+}))
 app.use(express.static('public')).use(express.json()).use(express.text())
 
 app.get('/', (req, res)=>{
