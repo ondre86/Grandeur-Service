@@ -65,7 +65,7 @@ function formatAndSendEmail(req, res){
     let text = ''
     let mailOptions = {
         from: 'REDACTED',
-        to: 'REDACTED',
+        to: 'info@grandeurservice.com',
         subject: '',
         text: {}
     }
