@@ -16,11 +16,11 @@
   font-weight: 600;
   font-style: normal;
 }
-.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .flex, .flex-h, .hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, .flex-v {
+.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, .flex, .flex-h, .hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, header, .flex-v {
   display: flex;
 }
 
-.hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, .flex-v {
+.hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, header, .flex-v {
   flex-direction: column;
 }
 
@@ -196,6 +196,20 @@ strong {
   font-family: inherit;
 }
 
+#banner {
+  background-color: #0c0c0c;
+  padding: 0.666rem 0;
+  z-index: 900;
+}
+#banner a {
+  color: rgb(182, 143, 64);
+}
+#banner span {
+  max-width: 80%;
+  vertical-align: sub;
+  line-height: 1rem;
+}
+
 header {
   padding: 10px 10% 10px 10%;
   position: fixed;
@@ -254,7 +268,7 @@ header nav ul a:hover {
 }
 
 main {
-  margin: 90px 0 0 0;
+  margin: 94.5px 0 0 0;
   position: relative;
 }
 
@@ -281,7 +295,7 @@ section p {
   max-width: 960px;
 }
 section#hero {
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 94.5px - 37.3px);
   width: 100%;
   position: relative;
   overflow-anchor: none;
@@ -426,6 +440,7 @@ form input#i-dropoff-zip, form input#i-pickup-zip, form textarea#i-dropoff-zip, 
 form input[type=radio], form textarea[type=radio] {
   max-width: fit-content;
   width: fit-content;
+  align-self: center;
 }
 form input[type=checkbox], form input[type=datetime-local], form textarea[type=checkbox], form textarea[type=datetime-local] {
   cursor: pointer;
@@ -750,8 +765,14 @@ footer nav div span, .contact-btn-wrap span {
 }
 
 @media (max-width: 1024px) {
+  main {
+    margin: 70px 0 0 0;
+  }
   section {
-    padding: 25px 5% 50px;
+    padding: 100px 5% 50px;
+  }
+  section#hero {
+    min-height: calc(100vh - 94.5px - 37.3px - 94.5px);
   }
   section#staff, section#fleet {
     padding: 50px 5%;
@@ -870,13 +891,16 @@ footer nav div span, .contact-btn-wrap span {
 }
 @media (max-width: 500px) {
   main:has(#hero) {
-    margin: 45px 0 0 0;
+    margin: 70px 0 0 0;
   }
   h1, h2 {
     text-align: center;
   }
   h1 {
     font-size: 2.5rem;
+  }
+  section {
+    padding-top: 70px;
   }
   section#hero {
     background-image: none;

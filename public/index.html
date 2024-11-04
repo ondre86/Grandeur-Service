@@ -51,6 +51,9 @@
                         <li class="mm-list-item">
                             <a href="/contact/">Contact</a>
                         </li>
+                        <li class="mm-list-item">
+                            <a href="/book/">Book</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -97,6 +100,7 @@
         </nav>
     </header>
     <main>
+        <div id="banner" class="full-width flex center"><span class="txt-center"><a href="/book/">Book Now</a> and mention "COGIC" for special event discounts!</span></div>
         <section id="hero">
             <div class="hero-content-wrap">
                 <div class="flex-v gap3">
@@ -315,7 +319,8 @@
                                 <option value="Any" selected>Any</option>
                                 <option value="Coupe">Coupe</option>
                                 <option value="SUV">SUV</option>
-                                <!-- <option value="Van">Van</option> -->
+                                <option value="Sedan">Sedan</option>
+                                <option value="Van">Van</option>
                             </select>
                         </div>
                         <div role="radiogroup" aria-labelledby="service-type">
@@ -384,6 +389,13 @@
                                 <span style="font-size: 1.25rem; color: rgba(182,143,64,1);"></span>
                             </label>
                             <input type="time" id="i-dropoff-time" name="dropoff-time">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div>
+                            <legend class="font2 txt-center italic" style="font-size: 2rem; margin-bottom: 1rem;">Notes</legend>
+                            <label for="i-notes">Additional Notes</label>
+                            <textarea name="notes" id="i-notes" rows="5"></textarea>
                         </div>
                     </fieldset>
                     <div>
