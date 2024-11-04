@@ -16,11 +16,11 @@
   font-weight: 600;
   font-style: normal;
 }
-.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .flex, .flex-h, .hamburger-box, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form div, form, section, main, .flex-v {
+.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .flex, .flex-h, .hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, .flex-v {
   display: flex;
 }
 
-.hamburger-box, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form div, form, section, main, .flex-v {
+.hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, .flex-v {
   flex-direction: column;
 }
 
@@ -38,7 +38,7 @@ section {
   align-items: center;
 }
 
-.button {
+.about-text ul, .button {
   gap: 0.5rem;
 }
 
@@ -46,7 +46,7 @@ footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul, .contact-b
   gap: 1rem;
 }
 
-.card, .card-wrap, form {
+.card, .card-wrap, form fieldset, form {
   gap: 2rem;
 }
 
@@ -124,8 +124,9 @@ footer nav div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
   font-family: infra;
   font-weight: 300;
 }
-*:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video) {
+*:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video, .about-text a) {
   outline: 3px solid rgb(182, 143, 64);
+  outline-offset: 3px;
 }
 
 html, body {
@@ -161,8 +162,8 @@ html.lenis, html.lenis body {
 a {
   color: inherit;
 }
-a:visited {
-  color: inherit;
+a:visited:not(nav a) {
+  color: rgb(234, 197, 123);
 }
 
 h1 {
@@ -277,7 +278,7 @@ section h2 {
   font-style: italic;
 }
 section p {
-  max-width: 800px;
+  max-width: 960px;
 }
 section#hero {
   min-height: calc(100vh - 90px);
@@ -392,7 +393,7 @@ video:focus {
 }
 
 form {
-  background-color: rgb(35, 35, 35);
+  background-color: rgb(42, 42, 42);
   border: 1px solid rgb(85, 85, 85);
   border-radius: 1rem;
   padding: 2rem;
@@ -418,6 +419,9 @@ form input, form textarea {
   border-radius: 0.35rem;
   font-size: 1.15rem;
   align-self: flex-start;
+}
+form input#i-dropoff-zip, form input#i-pickup-zip, form textarea#i-dropoff-zip, form textarea#i-pickup-zip {
+  width: 100px;
 }
 form input[type=radio], form textarea[type=radio] {
   max-width: fit-content;
@@ -464,6 +468,16 @@ form select {
   border: 1px solid rgb(85, 85, 85);
   border-radius: 0.35rem;
   font-size: 1rem;
+}
+form fieldset {
+  border: none;
+  padding: 2rem 0;
+}
+form fieldset:first-of-type {
+  margin-top: 1rem;
+}
+form fieldset:last-of-type {
+  padding-bottom: 1rem;
 }
 
 footer {
@@ -706,7 +720,7 @@ footer nav div span, .contact-btn-wrap span {
   color: white;
 }
 .about-text ul {
-  padding: 0.5rem 0 0 1rem;
+  padding: 1rem 0 0 1rem;
 }
 .about-text ul li {
   font-style: italic;

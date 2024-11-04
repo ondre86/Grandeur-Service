@@ -61,15 +61,12 @@ app.listen(PORT, (error) =>{
 )
 
 function formatAndSendEmail(req, res){
-    console.log(req.body)
     let formData = {...req.body}
-    console.log(formData)
-
-    text = ''
-    mailOptions = {
+    let text = ''
+    let mailOptions = {
         from: 'REDACTED',
-        to: 'ondre86@gmail.com',
-        subject: 'New Website Message!',
+        to: 'info@grandeurservice.com',
+        subject: '',
         text: {}
     }
 
@@ -79,8 +76,15 @@ function formatAndSendEmail(req, res){
             text += `${key}: ${value}\n` 
         }
     }
-    console.log(text)
+
     mailOptions.text = text
+
+    if (text.includes("pickup")){
+        mailOptions.subject = "New Booking Request"
+    }
+    else {
+        mailOptions.subject = "New Website Message"
+    }
 
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {

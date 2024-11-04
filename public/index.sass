@@ -134,8 +134,9 @@ $grey-acc3-100:rgba(85,85,85,1)
     font-family: infra
     font-weight: 300
 
-    &:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video)
+    &:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video, .about-text a)
         outline: 3px solid $gold
+        outline-offset: 3px
 
 html, body  
     background-color: $grey-main-100
@@ -168,8 +169,8 @@ html.lenis, html.lenis body
 a
     color: inherit
 
-    &:visited
-        color: inherit
+    &:visited:not(nav a)
+        color: $gold-light
 
 h1
     font-size: 3.5rem
@@ -291,7 +292,7 @@ section
         font-weight: 500
         font-style: italic
     p
-        max-width: 800px
+        max-width: 960px
 
     &#hero
         @extend %center
@@ -410,7 +411,7 @@ video
 
 form
     @extend %flex-v, %gap2
-    background-color: $grey-acc-100
+    background-color: $grey-acc2-100
     border: 1px solid $grey-acc3-100
     border-radius: 1rem
     padding: 2rem
@@ -441,6 +442,9 @@ form
         border-radius: .35rem
         font-size: 1.15rem
         align-self: flex-start
+
+        &#i-dropoff-zip, &#i-pickup-zip
+            width: 100px
 
         &[type="radio"]
             max-width: fit-content
@@ -489,6 +493,17 @@ form
         border: 1px solid $grey-acc3-100
         border-radius: .35rem
         font-size: 1rem
+
+    fieldset
+        @extend %flex-v, %gap2
+        border: none
+        padding: 2rem 0
+
+        &:first-of-type
+            margin-top: 1rem
+        &:last-of-type
+            padding-bottom: 1rem
+
 
 footer
     @extend %flex, %center
@@ -751,7 +766,9 @@ footer nav div, .contact-btn-wrap
         &:hover
             color: white
     ul
-        padding: .5rem 0 0 1rem
+        @extend %flex-v, %gap-5
+        padding: 1rem 0 0 1rem
+
         li
             font-style: italic
 

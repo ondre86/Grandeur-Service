@@ -106,9 +106,9 @@ addEventListener('DOMContentLoaded', ()=>{
             break
 
         case '/about/':
-            for (button of $('.staff-card button')){
-                createFlipAnimation(button)
-            }
+            // for (button of $('.staff-card button')){
+            //     createFlipAnimation(button)
+            // }
             scrollInStagger('#staff .card-wrap .card')
             scrollInStagger('#fleet .card-wrap .card')
             break
@@ -176,14 +176,14 @@ addEventListener('DOMContentLoaded', ()=>{
     }
     
     if ($('video')[0]){  
-        function playVideo(event) {
+        let clickedOnVideo = false
+
+        function changeVideoCursor(event) {
             if (event.target.paused) {
-                event.target.play()
-                event.target.style.cursor = "url('/assets/pause.svg') 32 32, pointer"
+                event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer"
             }
             else {
-                event.target.pause()
-                event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer"
+                event.target.style.cursor = "url('/assets/pause.svg') 32 32, pointer"
             }
         }
 
@@ -200,9 +200,7 @@ addEventListener('DOMContentLoaded', ()=>{
             $('#video')[0].insertAdjacentElement('afterbegin', titleWrap)
 
             $('video')[0].style.width = '100%'
-            $('video')[0].addEventListener('touchstart', (event)=>{
-                playVideo(event)
-            })
+
             setTimeout(() => {
                 const videoHeight = $('video')[0].clientHeight
                 $('video')[0].height = videoHeight
@@ -237,14 +235,16 @@ addEventListener('DOMContentLoaded', ()=>{
             })
     
             $('video')[0].addEventListener('mouseup', (event)=>{
-                playVideo(event)
-            })
-
-            $('video')[0].addEventListener('keydown', (event)=>{
-                if (event.key === 'Enter' || event.key === ' '){
-                    event.preventDefault()
-                    playVideo(event)
+                if (event.target.paused && !clickedOnVideo) {
+                    event.target.play()
+                    clickedOnVideo = true
                 }
+            })
+            $('video')[0].addEventListener('play', (event)=>{
+                changeVideoCursor(event)
+            })
+            $('video')[0].addEventListener('pause', (event)=>{
+                changeVideoCursor(event)
             })
         }
     }
