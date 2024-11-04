@@ -16,12 +16,16 @@
   font-weight: 600;
   font-style: normal;
 }
-.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .flex, .hamburger-box, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form div, form, section, main, .flex-v {
+.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .flex, .flex-h, .hamburger-box, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form div, form, section, main, .flex-v {
   display: flex;
 }
 
 .hamburger-box, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form div, form, section, main, .flex-v {
   flex-direction: column;
+}
+
+.flex-h {
+  flex-direction: row;
 }
 
 .card.staff-card, .card-wrap.staff-card-wrap .card, .hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul, footer nav nav, footer, section#hero, main, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .center {
@@ -72,6 +76,10 @@ footer nav, header nav {
 
 footer nav div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
   box-shadow: 0px 0px 6px 3px rgb(85, 85, 85);
+}
+
+.txt-center {
+  text-align: center;
 }
 
 .gap-5 {
@@ -218,7 +226,7 @@ header nav ul a:hover {
   border-color: white;
 }
 .button {
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem 1rem;
   font-size: 1.1rem;
   border: 1px solid white;
   border-radius: 0.35rem;
@@ -254,7 +262,7 @@ section {
   font-size: clamp(18px, 1rem, 24px);
   z-index: 10;
 }
-section * {
+section *:not(video) {
   max-width: 1600px;
 }
 section h1 {
@@ -311,7 +319,7 @@ section#contact:not(.contact-page) {
   flex-direction: row;
   padding-top: 130px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: flex-start;
 }
 section.contact-page {
@@ -322,6 +330,9 @@ section#staff, section#fleet {
 }
 section#fleet span {
   font-size: 1.5rem;
+}
+section#video {
+  max-width: 100%;
 }
 
 #bg-logo, #bg-logo-2, #bg-logo-3 {
@@ -372,8 +383,8 @@ details p a:hover, details ul a:hover {
 }
 
 video {
-  width: 100%;
-  max-width: 1600px;
+  width: 80%;
+  max-width: 100vw;
   border-radius: 1rem;
 }
 video:focus {
@@ -425,14 +436,26 @@ form input[type=submit]:hover, form textarea[type=submit]:hover {
   background-color: white;
   cursor: pointer;
 }
-form input[type=submit]:focus, form textarea[type=submit]:focus {
+form input[type=submit]:focus:not(:disabled), form textarea[type=submit]:focus:not(:disabled) {
   background-color: white;
+}
+form input[type=submit]:disabled[value="Thank You!"], form textarea[type=submit]:disabled[value="Thank You!"] {
+  background-color: #89D485;
+}
+form input[type=submit]:disabled[value="Sorry! Server Error."], form textarea[type=submit]:disabled[value="Sorry! Server Error."] {
+  background-color: #F57F79;
 }
 form input:focus, form input:focus-within, form input:focus-visible, form textarea:focus, form textarea:focus-within, form textarea:focus-visible {
   outline: 1px solid rgb(182, 143, 64);
 }
 form input:disabled, form textarea:disabled {
   background-color: rgb(85, 85, 85);
+}
+form select {
+  background-color: inherit;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgb(85, 85, 85);
+  border-radius: 0.35rem;
 }
 
 footer {
@@ -547,6 +570,8 @@ footer nav div span, .contact-btn-wrap span {
   border-radius: 1rem;
   height: 80%;
   z-index: 15;
+  overflow: hidden;
+  align-content: flex-start;
   background: rgba(14, 14, 14, 0.655);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(25px);
@@ -857,5 +882,8 @@ footer nav div span, .contact-btn-wrap span {
   .card.staff-card {
     grid-template-columns: 1fr;
     grid-template-rows: 45% 45%;
+  }
+  video {
+    min-width: 0px;
   }
 }/*# sourceMappingURL=index.css.map */

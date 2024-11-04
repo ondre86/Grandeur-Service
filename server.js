@@ -1,6 +1,8 @@
 const express = require('express')
 const helmet = require('helmet')
 const nodemailer = require('nodemailer')
+const multer = require('multer')
+const upload = multer()
 const app = express()
 const PORT = 3333
 
@@ -9,28 +11,44 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: process.env.USER,
-        pass: process.env.PASS
+        user: 'REDACTED',
+        pass: 'REDACTED'
     }
 })
 
-app.use(helmet())
+// app.use(helmet({
+//     contentSecurityPolicy: {
+//         directives: {
+//             scriptSrc: [
+//                 "'self'", 
+//                 "cloud.umami.is"
+//             ],
+//             connectSrc: [
+//                 "'self'",
+//                 "https://api-gateway.umami.dev/api/send"
+//             ],
+//         }
+//     }
+// }))
 app.use(express.static('public')).use(express.json()).use(express.text())
 
 app.get('/', (req, res)=>{
     res.status(200).send()
 })
-app.get('/about', (req, res)=>{
+app.get('/about/', (req, res)=>{
     res.status(200).send()
 })
-app.get('/contact', (req, res)=>{
+app.get('/contact/', (req, res)=>{
     res.status(200).send()
 })
 
-app.post('/', (req, res)=>{
+app.post('/', upload.none(), (req, res)=>{
     formatAndSendEmail(req, res)
 })
-app.post('/contact', (req, res)=>{
+app.post('/contact', upload.none(), (req, res)=>{
+    formatAndSendEmail(req, res)
+})
+app.post('/book', upload.none(), (req, res)=>{
     formatAndSendEmail(req, res)
 })
 
@@ -43,7 +61,10 @@ app.listen(PORT, (error) =>{
 )
 
 function formatAndSendEmail(req, res){
-    senderData = req.body
+    console.log(req.body)
+    let formData = {...req.body}
+    console.log(formData)
+
     text = ''
     mailOptions = {
         from: 'REDACTED',
@@ -52,9 +73,9 @@ function formatAndSendEmail(req, res){
         text: {}
     }
 
-    for (let key in senderData.data) {
-        if (senderData.data.hasOwnProperty(key)) {
-            value = senderData.data[key];
+    for (let key in formData) {
+        if (formData.hasOwnProperty(key)) {
+            value = formData[key];
             text += `${key}: ${value}\n` 
         }
     }

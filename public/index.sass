@@ -44,6 +44,9 @@ $grey-acc3-100:rgba(85,85,85,1)
 %flex-v
     @extend %flex
     flex-direction: column
+%flex-h
+    @extend %flex
+    flex-direction: row
 
 %center
     justify-content: center
@@ -89,8 +92,12 @@ $grey-acc3-100:rgba(85,85,85,1)
     @extend %flex
 .flex-v
     @extend %flex-v
+.flex-h
+    @extend %flex-h
 .center
     @extend %center
+.txt-center
+    text-align: center
 
 .gap-5
     gap: .5rem
@@ -230,7 +237,7 @@ header
 
 .button
     @extend %fitHeight, %trans, %flex, %center, %gap-5
-    padding: .5rem .75rem
+    padding: .75rem 1rem
     font-size: 1.1rem
     border: 1px solid white
     border-radius: .35rem
@@ -271,7 +278,7 @@ section
     font-size: clamp(18px, 1rem, 24px)
     z-index: 10
 
-    * 
+    *:not(video)
         max-width: 1600px
 
     h1
@@ -331,7 +338,7 @@ section
         flex-direction: row
         padding-top: 130px
         display: grid
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr
         align-items: flex-start
     &.contact-page
         padding-top: 2.5% 
@@ -342,6 +349,9 @@ section
     &#fleet
         span
             font-size: 1.5rem
+
+    &#video
+        max-width: 100%
 
 #bg-logo, #bg-logo-2, #bg-logo-3
     position: absolute
@@ -389,8 +399,9 @@ details
 
 video
     @extend %trans
-    width: 100%
-    max-width: 1600px
+    width: 80%
+    // min-width: 600px
+    max-width: 100vw
     border-radius: 1rem
 
     &:focus
@@ -449,14 +460,27 @@ form
                 background-color: white
                 cursor: pointer
 
-            &:focus
+            &:focus:not(:disabled)
                 background-color: white
+
+            &:disabled
+                &[value="Thank You!"]
+                    background-color: #89D485
+
+                &[value="Sorry! Server Error."]
+                    background-color: #F57F79
 
         &:focus, &:focus-within, &:focus-visible
             outline: 1px solid $gold
 
         &:disabled
             background-color: $grey-acc3-100
+
+    select
+        background-color: inherit
+        padding: .5rem .85rem
+        border: 1px solid $grey-acc3-100
+        border-radius: .35rem
 
 footer
     @extend %flex, %center
@@ -586,7 +610,9 @@ footer nav div, .contact-btn-wrap
     border-radius: 1rem
     height: 80%
     z-index: 15
-    // box-shadow: 0px 0px 40px 40px $grey-main-100
+    overflow: hidden
+    align-content: flex-start
+
 
     background: rgba(14, 14, 14, 0.655)
     backdrop-filter: blur(50px)
@@ -748,7 +774,6 @@ footer nav div, .contact-btn-wrap
         &#staff, &#fleet
             padding: 50px 5%
 
-
     .mobile-menu
         display: flex
 
@@ -901,3 +926,6 @@ footer nav div, .contact-btn-wrap
         &.staff-card
             grid-template-columns: 1fr
             grid-template-rows: 45% 45%
+
+    video
+        min-width: 0px

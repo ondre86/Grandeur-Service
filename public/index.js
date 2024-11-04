@@ -1,9 +1,7 @@
 gsap.registerPlugin(ScrollTrigger)
-
 function $(element) {
     return document.querySelectorAll(element)
 }
-
 function is_touch_enabled() {
     return ( 'ontouchstart' in window ) || 
            ( navigator.maxTouchPoints > 0 ) || 
@@ -12,14 +10,12 @@ function is_touch_enabled() {
 
 addEventListener('DOMContentLoaded', ()=>{
     const lenis = new Lenis()
+    lenis.options.duration = .6
     function raf(time) {
         lenis.raf(time)
         requestAnimationFrame(raf)
     }
     requestAnimationFrame(raf)
-
-    lenis.options.duration = .6
-    console.log(lenis)
 
     function scrollInStagger(el){
         gsap.fromTo(el, {
@@ -30,7 +26,7 @@ addEventListener('DOMContentLoaded', ()=>{
             opacity: 1,
             y: 0,
             duration: .5,
-            ease: "power2.inOut",
+            ease: 'power2.inOut',
             stagger: .1
         })
     }
@@ -46,44 +42,44 @@ addEventListener('DOMContentLoaded', ()=>{
 
         flipTL = gsap.timeline()
 
-        element.addEventListener("click", (e)=>{
+        element.addEventListener('click', (e)=>{
             if (flipped) {
                 flipped = false
                 flipTL.to(element.parentElement, {
-                    rotateY: "90deg",
+                    rotateY: '90deg',
                     duration: .3
                 })
                 .call(()=>{
-                    staticData.name.style.display = staticData.title.style.display = staticData.exp.style.display = "inherit"
-                    staticData.bio.style.display = "none"
-                    staticData.btn.textContent = "Read Bio"
+                    staticData.name.style.display = staticData.title.style.display = staticData.exp.style.display = 'inherit'
+                    staticData.bio.style.display = 'none'
+                    staticData.btn.textContent = 'Read Bio'
                 })
                 .to([element.parentElement, staticData.btn], {
-                    rotateY: "0deg",
+                    rotateY: '0deg',
                     duration: .3
                 })
             }
             else {
                 flipped = true
                 flipTL.to(element.parentElement, {
-                    rotateY: "90deg",
+                    rotateY: '90deg',
                     duration: .3,
-                    ease: "linear"
+                    ease: 'linear'
                 })
                 .call(()=>{
-                    staticData.name.style.display = staticData.title.style.display = staticData.exp.style.display = "none"
-                    staticData.bio.style.display = "inherit"
-                    staticData.btn.textContent = "Close Bio"
+                    staticData.name.style.display = staticData.title.style.display = staticData.exp.style.display = 'none'
+                    staticData.bio.style.display = 'inherit'
+                    staticData.btn.textContent = 'Close Bio'
                 })
                 .to(element.parentElement, {
-                    rotateY: "0deg",
+                    rotateY: '0deg',
                     duration: .3
-                }, "<")
+                }, '<')
             }
         })
     }
 
-    gsap.to("main", {
+    gsap.to('main', {
         opacity: 1,
         duration: .5
     })
@@ -91,12 +87,12 @@ addEventListener('DOMContentLoaded', ()=>{
     switch (location.pathname) {
         case '/':
             introTL = gsap.timeline()
-            .from(["#hero h1", ".hero-text", ".hero-btn-wrap"], {
+            .from(['#hero h1', '.hero-text', '.hero-btn-wrap'], {
                 opacity: 0,
                 y: 20,
                 stagger: .33,
             })
-            .from(".hero-img-wrap", {
+            .from('.hero-img-wrap', {
                 opacity: 0,
                 x: 100,
                 duration: 1
@@ -105,12 +101,12 @@ addEventListener('DOMContentLoaded', ()=>{
             scrollInStagger('#why-us .card-wrap .card')
             scrollInStagger('#use-case .card-wrap .card')
             scrollInStagger('details')
-            scrollInStagger('#contact div')
+            scrollInStagger('form div')
 
             break
 
         case '/about/':
-            for (button of $(".staff-card button")){
+            for (button of $('.staff-card button')){
                 createFlipAnimation(button)
             }
             scrollInStagger('#staff .card-wrap .card')
@@ -121,66 +117,65 @@ addEventListener('DOMContentLoaded', ()=>{
             scrollInStagger('#contact div')
             
             break
+
+        case '/book/':
+            scrollInStagger('#book div')
+            
+            break
     }
 
-    if ($("form")[0]){
-        let form = $("form")[0]
-        let formData = {
-            name: $("input")[0],
-            phone: $("input")[1],
-            email: $("input")[2],
-            msg: $("textarea")[0],
-            honey: $("input")[3],
-            submit: $("#i-submit")[0]
+    if ($('form')[0]){
+        let form = $('form')[0]
+        let inputs = Array.from(form.elements)
+
+        if ($('#i-pickup-date-time')[0]){
+            let realTime = new Date((new Date(Date.now() - new Date().getTimezoneOffset() * 60 * 1000))).toISOString().slice(0,16)
+            $('#i-pickup-date-time')[0].value = realTime
         }
-    
+
         function resetInputValue(){
-            formData.name.value = formData.phone.value = formData.email.value = formData.msg.value = ''
-            formData.name.placeholder = formData.email.placeholder = formData.phone.placeholder = formData.msg.placeholder = formData.submit.placeholder = ''
+            for (input of inputs){
+                input.placeholder = ''
+                input.value = ''
+            }
         }
         function disableInput(){
-            formData.name.disabled = formData.email.disabled = formData.phone.disabled = formData.msg.disabled = formData.submit.disabled = true
+            for (input of inputs){
+                input.disabled = true
+            }
         }
         function errorBorder(){
-            formData.name.style.border = formData.email.style.border = formData.phone.style.border = formData.msg.style.border = formData.submit.style.border = "1px solid red"
-            formData.submit.style.outlineColor = "red"
+            for (input of inputs){
+                input.style.border = '1px solid red'
+                input.style.outlineColor = 'red'
+            }
         }
         
         form.onsubmit = (e)=>{
             e.preventDefault()
-            disableInput()
-    
-            if (formData.honey.value == ''){
+
+            if ($('#form-color')[0].value == ''){
                 fetch(`${window.location.href}`, {
                     method: 'POST',
-                    headers: {
-                        "Content-Type": 'application/json'
-                    },
-                    body: JSON.stringify({
-                        data: {
-                            "Name": formData.name.value,
-                            "Phone Number": formData.phone.value,
-                            "Email Address": formData.email.value,
-                            "Message": formData.msg.value,
-                        }
-                    })
+                    body: new FormData($("form")[0], $("#i-submit")[0])
                 })
                 .then((res)=>{ return res.json() })
                 .then(result => {
-                    resetInputValue()
+                    disableInput()
                     if (result.success){
-                        formData.submit.value = "Thank you!"
+                        resetInputValue()
+                        $('#i-submit')[0].value =  'Thank You!'
                     }
                     else {
                         errorBorder()
-                        formData.submit.value = 'Sorry! Server Error.'
+                        $('#i-submit')[0].value =  'Sorry! Server Error.'
                     }
                 })
             }
         }
     }
     
-    if ($("video")[0]){  
+    if ($('video')[0]){  
         function playVideo(event) {
             if (event.target.paused) {
                 event.target.play()
@@ -193,54 +188,59 @@ addEventListener('DOMContentLoaded', ()=>{
         }
 
         if (is_touch_enabled()){
-            const titleWrap = document.createElement("div")
-            titleWrap.classList.add("flex-v", "gap1","center")
-            const videoHeader = $("#video h2")[0]
-            const tapNotice = document.createElement("span")
-            tapNotice.innerText = "Tap to play / pause"
-            tapNotice.classList.add("font2", "italic")
+            const titleWrap = document.createElement('div')
+            titleWrap.classList.add('flex-v', 'gap1','center')
+            const videoHeader = $('#video h2')[0]
+            const tapNotice = document.createElement('span')
+            tapNotice.innerText = 'Tap to play / pause'
+            tapNotice.classList.add('font2', 'italic')
 
             titleWrap.appendChild(videoHeader)
             titleWrap.appendChild(tapNotice)
             $('#video')[0].insertAdjacentElement('afterbegin', titleWrap)
 
-            $("video")[0].addEventListener('touchstart', (event)=>{
+            $('video')[0].style.width = '100%'
+            $('video')[0].addEventListener('touchstart', (event)=>{
                 playVideo(event)
             })
+            setTimeout(() => {
+                const videoHeight = $('video')[0].clientHeight
+                $('video')[0].height = videoHeight
+                console.log($('video')[0].height)
+            }, 300)
         }
         else {
             video = gsap.timeline({
                 scrollTrigger: {
                     trigger: '#video',
-                    start: "top+=50% bottom",
-                    end: '+=50%',
+                    start: 'top+=25% bottom',
+                    end: '+=40%',
                     scrub: 1
                 },
             })
             .to('video', {
-                opacity: 1,
-                width: "100vw",
-                maxWidth: "none",
+                width: '100vw',
             })
             .to('#video', {
                 paddingLeft: 0,
-                paddingRight: 0
-            }, "<")
+                paddingRight: 0,
+                width: '100%'
+            }, '<')
 
-            $("video")[0].addEventListener('mouseover', (event)=>{
+            $('video')[0].addEventListener('mouseover', (event)=>{
                 if (event.target.paused) {
-                    event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer"  
+                    event.target.style.cursor = "url('/assets/play.svg') 32 32, pointer" 
                 }
                 else {
                     event.target.style.cursor = "url('/assets/pause.svg') 32 32, pointer"
                 }
             })
     
-            $("video")[0].addEventListener('mouseup', (event)=>{
+            $('video')[0].addEventListener('mouseup', (event)=>{
                 playVideo(event)
             })
 
-            $("video")[0].addEventListener('keydown', (event)=>{
+            $('video')[0].addEventListener('keydown', (event)=>{
                 if (event.key === 'Enter' || event.key === ' '){
                     event.preventDefault()
                     playVideo(event)
@@ -252,11 +252,11 @@ addEventListener('DOMContentLoaded', ()=>{
 
     // MOBILE MENU
     let mobileMenu = {
-        menu: $(".mm-holster")[0],
-        button: $(".mobile-menu")[0],
-        hamburgerTop: $(".hamburger-inner")[0],
-        hamburgerMiddle: $(".hamburger-inner")[1],
-        hamburgerBottom: $(".hamburger-inner")[2],
+        menu: $('.mm-holster')[0],
+        button: $('.mobile-menu')[0],
+        hamburgerTop: $('.hamburger-inner')[0],
+        hamburgerMiddle: $('.hamburger-inner')[1],
+        hamburgerBottom: $('.hamburger-inner')[2],
     }
     let mobileMenuTL = gsap.timeline();
     let mobileMenuToggled = false;
@@ -270,21 +270,21 @@ addEventListener('DOMContentLoaded', ()=>{
         .to(mobileMenu.hamburgerBottom,{
             y: -7,
             duration: .15
-        }, "<<")
+        }, '<<')
         .to(mobileMenu.menu,{
-            display: "flex",  
-            transform: "translate(0px, 70px)",
-            ease: "power2.out",
+            display: 'flex',  
+            transform: 'translate(0px, 70px)',
+            ease: 'power2.out',
             duration: .75
-        }, "<")
+        }, '<')
         .to([mobileMenu.hamburgerBottom, mobileMenu.hamburgerTop], {
             rotate:45,
             duration: .15
-        }, "-=.5")
+        }, '-=.5')
         .to([mobileMenu.hamburgerMiddle], {
             rotate:-45,
             duration: .15
-        }, "<")
+        }, '<')
     }
     function closeMobileMenu(){
         mobileMenuToggled = false;
@@ -295,24 +295,24 @@ addEventListener('DOMContentLoaded', ()=>{
         .to([mobileMenu.hamburgerMiddle], {
             rotate: 0,
             duration: .15
-        }, "<<")
+        }, '<<')
         .to(mobileMenu.menu,{
-            display: "none",
-            transform: "translate(0px, -100vh)",
-            ease: "power1.in",
+            display: 'none',
+            transform: 'translate(0px, -100vh)',
+            ease: 'power1.in',
             duration: .5
-        }, "<")
+        }, '<')
         .to(mobileMenu.hamburgerTop,{
             y: 0,
             duration: .15
-        }, "-=.25")
+        }, '-=.25')
         .to(mobileMenu.hamburgerBottom,{
             y: 0,
             duration: .15
-        }, "<")
+        }, '<')
     }
 
-    mobileMenu.button.addEventListener("click", (e)=>{
+    mobileMenu.button.addEventListener('click', (e)=>{
         if(mobileMenuToggled == false){
             openMobileMenu()
         }
