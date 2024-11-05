@@ -305,7 +305,7 @@
                             <label for="i-phone-number">Phone Number
                                 <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
                             </label>
-                            <input type="tel" id="i-phone-number" name="phone-number" placeholder="901-555-5555" required autocomplete="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="10" inputmode="decimal">
+                            <input type="tel" id="i-phone-number" name="phone-number" placeholder="901-555-5555" required autocomplete="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" inputmode="decimal">
                         </div>
                         <div>
                             <label for="i-party-size">Party Size
@@ -402,7 +402,10 @@
                         <label for="form-color">Color</label>
                         <input id="form-color" type="text" autocomplete="off" tabindex="-1" value="">
                     </div>
-                    <input type="submit" id="i-submit" value="Submit">
+                    <div>
+                        <input type="submit" id="i-submit" value="Submit">
+                        <span class="loader"></span>
+                    </div>
                 </form>
             </div>
         </section>

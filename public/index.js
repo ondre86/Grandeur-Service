@@ -133,6 +133,13 @@ addEventListener('DOMContentLoaded', ()=>{
             $('#i-pickup-date-time')[0].value = realTime
         }
 
+        if ($('#i-phone-number')[0]){
+            $('#i-phone-number')[0].addEventListener('keyup', function(event){
+                if (event.key != 'Backspace' && ($('#i-phone-number')[0].value.length === 3 || $('#i-phone-number')[0].value.length === 7)){
+                    $('#i-phone-number')[0].value += '-'
+                }
+        })}
+
         function resetInputValue(){
             for (input of inputs){
                 input.placeholder = ''
@@ -155,9 +162,12 @@ addEventListener('DOMContentLoaded', ()=>{
             e.preventDefault()
 
             if ($('#form-color')[0].value == ''){
+                $("#i-submit")[0].style.display = "none"
+                $(".loader")[0].style.display = "flex"
+
                 fetch(`${window.location.href}`, {
                     method: 'POST',
-                    body: new FormData($("form")[0], $("#i-submit")[0])
+                    body: new FormData($("form")[0])
                 })
                 .then((res)=>{ return res.json() })
                 .then(result => {
@@ -170,6 +180,8 @@ addEventListener('DOMContentLoaded', ()=>{
                         errorBorder()
                         $('#i-submit')[0].value =  'Sorry! Server Error.'
                     }
+                    $("#i-submit")[0].style.display = "flex"
+                    $(".loader")[0].style.display = "none"
                 })
             }
         }
