@@ -92,15 +92,6 @@ async function formatAndSendEmail(req, res){
         mailOptions.subject = "New Website Message"
     }
 
-    // transporter.sendMail(mailOptions, function(error, info){
-    //     if (error) {
-    //         res.send({ success: false })
-    //     } 
-    //     else {
-    //         res.send({ success: true })
-    //     }
-    // })
-
     const CF_SECRET_KEY = process.env.CF_SECRET
 
     let cfData = new FormData()
@@ -114,11 +105,18 @@ async function formatAndSendEmail(req, res){
 
     const outcome = await result.json()
     if (!outcome.success) {
-        console.log(JSON.stringify(outcome))
         res.send({success:false})
     }
     else{
-        console.log(JSON.stringify(outcome))
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                res.send({ success: false })
+            } 
+            else {
+                res.send({ success: true })
+            }
+        })
+
         res.send({success:true})
     }
 
