@@ -21,12 +21,18 @@ app.use(helmet({
         directives: {
             scriptSrc: [
                 "'self'", 
-                "cloud.umami.is"
+                "cloud.umami.is",
+                "challenges.cloudflare.com"
             ],
             connectSrc: [
                 "'self'",
-                "https://api-gateway.umami.dev/api/send"
+                "https://api-gateway.umami.dev/api/send",
+                "challenges.cloudflare.com"
             ],
+            frameSrc: [
+                "'self'",
+                "challenges.cloudflare.com"
+            ]
         }
     }
 }))
@@ -60,12 +66,12 @@ app.listen(PORT, (error) =>{
     }
 )
 
-function formatAndSendEmail(req, res){
+async function formatAndSendEmail(req, res){
     let formData = {...req.body}
     let text = ''
     let mailOptions = {
         from: 'REDACTED',
-        to: 'info@grandeurservice.com',
+        to: 'ondre86@gmail.com',
         subject: '',
         text: {}
     }
@@ -86,14 +92,36 @@ function formatAndSendEmail(req, res){
         mailOptions.subject = "New Website Message"
     }
 
-    transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-            res.send({ success: false })
-        } 
-        else {
-            res.send({ success: true })
-        }
+    // transporter.sendMail(mailOptions, function(error, info){
+    //     if (error) {
+    //         res.send({ success: false })
+    //     } 
+    //     else {
+    //         res.send({ success: true })
+    //     }
+    // })
+
+    const CF_SECRET_KEY = process.env.CF_SECRET
+
+    let cfData = new FormData()
+    cfData.append("secret", CF_SECRET_KEY)
+    cfData.append("response", formData['cf-turnstile-response'])
+
+    const result = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        body: cfData,
+        method: 'POST',
     })
+
+    const outcome = await result.json()
+    if (!outcome.success) {
+        console.log(JSON.stringify(outcome))
+        res.send({success:false})
+    }
+    else{
+        console.log(JSON.stringify(outcome))
+        res.send({success:true})
+    }
+
 }
 
 

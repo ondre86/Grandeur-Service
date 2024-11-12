@@ -161,29 +161,29 @@ addEventListener('DOMContentLoaded', ()=>{
         form.onsubmit = (e)=>{
             e.preventDefault()
 
-            if ($('#form-color')[0].value == ''){
-                $("#i-submit")[0].style.display = "none"
-                $(".loader")[0].style.display = "flex"
+            $("#i-submit")[0].style.display = "none"
+            $(".loader")[0].style.display = "flex"
 
-                fetch(`${window.location.href}`, {
-                    method: 'POST',
-                    body: new FormData($("form")[0])
-                })
-                .then((res)=>{ return res.json() })
-                .then(result => {
-                    disableInput()
-                    if (result.success){
-                        resetInputValue()
-                        $('#i-submit')[0].value =  'Thank You!'
-                    }
-                    else {
-                        errorBorder()
-                        $('#i-submit')[0].value =  'Sorry! Server Error.'
-                    }
-                    $("#i-submit")[0].style.display = "flex"
-                    $(".loader")[0].style.display = "none"
-                })
-            }
+            let data = new FormData($("form")[0])
+
+            fetch(`${window.location.href}`, {
+                method: 'POST',
+                body: data
+            })
+            .then((res)=>{ return res.json() })
+            .then(result => {
+                disableInput()
+                if (result.success){
+                    resetInputValue()
+                    $('#i-submit')[0].value =  'Thank You!'
+                }
+                else {
+                    errorBorder()
+                    $('#i-submit')[0].value =  'Sorry! Server Error.'
+                }
+                $("#i-submit")[0].style.display = "flex"
+                $(".loader")[0].style.display = "none"
+            })
         }
     }
     
