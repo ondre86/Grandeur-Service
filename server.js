@@ -89,7 +89,7 @@ async function formatAndSendEmail(req, res){
     }
 
     delete formData['cf-turnstile-response']
-    formData['pickup-date-time'] = formData['pickup-date-time'].toLocaleString()
+    formData['pickup-date-time'] = new Date(formData['pickup-date-time']).toLocaleString()
 
     for (let key in formData) {
         if (formData.hasOwnProperty(key)) {
