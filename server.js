@@ -2,9 +2,11 @@ const express = require('express')
 const helmet = require('helmet')
 const nodemailer = require('nodemailer')
 const multer = require('multer')
+const changeCase = require('change-case')
 const upload = multer()
 const app = express()
 const PORT = 3333
+const CF_SECRET_KEY = process.env.CF_SECRET
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.hostinger.com',
@@ -68,6 +70,16 @@ app.listen(PORT, (error) =>{
 
 async function formatAndSendEmail(req, res){
     let formData = {...req.body}
+
+    let cfData = new FormData()
+    cfData.append("secret", CF_SECRET_KEY)
+    cfData.append("response", formData['cf-turnstile-response'])
+
+    const result = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        body: cfData,
+        method: 'POST',
+    })
+
     let text = ''
     let mailOptions = {
         from: 'REDACTED',
@@ -76,10 +88,12 @@ async function formatAndSendEmail(req, res){
         text: {}
     }
 
+    delete formData['cf-turnstile-response']
+
     for (let key in formData) {
         if (formData.hasOwnProperty(key)) {
             value = formData[key];
-            text += `${key}: ${value}\n` 
+            text += `${changeCase.capitalCase(key)}: ${value}\n` 
         }
     }
 
@@ -91,17 +105,6 @@ async function formatAndSendEmail(req, res){
     else {
         mailOptions.subject = "New Website Message"
     }
-
-    const CF_SECRET_KEY = process.env.CF_SECRET
-
-    let cfData = new FormData()
-    cfData.append("secret", CF_SECRET_KEY)
-    cfData.append("response", formData['cf-turnstile-response'])
-
-    const result = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-        body: cfData,
-        method: 'POST',
-    })
 
     const outcome = await result.json()
     if (!outcome.success) {
