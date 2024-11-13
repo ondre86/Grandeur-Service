@@ -106,10 +106,10 @@ async function formatAndSendEmail(req, res){
         body: cfData,
         method: 'POST',
     })
-
     const outcome = await result.json()
+
     if (!outcome.success) {
-        res.send({ success:false })
+        res.send({ success: false })
     }
     else{
         let text = ''
@@ -127,8 +127,7 @@ async function formatAndSendEmail(req, res){
         }
         
         if (formData['dropoff-time']){
-            let formattedDropoffTime = format24HourTime(formData['dropoff-time'])
-            formData['dropoff-time'] = formattedDropoffTime
+            formData['dropoff-time'] = format24HourTime(formData['dropoff-time'])
         }
     
         for (let key in formData) {
