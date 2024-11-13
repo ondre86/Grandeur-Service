@@ -5,7 +5,8 @@ const multer = require('multer')
 const changeCase = require('change-case-commonjs')
 const upload = multer()
 const app = express()
-const PORT = 3333
+
+const PORT = process.env.PORT
 const CF_SECRET_KEY = process.env.CF_SECRET
 
 const transporter = nodemailer.createTransport({
@@ -106,41 +107,41 @@ async function formatAndSendEmail(req, res){
         method: 'POST',
     })
 
-    let text = ''
-    let mailOptions = {
-        from: 'REDACTED',
-        to: 'ondre86@gmail.com',
-        subject: '',
-        text: {}
-    }
-
-    delete formData['cf-turnstile-response']
-    formData['pickup-date-time'] = new Date(formData['pickup-date-time']).toLocaleString()
-
-    let formattedDropoffTime = format24HourTime(formData['dropoff-time'])
-    formData['dropoff-time'] = formattedDropoffTime
-
-    for (let key in formData) {
-        if (formData.hasOwnProperty(key)) {
-            value = formData[key];
-            text += `${changeCase.capitalCase(key)}: ${value}\n` 
-        }
-    }
-
-    mailOptions.text = text
-
-    if (text.includes("pickup")){
-        mailOptions.subject = "New Booking Request"
-    }
-    else {
-        mailOptions.subject = "New Website Message"
-    }
-
     const outcome = await result.json()
     if (!outcome.success) {
-        res.send({success:false})
+        res.send({ success:false })
     }
     else{
+        let text = ''
+        let mailOptions = {
+            from: 'REDACTED',
+            to: 'ondre86@gmail.com',
+            subject: '',
+            text: {}
+        }
+    
+        delete formData['cf-turnstile-response']
+        formData['pickup-date-time'] = new Date(formData['pickup-date-time']).toLocaleString()
+    
+        let formattedDropoffTime = format24HourTime(formData['dropoff-time'])
+        formData['dropoff-time'] = formattedDropoffTime
+    
+        for (let key in formData) {
+            if (formData.hasOwnProperty(key)) {
+                value = formData[key];
+                text += `${changeCase.capitalCase(key)}: ${value}\n` 
+            }
+        }
+    
+        mailOptions.text = text
+    
+        if (text.includes("Pickup")){
+            mailOptions.subject = "New Booking Request"
+        }
+        else {
+            mailOptions.subject = "New Website Message"
+        }
+
         transporter.sendMail(mailOptions, function(error, info){
             if (error) {
                 res.send({ success: false })
