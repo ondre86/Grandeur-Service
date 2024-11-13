@@ -116,10 +116,7 @@ async function formatAndSendEmail(req, res){
                 res.send({ success: true })
             }
         })
-
-        res.send({success:true})
     }
-
 }
 
 
