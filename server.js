@@ -68,6 +68,32 @@ app.listen(PORT, (error) =>{
     }
 )
 
+function format24HourTime(time){
+    let array = time.split(":")
+    let hours = Number(array[0])
+    let minutes = Number(array[1])
+    let meridian = ""
+    if (hours > 12 && hours !== 24){
+        hours = hours % 12
+        meridian = "PM"
+    }
+    else if (hours == 0 || hours == 24){
+        hours = 12
+        meridian = "AM"
+    }
+    else if (hours == 12){
+        hours = 12
+        meridian = "PM"
+    }
+    else {
+        meridian = "AM"
+    }
+    if (minutes < 10){
+        minutes = "0" + minutes
+    }
+    return `${hours}:${minutes} ${meridian}`
+}
+
 async function formatAndSendEmail(req, res){
     let formData = {...req.body}
 
@@ -90,6 +116,9 @@ async function formatAndSendEmail(req, res){
 
     delete formData['cf-turnstile-response']
     formData['pickup-date-time'] = new Date(formData['pickup-date-time']).toLocaleString()
+
+    let formattedDropoffTime = format24HourTime(formData['dropoff-time'])
+    formData['dropoff-time'] = formattedDropoffTime
 
     for (let key in formData) {
         if (formData.hasOwnProperty(key)) {
