@@ -79,10 +79,10 @@ addEventListener('DOMContentLoaded', ()=>{
         })
     }
 
-    gsap.to('main', {
-        opacity: 1,
-        duration: .5
-    })
+    // gsap.to('main', {
+    //     opacity: 1,
+    //     duration: .5
+    // })
 
     switch (location.pathname) {
         case '/':
