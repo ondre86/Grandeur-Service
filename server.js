@@ -33,7 +33,8 @@ app.use(helmet({
                 "https://www.googletagmanager.com",
                 "https://*.googletagmanager.com",
                 "https://pagead2.googlesyndication.com" ,
-                "https://googleads.g.doubleclick.net" ,
+                "https://googleads.g.doubleclick.net",
+                "https://tagmanager.google.com"
             ],
             imgSrc: [
                 "'self'",
@@ -47,6 +48,8 @@ app.use(helmet({
                 "https://*.googletagmanager.com", 
                 "https://*.g.doubleclick.net", 
                 "https://*.google.com",
+                "https://ssl.gstatic.com",
+                "https://www.gstatic.com"
             ],
             connectSrc: [
                 "'self'",
@@ -67,6 +70,17 @@ app.use(helmet({
                 "challenges.cloudflare.com",
                 "https://www.googletagmanager.com",
                 "https://td.doubleclick.net"
+            ],
+            styleSrc: [
+                "'self'",
+                "https://googletagmanager.com",
+                "https://tagmanager.google.com",
+                "https://fonts.googleapis.com"
+            ],
+            fontSrc: [
+                "'self'",
+                "https://fonts.gstatic.com",
+                "data:"
             ]
         }
     }

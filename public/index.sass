@@ -443,6 +443,10 @@ form
         &[for=i-type5]
             align-items: center
 
+        span
+            font-size: 1.25rem
+            color: rgba(182,143,64,1)
+
     #form-color, label[for=form-color]
         position: absolute
         top: -20000px
@@ -520,6 +524,7 @@ form
             padding-bottom: 1rem
 
         legend
+            font-size: 2rem
             width: 100%
 
 .loader 
@@ -627,6 +632,9 @@ footer nav div, .contact-btn-wrap
 
                 img
                     width: 20px
+
+                span
+                    font-size: 1rem
     span
         font-size: .80rem
 
@@ -837,7 +845,7 @@ footer nav div, .contact-btn-wrap
 .hamburger-inner
     width: 20px
     height: 1px
-    background-color: white
+    background-color: white !important
 
 .mm-holster
     height: 100vh
@@ -846,6 +854,11 @@ footer nav div, .contact-btn-wrap
     display: none
     position: fixed
     background-color: $grey-main-100
+
+noscript
+    iframe
+        display: none
+        visibility: hidden
 
 @media (max-width: 1024px)
     main 

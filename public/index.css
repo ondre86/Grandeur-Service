@@ -420,6 +420,10 @@ form label {
 form label[for=i-type5] {
   align-items: center;
 }
+form label span {
+  font-size: 1.25rem;
+  color: rgb(182, 143, 64);
+}
 form #form-color, form label[for=form-color] {
   position: absolute;
   top: -20000px;
@@ -495,6 +499,7 @@ form fieldset:last-of-type {
   padding-bottom: 1rem;
 }
 form fieldset legend {
+  font-size: 2rem;
   width: 100%;
 }
 
@@ -590,6 +595,9 @@ footer nav div ul li a:hover, footer nav div ul li a:focus, .contact-btn-wrap ul
 }
 footer nav div ul li a img, .contact-btn-wrap ul li a img {
   width: 20px;
+}
+footer nav div ul li a span, .contact-btn-wrap ul li a span {
+  font-size: 1rem;
 }
 footer nav div span, .contact-btn-wrap span {
   font-size: 0.8rem;
@@ -794,7 +802,7 @@ footer nav div span, .contact-btn-wrap span {
 .hamburger-inner {
   width: 20px;
   height: 1px;
-  background-color: white;
+  background-color: white !important;
 }
 
 .mm-holster {
@@ -804,6 +812,11 @@ footer nav div span, .contact-btn-wrap span {
   display: none;
   position: fixed;
   background-color: rgb(35, 35, 35);
+}
+
+noscript iframe {
+  display: none;
+  visibility: hidden;
 }
 
 @media (max-width: 1024px) {

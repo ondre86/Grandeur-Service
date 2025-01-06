@@ -41,7 +41,7 @@
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFNV4R8S"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        height="0" width="0"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div class="mm-holster">
         <nav aria-label="mobile-navigation">
@@ -98,9 +98,9 @@
             </ul>
             <div class="mobile-menu">
                 <div class="hamburger-box">
-                    <div class="hamburger-inner" style="background-color: white !important;"></div>
-                    <div class="hamburger-inner" style="background-color: white !important;"></div>
-                    <div class="hamburger-inner" style="background-color: white !important;"></div>
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
                 </div>
             </div>
         </nav>
@@ -114,28 +114,28 @@
             <h1 id="form-title">Book a Ride</h1>
             <form action="/" method="post" aria-labelledby="form-title">
                 <fieldset>
-                    <legend class="font2 txt-center italic" style="font-size: 2rem; margin-top: 1rem;">Information</legend>
+                    <legend class="font2 txt-center italic">Information</legend>
                     <div>
                         <label for="i-name">Name
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="text" id="i-name" name="name" placeholder="John Smith" required autocomplete="name">
                     </div>
                     <div>
                         <label for="i-email-address">Email Address
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="email" id="i-email-address" name="email-address" placeholder="john.smith@gmail.com" required autocomplete="email" inputmode="email">
                     </div>
                     <div>
                         <label for="i-phone-number">Phone Number
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="tel" id="i-phone-number" name="phone-number" placeholder="901-555-5555" required autocomplete="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" inputmode="decimal">
                     </div>
                     <div>
                         <label for="i-party-size">Party Size
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="number" id="i-party-size" name="party-size" placeholder="2" required min="1" max="15" inputmode="decimal"></input>
                     </div>
@@ -151,7 +151,7 @@
                     </div>
                     <div role="radiogroup" aria-labelledby="service-type">
                         <span id="service-type">Type of Service&nbsp;
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">*</span>
+                            <span>*</span>
                         </span>
                         <div class="flex-h full-width">
                             <input type="radio" name="service-type" value="Hourly" id="i-hourly" required>
@@ -164,62 +164,62 @@
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend class="font2 txt-center italic" style="font-size: 2rem; margin-top: 3rem;">Pick Up</legend>
+                    <legend class="font2 txt-center italic">Pick Up</legend>
                     <div>
                         <label for="i-pickup-date-time">Date & Time
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="datetime-local" id="i-pickup-date-time" name="pickup-date-time" value="2022-03-31T12:00" required>
                     </div>
                     <div>
                         <label for="i-pickup-address">Address
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <textarea id="i-pickup-address" name="pickup-address" placeholder="123 Main St." required autocomplete="street-address"></textarea>
                     </div>
                     <div>
                         <label for="i-pickup-city">City
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="text" id="i-pickup-city" name="pickup-city" placeholder="Memphis" required autocomplete="address-level2">
                     </div>
                     <div>
                         <label for="i-pickup-zip">Zip Code
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="text" id="i-pickup-zip" name="pickup-zip" placeholder="37501" required autocomplete="postal-code" maxlength="5">
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend class="font2 txt-center italic" style="font-size: 2rem; margin-top: 3rem;">Drop Off</legend>
+                    <legend class="font2 txt-center italic">Drop Off</legend>
                     <div>
                         <label for="i-dropoff-address">Address
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="text" id="i-dropoff-address" name="dropoff-address" placeholder="321 1st St." required autocomplete="off">
                     </div>
                     <div>
                         <label for="i-dropoff-city">City
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="text" id="i-dropoff-city" name="dropoff-city" placeholder="Memphis" required autocomplete="off">
                     </div>
                     <div>
                         <label for="i-dropoff-zip">Zip Code
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);">&nbsp;*</span>
+                            <span>&nbsp;*</span>
                         </label>
                         <input type="text" id="i-dropoff-zip" name="dropoff-zip" placeholder="38117" required maxlength="5" autocomplete="off">
                     </div>
                     <div>
                         <label for="i-dropoff-time">Time
-                            <span style="font-size: 1.25rem; color: rgba(182,143,64,1);"></span>
+                            <span></span>
                         </label>
                         <input type="time" id="i-dropoff-time" name="dropoff-time">
                     </div>
                 </fieldset>
                 <fieldset>
+                    <legend class="font2 txt-center italic">Notes</legend>
                     <div>
-                        <legend class="font2 txt-center italic" style="font-size: 2rem; margin-bottom: 1rem;">Notes</legend>
                         <label for="i-notes">Additional Notes</label>
                         <textarea name="notes" id="i-notes" rows="5"></textarea>
                     </div>
