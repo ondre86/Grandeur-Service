@@ -25,16 +25,19 @@ app.use(helmet({
             scriptSrc: [
                 "'self'", 
                 "cloud.umami.is",
-                "challenges.cloudflare.com"
+                "challenges.cloudflare.com",
+                "googletagmanager.com"
             ],
             connectSrc: [
                 "'self'",
                 "https://api-gateway.umami.dev/api/send",
-                "challenges.cloudflare.com"
+                "challenges.cloudflare.com",
+                "googletagmanager.com"
             ],
             frameSrc: [
                 "'self'",
-                "challenges.cloudflare.com"
+                "challenges.cloudflare.com",
+                "googletagmanager.com"
             ]
         }
     }
