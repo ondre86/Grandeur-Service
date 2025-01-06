@@ -3,6 +3,7 @@ const helmet = require('helmet')
 const nodemailer = require('nodemailer')
 const multer = require('multer')
 const changeCase = require('change-case-commonjs')
+const crypto = require('node:crypto')
 const upload = multer()
 const app = express()
 
@@ -26,18 +27,46 @@ app.use(helmet({
                 "'self'", 
                 "cloud.umami.is",
                 "challenges.cloudflare.com",
-                "googletagmanager.com"
+                "'sha256-wP0vy8i7fU41U3P9othb/AJuArmAVhAtoX5OeT7a8Tk='",
+                "https://www.googleadservices.com",
+                "https://www.google.com",
+                "https://www.googletagmanager.com",
+                "https://*.googletagmanager.com",
+                "https://pagead2.googlesyndication.com" ,
+                "https://googleads.g.doubleclick.net" ,
+            ],
+            imgSrc: [
+                "'self'",
+                "https://www.googletagmanager.com",
+                "https://googleads.g.doubleclick.net", 
+                "https://www.google.com",
+                "https://google.com",
+                "https://pagead2.googlesyndication.com",
+                "https://*.google-analytics.com", 
+                "https://*.analytics.google.com", 
+                "https://*.googletagmanager.com", 
+                "https://*.g.doubleclick.net", 
+                "https://*.google.com",
             ],
             connectSrc: [
                 "'self'",
                 "https://api-gateway.umami.dev/api/send",
                 "challenges.cloudflare.com",
-                "googletagmanager.com"
+                "https://pagead2.googlesyndication.com", 
+                "https://www.googleadservices.com",
+                "https://www.google.com", 
+                "https://google.com",
+                "https://*.google-analytics.com", 
+                "https://*.analytics.google.com", 
+                "https://*.googletagmanager.com", 
+                "https://*.g.doubleclick.net", 
+                "https://*.google.com",
             ],
             frameSrc: [
                 "'self'",
                 "challenges.cloudflare.com",
-                "googletagmanager.com"
+                "https://www.googletagmanager.com",
+                "https://td.doubleclick.net"
             ]
         }
     }
@@ -51,6 +80,9 @@ app.get('/about/', (req, res)=>{
     res.status(200).send()
 })
 app.get('/contact/', (req, res)=>{
+    res.status(200).send()
+})
+app.get('/book/', (req, res)=>{
     res.status(200).send()
 })
 
@@ -117,7 +149,7 @@ async function formatAndSendEmail(req, res){
     else{
         let text = ''
         let mailOptions = {
-            from: 'REDACTED',
+            from: 'automated@ondre.org',
             to: 'info@grandeurservice.com',
             subject: '',
             text: {}
