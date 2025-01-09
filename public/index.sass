@@ -439,6 +439,7 @@ form
     label
         @extend %flex, %trans
         width: 100%
+        font-weight: 600
 
         &[for=i-type5]
             align-items: center
@@ -446,6 +447,9 @@ form
         span
             font-size: 1.25rem
             color: rgba(182,143,64,1)
+
+    input + label
+        font-weight: 500
 
     #form-color, label[for=form-color]
         position: absolute
