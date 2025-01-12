@@ -99,6 +99,9 @@ app.get('/contact/', (req, res)=>{
 app.get('/book/', (req, res)=>{
     res.status(200).send()
 })
+app.get('/sitemap.xml', (req, res)=>{
+    res.sendFile('/sitemap.xml')
+})
 
 app.post('/', upload.none(), (req, res)=>{
     formatAndSendEmail(req, res)
