@@ -879,6 +879,9 @@ dialog .dialog-meta {
 dialog .dialog-text {
   max-width: 768px;
 }
+dialog .dialog-text h2 {
+  font-family: "bask";
+}
 dialog .dialog-text .underline {
   text-decoration: underline;
   text-underline-offset: 4px;
