@@ -16,19 +16,19 @@
   font-weight: 600;
   font-style: normal;
 }
-.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, .flex, .flex-h, .hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, header, .flex-v {
+.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, .flex, dialog .dialog-content .close, .flex-h, dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, header, .flex-v {
   display: flex;
 }
 
-.hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, header, .flex-v {
+dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, header, .flex-v {
   flex-direction: column;
 }
 
-.flex-h {
+dialog .dialog-content .close, .flex-h {
   flex-direction: row;
 }
 
-.card.staff-card, .card-wrap.staff-card-wrap .card, .hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul, footer nav nav, footer, section#hero, main, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .center {
+dialog .dialog-meta, dialog .dialog-content .close, .card.staff-card, .card-wrap.staff-card-wrap .card, .hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul, footer nav nav, footer, section#hero, main, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .center {
   justify-content: center;
   align-items: center;
 }
@@ -42,11 +42,11 @@ section {
   gap: 0.5rem;
 }
 
-footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul, .contact-btn-wrap ul, form div, header nav .nav-btn-wrap {
+dialog .dialog-meta, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul, .contact-btn-wrap ul, form div, header nav .nav-btn-wrap {
   gap: 1rem;
 }
 
-.card, .card-wrap, form fieldset, form {
+dialog .dialog-text, .card, .card-wrap, form fieldset, form {
   gap: 2rem;
 }
 
@@ -58,19 +58,19 @@ footer nav nav, section {
   width: 100%;
 }
 
-footer nav div ul li a, .contact-btn-wrap ul li a, .fit-width {
+dialog .cta, footer nav div ul li a, .contact-btn-wrap ul li a, .fit-width {
   width: fit-content;
 }
 
-footer nav nav ul, .button, header nav ul, header nav {
+dialog .dialog-content .close, footer nav nav ul, .button, header nav ul, header nav {
   height: fit-content;
 }
 
-footer nav, header nav {
+dialog .dialog-content, footer nav, header nav {
   max-width: 1600px;
 }
 
-.about-text a, .card.staff-card button, .card a, .card, .card-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul a, form input[type=submit], form textarea[type=submit], form label, video, details p a, details ul a, details, section, .button svg path, .button, header nav ul a {
+dialog .cta, dialog .dialog-content .close, .about-text a, .card.staff-card button, .card a, .card, .card-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul a, form input[type=submit], form textarea[type=submit], form label, video, details p a, details ul a, details, section, .button svg path, .button, header nav ul a {
   transition: all 0.3s;
 }
 
@@ -124,7 +124,7 @@ footer nav div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
   font-family: infra;
   font-weight: 300;
 }
-*:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video, .about-text a) {
+*:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video, .about-text a, .cta) {
   outline: 3px solid rgb(182, 143, 64);
   outline-offset: 3px;
 }
@@ -158,7 +158,7 @@ html.lenis, html.lenis body {
 a {
   color: inherit;
 }
-a:visited:not(nav a) {
+a:visited:not(nav a, .cta) {
   color: rgb(234, 197, 123);
 }
 
@@ -814,6 +814,96 @@ footer nav div span, .contact-btn-wrap span {
   background-color: rgb(35, 35, 35);
 }
 
+dialog {
+  display: none;
+  padding: 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 999999;
+  background-color: rgba(10, 10, 10, 0.7607843137);
+  border: 0px solid #303030;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+dialog .font-sm {
+  font-size: 0.66rem;
+  font-style: italic;
+}
+dialog .dialog-content {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 3rem;
+  margin: auto;
+  padding: 2rem;
+  background-color: #151515;
+  border-radius: 1rem;
+  height: fit-content;
+}
+dialog .dialog-content .close {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  background-color: #B1201F;
+  color: white;
+  padding: 6px;
+  border: 1px solid white;
+  border-radius: 100rem;
+  z-index: 999;
+}
+dialog .dialog-content .close:hover, dialog .dialog-content .close:focus {
+  background-color: #9a2c3b;
+}
+dialog .dialog-content .close:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+dialog .dialog-content .close:active {
+  background-color: #4f171e;
+}
+dialog .dialog-img {
+  height: fit-content;
+}
+dialog .dialog-img img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}
+dialog .dialog-meta {
+  align-items: flex-start;
+}
+dialog .dialog-text {
+  max-width: 768px;
+}
+dialog .dialog-text .underline {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+dialog .cta {
+  padding: 1rem 1rem;
+  background-color: #B1201F;
+  color: white;
+  font-weight: 500;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  margin: 1rem 0 0 0;
+  text-decoration: none;
+}
+dialog .cta:hover, dialog .cta:focus {
+  background-color: #9a2c3b;
+}
+dialog .cta:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+dialog .cta:active {
+  background-color: #4f171e;
+}
+
 noscript iframe {
   display: none;
   visibility: hidden;
@@ -943,6 +1033,14 @@ noscript iframe {
   input, textarea {
     width: 100%;
   }
+  dialog {
+    padding-top: calc(70px + 2rem);
+  }
+  dialog .dialog-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
 }
 @media (max-width: 500px) {
   main:has(#hero) {
@@ -989,5 +1087,9 @@ noscript iframe {
   }
   video {
     min-width: 0px;
+  }
+  dialog .dialog-content .dialog-meta .cta {
+    width: 100%;
+    text-align: center;
   }
 }/*# sourceMappingURL=index.css.map */

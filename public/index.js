@@ -9,13 +9,13 @@ function is_touch_enabled() {
 }
 
 addEventListener('DOMContentLoaded', ()=>{
-    const lenis = new Lenis()
-    lenis.options.duration = .6
-    function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf)
+    // const lenis = new Lenis()
+    // lenis.options.duration = .6
+    // function raf(time) {
+    //     lenis.raf(time)
+    //     requestAnimationFrame(raf)
+    // }
+    // requestAnimationFrame(raf)
 
     function scrollInStagger(el){
         gsap.fromTo(el, {
@@ -338,4 +338,35 @@ addEventListener('DOMContentLoaded', ()=>{
             closeMobileMenu()
         }
     })
+
+    // DIALOG
+    if (window.location.pathname == '/'){
+        let dialogElement = {
+            dialog: $('dialog')[0],
+            close: $('dialog .close')[0],
+            cta: $('dialog .cta')[0],
+        }
+    
+        dialogTL = gsap.timeline()
+        setTimeout(() => {
+            dialogTL.to(dialogElement.dialog, {
+                opacity: 1
+            })
+            dialogElement.dialog.show()
+            dialogElement.dialog.style.display = 'flex'
+            $('body')[0].style.overflow = 'hidden'
+        }, 2000)
+
+        dialogElement.close.addEventListener('click', (event)=>{
+            dialogTL.to(dialogElement.dialog, {
+                opacity: 0,
+            })
+            dialogTL.to(dialogElement.dialog, {
+                zIndex: -1,
+            })
+            dialogElement.dialogElement.close()
+            dialogElement.dialog.style.display = 'none'
+            $('body')[0].style.overflow = 'auto'
+        })
+    }
 })

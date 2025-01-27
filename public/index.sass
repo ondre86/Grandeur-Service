@@ -134,7 +134,7 @@ $grey-acc3-100:rgba(85,85,85,1)
     font-family: infra
     font-weight: 300
 
-    &:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video, .about-text a)
+    &:focus:not(#nav-home, #footer-home, summary, p a, .mm-list-item a, video, .about-text a, .cta)
         outline: 3px solid $gold
         outline-offset: 3px
 
@@ -169,7 +169,7 @@ html.lenis, html.lenis body
 a
     color: inherit
 
-    &:visited:not(nav a)
+    &:visited:not(nav a, .cta)
         color: $gold-light
 
 h1
@@ -859,6 +859,99 @@ footer nav div, .contact-btn-wrap
     position: fixed
     background-color: $grey-main-100
 
+dialog
+    display: none
+    padding: 5%
+    position: fixed
+    top: 0
+    left: 0
+    opacity: 0
+    z-index: 999999
+    background-color: #0a0a0ac2
+    border: 0px solid #303030
+    height: 100%
+    width: 100%
+    overflow: auto
+
+    .font-sm
+        font-size: .66rem
+        font-style: italic
+
+    .dialog-content
+        @extend %maxWidth
+        position: relative
+        display: grid
+        grid-template-columns: auto auto
+        gap: 3rem
+        margin: auto
+        padding: 2rem
+        background-color: #151515
+        border-radius: 1rem
+        height: fit-content
+
+        .close
+            @extend %fitHeight, %flex-h, %center, %trans
+            position: absolute
+            top: -1rem
+            right: -1rem
+            background-color: #B1201F
+            color: white
+            padding: 6px
+            border: 1px solid white
+            border-radius: 100rem
+            z-index: 999
+
+            &:hover, &:focus
+                background-color: #9a2c3b
+
+            &:focus
+                outline: 2px solid white
+                outline-offset: 2px
+
+            &:active
+                background-color: #4f171e
+
+    .dialog-img
+        height: fit-content
+        img
+            width: 100%
+            height: auto
+            max-height: 500px
+            object-fit: contain
+
+    .dialog-meta
+        @extend %flex-v, %gap1, %center
+        align-items: flex-start
+
+    .dialog-text
+        @extend %flex-v, %gap2
+        max-width: 768px
+
+        .underline
+            text-decoration: underline
+            text-underline-offset: 4px
+
+    .cta
+        @extend %fitWidth, %trans
+        padding: 1rem 1rem
+        background-color: #B1201F
+        color: white
+        font-weight: 500
+        border: 1px solid white
+        border-radius: .5rem
+        margin: 1rem 0 0 0
+        text-decoration: none
+
+        &:hover, &:focus
+            background-color: #9a2c3b
+
+        &:focus
+            outline: 2px solid white
+            outline-offset: 2px
+
+        &:active
+            background-color: #4f171e
+
 noscript
     iframe
         display: none
@@ -989,6 +1082,13 @@ noscript
     input, textarea
         width: 100%
 
+    dialog 
+        padding-top: calc( 70px + 2rem )
+        .dialog-content
+            grid-template-columns: 1fr
+            grid-template-rows: auto auto 
+            gap: 1.5rem
+
 
 @media (max-width: 500px)
     main:has(#hero)
@@ -1036,3 +1136,10 @@ noscript
 
     video
         min-width: 0px
+
+    dialog
+        .dialog-content
+            .dialog-meta
+                .cta
+                    width: 100%
+                    text-align: center
