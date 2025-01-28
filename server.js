@@ -51,6 +51,7 @@ app.use(helmet({
                 "https://*.google.com",
                 "https://ssl.gstatic.com",
                 "https://www.gstatic.com",
+                "https://script.googleusercontent.com",
                 "https://tag.simpli.fi"
             ],
             connectSrc: [
