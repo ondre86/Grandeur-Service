@@ -364,9 +364,10 @@ addEventListener('DOMContentLoaded', ()=>{
             dialogTL.to(dialogElement.dialog, {
                 zIndex: -1,
             })
-            dialogElement.dialogElement.close()
-            dialogElement.dialog.style.display = 'none'
-            $('body')[0].style.overflow = 'auto'
+            dialogTL.call(()=>{
+                dialogElement.dialog.style.display = 'none'
+                $('body')[0].style.overflow = 'auto'
+            })
         })
     }
 })
