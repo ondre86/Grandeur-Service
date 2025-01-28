@@ -34,7 +34,8 @@ app.use(helmet({
                 "https://*.googletagmanager.com",
                 "https://pagead2.googlesyndication.com" ,
                 "https://googleads.g.doubleclick.net",
-                "https://tagmanager.google.com"
+                "https://tagmanager.google.com",
+                "https://rw1.marchex.io/euinc/number-changer.js"
             ],
             imgSrc: [
                 "'self'",
@@ -49,7 +50,8 @@ app.use(helmet({
                 "https://*.g.doubleclick.net", 
                 "https://*.google.com",
                 "https://ssl.gstatic.com",
-                "https://www.gstatic.com"
+                "https://www.gstatic.com",
+                "https://tag.simpli.fi"
             ],
             connectSrc: [
                 "'self'",
@@ -64,6 +66,8 @@ app.use(helmet({
                 "https://*.googletagmanager.com", 
                 "https://*.g.doubleclick.net", 
                 "https://*.google.com",
+                "https://script.googleusercontent.com",
+                "https://script.google.com"
             ],
             frameSrc: [
                 "'self'",
