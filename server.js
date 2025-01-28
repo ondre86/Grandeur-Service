@@ -35,11 +35,12 @@ app.use(helmet({
                 "https://pagead2.googlesyndication.com" ,
                 "https://googleads.g.doubleclick.net",
                 "https://tagmanager.google.com",
-                "https://rw1.marchex.io/euinc/number-changer.js"
+                "https://rw1.marchex.io"
             ],
             imgSrc: [
                 "'self'",
                 "https://www.googletagmanager.com",
+                "https://googletagmanager.com",
                 "https://googleads.g.doubleclick.net", 
                 "https://www.google.com",
                 "https://google.com",
