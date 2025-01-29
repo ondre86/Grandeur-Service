@@ -855,14 +855,15 @@ dialog .dialog-content .close {
   z-index: 999;
 }
 dialog .dialog-content .close:hover, dialog .dialog-content .close:focus {
-  background-color: #9a2c3b;
+  background-color: #77212d;
+  cursor: pointer;
 }
 dialog .dialog-content .close:focus {
   outline: 2px solid white;
   outline-offset: 2px;
 }
 dialog .dialog-content .close:active {
-  background-color: #4f171e;
+  background-color: #340f13;
 }
 dialog .dialog-img {
   height: fit-content;
@@ -897,14 +898,14 @@ dialog .cta {
   text-decoration: none;
 }
 dialog .cta:hover, dialog .cta:focus {
-  background-color: #9a2c3b;
+  background-color: #77212d;
 }
 dialog .cta:focus {
   outline: 2px solid white;
   outline-offset: 2px;
 }
 dialog .cta:active {
-  background-color: #4f171e;
+  background-color: #340f13;
 }
 
 noscript iframe {
