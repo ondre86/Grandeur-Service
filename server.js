@@ -1,9 +1,11 @@
+const fs = require('fs')
+const path = require('path')
+const crypto = require('crypto')
 const express = require('express')
 const helmet = require('helmet')
 const nodemailer = require('nodemailer')
 const multer = require('multer')
 const changeCase = require('change-case-commonjs')
-const crypto = require('node:crypto')
 const upload = multer()
 const app = express()
 
@@ -20,94 +22,101 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-app.use(helmet({
-    contentSecurityPolicy: {
-        directives: {
-            scriptSrc: [
-                "'self'", 
-                "cloud.umami.is",
-                "challenges.cloudflare.com",
-                "'sha256-wP0vy8i7fU41U3P9othb/AJuArmAVhAtoX5OeT7a8Tk='",
-                "https://www.googleadservices.com",
-                "https://www.google.com",
-                "https://www.googletagmanager.com",
-                "https://*.googletagmanager.com",
-                "https://pagead2.googlesyndication.com" ,
-                "https://googleads.g.doubleclick.net",
-                "https://tagmanager.google.com",
-                "https://rw1.marchex.io"
-            ],
-            imgSrc: [
-                "'self'",
-                "https://www.googletagmanager.com",
-                "https://googletagmanager.com",
-                "https://googleads.g.doubleclick.net", 
-                "https://www.google.com",
-                "https://google.com",
-                "https://pagead2.googlesyndication.com",
-                "https://*.google-analytics.com", 
-                "https://*.analytics.google.com", 
-                "https://*.googletagmanager.com", 
-                "https://*.g.doubleclick.net", 
-                "https://*.google.com",
-                "https://ssl.gstatic.com",
-                "https://www.gstatic.com",
-                "https://script.googleusercontent.com",
-                "https://tag.simpli.fi"
-            ],
-            connectSrc: [
-                "'self'",
-                "https://api-gateway.umami.dev/api/send",
-                "challenges.cloudflare.com",
-                "https://pagead2.googlesyndication.com", 
-                "https://www.googleadservices.com",
-                "https://www.google.com", 
-                "https://google.com",
-                "https://*.google-analytics.com", 
-                "https://*.analytics.google.com", 
-                "https://*.googletagmanager.com", 
-                "https://*.g.doubleclick.net", 
-                "https://*.google.com",
-                "https://script.googleusercontent.com",
-                "https://script.google.com"
-            ],
-            frameSrc: [
-                "'self'",
-                "challenges.cloudflare.com",
-                "https://www.googletagmanager.com",
-                "https://td.doubleclick.net"
-            ],
-            styleSrc: [
-                "'self'",
-                "https://googletagmanager.com",
-                "https://tagmanager.google.com",
-                "https://fonts.googleapis.com"
-            ],
-            fontSrc: [
-                "'self'",
-                "https://fonts.gstatic.com",
-                "data:"
-            ]
+app.use((req, res, next)=>{
+    res.locals.nonce = crypto.randomBytes(16).toString('base64')
+    next()
+})
+
+app.use((req, res, next)=>{
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                scriptSrc: [
+                    "'strict-dynamic'",
+                    (req, res) => `'nonce-${res.locals.nonce}'`,
+                ],
+                imgSrc: [
+                    "'self'",
+                    "https://www.googletagmanager.com",
+                    "https://googletagmanager.com",
+                    "https://googleads.g.doubleclick.net", 
+                    "https://www.google.com",
+                    "https://google.com",
+                    "https://pagead2.googlesyndication.com",
+                    "https://*.google-analytics.com", 
+                    "https://*.analytics.google.com", 
+                    "https://*.googletagmanager.com", 
+                    "https://*.g.doubleclick.net", 
+                    "https://*.google.com",
+                    "https://ssl.gstatic.com",
+                    "https://www.gstatic.com",
+                    "https://script.googleusercontent.com",
+                    "https://tag.simpli.fi"
+                ],
+                connectSrc: [
+                    "'self'",
+                    "https://api-gateway.umami.dev/api/send",
+                    "challenges.cloudflare.com",
+                    "https://pagead2.googlesyndication.com", 
+                    "https://www.googleadservices.com",
+                    "https://www.google.com", 
+                    "https://google.com",
+                    "https://*.google-analytics.com", 
+                    "https://*.analytics.google.com", 
+                    "https://*.googletagmanager.com", 
+                    "https://*.g.doubleclick.net", 
+                    "https://*.google.com",
+                    "https://script.googleusercontent.com",
+                    "https://script.google.com"
+                ],
+                frameSrc: [
+                    "'self'",
+                    "challenges.cloudflare.com",
+                    "https://www.googletagmanager.com",
+                    "https://td.doubleclick.net"
+                ],
+                styleSrc: [
+                    "'self'",
+                    "https://googletagmanager.com",
+                    "https://tagmanager.google.com",
+                    "https://fonts.googleapis.com"
+                ],
+                fontSrc: [
+                    "'self'",
+                    "https://fonts.gstatic.com",
+                    "data:"
+                ]
+            }
         }
-    }
-}))
-app.use(express.static('public')).use(express.json()).use(express.text())
+    })(req, res, next)}
+)
 
 app.get('/', (req, res)=>{
-    res.status(200).send()
+    let html = fs.readFileSync(path.join(__dirname, 'public/index.html'), 'utf-8')
+    html = html.replaceAll('{{nonce}}', res.locals.nonce)
+    res.send(html)
 })
 app.get('/about/', (req, res)=>{
-    res.status(200).send()
+    let html = fs.readFileSync(path.join(__dirname, 'public/about/index.html'), 'utf-8')
+    html = html.replaceAll('{{nonce}}', res.locals.nonce)
+    res.send(html)
 })
 app.get('/contact/', (req, res)=>{
-    res.status(200).send()
+    let html = fs.readFileSync(path.join(__dirname, 'public/contact/index.html'), 'utf-8')
+    html = html.replaceAll('{{nonce}}', res.locals.nonce)
+    res.send(html)
 })
 app.get('/book/', (req, res)=>{
-    res.status(200).send()
+    let html = fs.readFileSync(path.join(__dirname, 'public/book/index.html'), 'utf-8')
+    html = html.replaceAll('{{nonce}}', res.locals.nonce)
+    res.send(html)
 })
 app.get('/sitemap.xml', (req, res)=>{
     res.sendFile('/sitemap.xml')
 })
+
+app.use(express.static(path.join(__dirname, "public")))
+// app.use(express.static('public')).use(express.json()).use(express.text())
 
 app.post('/', upload.none(), (req, res)=>{
     formatAndSendEmail(req, res)
