@@ -55,7 +55,8 @@ app.use((req, res, next)=>{
                     "https://tag.simpli.fi",
                     "https://um.simpli.fi",
                     "https://cm.g.doubleclick.net",
-                    "https://www.googleadservices.com"
+                    "https://www.googleadservices.com",
+                    "https://insight.adsrvr.org"
                 ],
                 connectSrc: [
                     "'self'",
