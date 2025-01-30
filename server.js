@@ -73,13 +73,15 @@ app.use((req, res, next)=>{
                     "'self'",
                     "challenges.cloudflare.com",
                     "https://www.googletagmanager.com",
-                    "https://td.doubleclick.net"
+                    "https://td.doubleclick.net",
+                    "https://insight.adsrvr.org"
                 ],
                 styleSrc: [
                     "'self'",
                     "https://googletagmanager.com",
                     "https://tagmanager.google.com",
-                    "https://fonts.googleapis.com"
+                    "https://fonts.googleapis.com",
+                    "https://js.adsrvr.org"
                 ],
                 fontSrc: [
                     "'self'",
