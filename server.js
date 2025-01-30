@@ -51,6 +51,7 @@ app.use((req, res, next)=>{
                     "https://ssl.gstatic.com",
                     "https://www.gstatic.com",
                     "https://script.googleusercontent.com",
+                    "https://script.google.com",
                     "https://tag.simpli.fi"
                 ],
                 connectSrc: [
