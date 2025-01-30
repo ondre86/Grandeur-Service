@@ -87,6 +87,9 @@ app.use((req, res, next)=>{
                     "https://fonts.googleapis.com",
                     "https://js.adsrvr.org"
                 ],
+                styleSrcAttr: [
+                    "'unsafe-inline'"
+                ],
                 fontSrc: [
                     "'self'",
                     "https://fonts.gstatic.com",
@@ -122,7 +125,6 @@ app.get('/sitemap.xml', (req, res)=>{
 })
 
 app.use(express.static(path.join(__dirname, "public")))
-// app.use(express.static('public')).use(express.json()).use(express.text())
 
 app.post('/', upload.none(), (req, res)=>{
     formatAndSendEmail(req, res)
