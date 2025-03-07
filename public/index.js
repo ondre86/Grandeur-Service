@@ -340,34 +340,34 @@ addEventListener('DOMContentLoaded', ()=>{
     })
 
     // DIALOG
-    if (window.location.pathname == '/'){
-        let dialogElement = {
-            dialog: $('dialog')[0],
-            close: $('dialog .close')[0],
-            cta: $('dialog .cta')[0],
-        }
+    // if (window.location.pathname == '/'){
+    //     let dialogElement = {
+    //         dialog: $('dialog')[0],
+    //         close: $('dialog .close')[0],
+    //         cta: $('dialog .cta')[0],
+    //     }
     
-        dialogTL = gsap.timeline()
-        setTimeout(() => {
-            dialogTL.to(dialogElement.dialog, {
-                opacity: 1
-            })
-            dialogElement.dialog.show()
-            dialogElement.dialog.style.display = 'flex'
-            $('body')[0].style.overflow = 'hidden'
-        }, 2000)
+    //     dialogTL = gsap.timeline()
+    //     setTimeout(() => {
+    //         dialogTL.to(dialogElement.dialog, {
+    //             opacity: 1
+    //         })
+    //         dialogElement.dialog.show()
+    //         dialogElement.dialog.style.display = 'flex'
+    //         $('body')[0].style.overflow = 'hidden'
+    //     }, 2000)
 
-        dialogElement.close.addEventListener('click', (event)=>{
-            dialogTL.to(dialogElement.dialog, {
-                opacity: 0,
-            })
-            dialogTL.to(dialogElement.dialog, {
-                zIndex: -1,
-            })
-            dialogTL.call(()=>{
-                dialogElement.dialog.style.display = 'none'
-                $('body')[0].style.overflow = 'auto'
-            })
-        })
-    }
+    //     dialogElement.close.addEventListener('click', (event)=>{
+    //         dialogTL.to(dialogElement.dialog, {
+    //             opacity: 0,
+    //         })
+    //         dialogTL.to(dialogElement.dialog, {
+    //             zIndex: -1,
+    //         })
+    //         dialogTL.call(()=>{
+    //             dialogElement.dialog.style.display = 'none'
+    //             $('body')[0].style.overflow = 'auto'
+    //         })
+    //     })
+    // }
 })
