@@ -86,7 +86,7 @@ $grey-acc3-100:rgba(85,85,85,1)
 
 %card-hover
     &:hover
-        box-shadow: 0px 0px 6px 3px $grey-acc3-100
+        box-shadow: 0px 0px 16px 3px $grey-acc3-100
 
 .flex
     @extend %flex
@@ -96,7 +96,7 @@ $grey-acc3-100:rgba(85,85,85,1)
     @extend %flex-h
 .center
     @extend %center
-.txt-center
+.text-center
     text-align: center
 
 .gap-5
@@ -169,20 +169,34 @@ html.lenis, html.lenis body
 a
     color: inherit
 
-    &:visited:not(nav a, .cta)
+    &:visited:not(nav a, .cta, .button, &:hover)
         color: $gold-light
+
+    &:has(.card)
+        text-decoration: none
+        
+
+.link-like
+    color: $gold-light
+    text-decoration: underline
+    vertical-align: bottom
+    display: inline-flex
+    width: fit-content
 
 h1
     font-size: 3.5rem
     font-family: 'bask'
+    line-height: 125%
+
 
 h2  
     font-size: 2.5rem
+    line-height: 125%
     font-family: 'bask'
 
 h3
     font-size: 1.75rem
-    font-weight: 600
+    font-weight: 400
     letter-spacing: .5px
     width: fit-content
 
@@ -219,6 +233,8 @@ header
     top: 0
     z-index: 99999
     background-color: $grey-main-100
+    border-bottom: 1px solid $grey-acc3-100
+
 
     nav 
         @extend %fullWidth, %fitHeight, %flex, %maxWidth, %center
@@ -242,6 +258,7 @@ header
                 text-decoration: none
                 border: 1px solid transparent
                 border-radius: .35rem 
+                cursor: pointer
 
                 &:hover
                     background-color: $grey-acc2-100
@@ -249,6 +266,44 @@ header
 
         .nav-btn-wrap
             @extend %flex, %center, %gap1
+
+li
+    &:has(.dropdown)   
+        position: relative
+
+.dropdown
+    visibility: hidden
+    position: absolute
+    top: 200%
+    left: 50%
+    transform: translate(-50%)
+    opacity: 0
+    background-color: $grey-main-100
+    width: fit-content
+    border: 1px solid $grey-acc3-100
+    border-radius: .5rem
+
+    ul
+        display: grid
+        grid-template-columns: auto auto
+        grid-template-rows: auto auto auto
+        gap: 0.5rem
+        padding: 0.5rem
+        align-items: flex-start
+
+    li
+        // padding: 1rem
+        width: 100%
+        height: fit-content
+        // border: 1px solid transparent
+        // border-radius: .25rem
+        // transition: all .3s
+
+        a
+           display: flex
+           width: 100%
+           min-width: max-content
+
 
 .button
     @extend %fitHeight, %trans, %flex, %center, %gap-5
@@ -268,6 +323,18 @@ header
         background-color: transparent
         color: $gold-light
         border-color: $gold-light
+
+    &.btn-fill
+        background-color: $gold-light
+        border-color: $gold-light
+        color: black
+
+        &:hover, &:focus
+            background-color: white
+
+        svg 
+            path
+                fill: black
 
     svg
         path
@@ -394,8 +461,8 @@ details
     cursor: pointer
 
     summary
-        padding: 1rem .5rem
-        font-size: 1.5rem
+        padding: 1.5rem .5rem
+        font-size: 1.25rem
         font-weight: 600
 
         &::marker, &::-webkit-details-marker
@@ -415,13 +482,81 @@ details
 video
     @extend %trans
     width: 80%
-    // min-width: 600px
+    min-width: 600px
     max-width: 100vw
     border-radius: 1rem
+    aspect-ratio: 16/9
+    object-fit: cover
 
     &:focus
         outline: 0px solid transparent
-        
+
+#review
+    .review-header
+        @extend %flex-v, %gap1
+
+    .rating-wrap
+        font-size: 12px
+
+    .stars
+        @extend %flex, %center
+
+        .star-small
+            height: 20px
+
+    .review-wrap
+        @extend %flex, %gap2
+        flex-wrap: wrap
+        align-items: flex-start
+        justify-content: center
+        a
+            text-decoration: none
+
+    .review
+        @extend %flex, %flex-v, %gap1
+        background-color: $grey-acc2-100
+        border: 1px solid $grey-acc3-100
+        border-radius: .25rem
+        padding: 1rem
+        align-items: flex-start
+        transition: all .3s
+        position: relative
+        min-width: 350px
+        max-width: 500px
+
+        #external-link
+            @extend %card-hover
+            position: absolute
+            top: 20px
+            right: 20px
+            width: 16px
+            height: 16px
+
+    .person
+        @extend %flex, %flex-h, %center, %gap1
+        font-size: 1.25rem
+
+        .person-meta
+            @extend %flex, %flex-v
+            align-items: flex-start
+
+        .avatar
+            img
+                width: 36px
+                height: 36px
+
+    .review-text
+        font-size: 0.85rem
+        max-width: 330px
+
+    .review-image-wrap
+        img
+            width: 100%
+            max-width: 170px
+
+
+
+
 
 form
     @extend %flex-v, %gap2
@@ -439,7 +574,7 @@ form
     label
         @extend %flex, %trans
         width: 100%
-        font-weight: 600
+        font-weight: 500
 
         &[for=i-type5]
             align-items: center
@@ -570,41 +705,48 @@ form
         box-shadow: 0em -2.6em 0em 0em rgba(255,255,255, 0.2), 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.5), -2.6em 0em 0 0em rgba(255,255,255, 0.7), -1.8em -1.8em 0 0em #ffffff
 
 footer
-    @extend %flex, %center
+    @extend %flex
     background-color: $grey-acc-100
     padding: 2.5% 10%
+    border-top: 1px solid rgb(85, 85, 85)
+    justify-content: space-between
 
-    nav
-        @extend %fullWidth, %maxWidth, %flex
+
+    .footer-nav
+        @extend %fullWidth, %maxWidth, %flex, %gap3
         justify-content: space-between
 
         #footer-home
+            width: fit-content
             &:focus, &:focus-visible, &:focus-within
                 outline: 1px solid $gold
                 outline-offset: .35rem
                 border-radius: .5rem
 
 
-    nav nav
-        @extend %flex-v, %center, %gap3
-
         ul  
-            @extend %flex, %center, %fitHeight
+            @extend %flex, %flex-v, %center, %fitHeight
             list-style-type: none
             gap: 1rem
+            align-items: flex-start
 
             a
-                @extend %trans
-                padding: 1rem
-                font-size: 1.1rem
-                text-decoration: none
-                border: 1px solid transparent
-                border-radius: .35rem 
-                background-color: $grey-acc2-100
+                color: $gold-light
+
+        .footer-cta
+            @extend %trans
+            padding: 1rem
+            font-size: 1.1rem
+            text-decoration: none
+            border: 1px solid $gold-light
+            border-radius: .35rem 
+            background-color: $grey-acc2-100
+            width: fit-content
+            height: fit-content
 
 
-                &:hover
-                    border-color: white
+            &:hover
+                border-color: white
 
         ul:first-of-type
             a 
@@ -613,9 +755,13 @@ footer
                 &:hover
                     background-color: $gold-dark
 
-footer nav div, .contact-btn-wrap
-    ul
-        @extend %flex-v, %gap1
+footer div, .contact-btn-wrap
+    ul.contact.flex-h
+        @extend %flex-h
+    ul.contact.flex-v
+        @extend %flex-v
+    ul.contact
+        @extend %gap1
         list-style-type: none
         
         li
@@ -708,6 +854,10 @@ footer nav div, .contact-btn-wrap
     backdrop-filter: blur(50px)
     -webkit-backdrop-filter: blur(25px)
 
+    .hero-text
+        a
+            color: $gold-light
+
     .hero-img-wrap
         img
             width: 100%
@@ -731,13 +881,18 @@ footer nav div, .contact-btn-wrap
         .card
             max-width: 335px
 
+    a
+        &:has(.card)
+            display: flex
+
 .card
-    @extend %flex-v, %gap2, %trans
+    @extend %flex, %flex-v, %gap2, %trans
     background-color: $grey-acc-100
     padding: 1.5rem
     border: 1px solid $grey-acc3-100
     border-radius: 1rem
     min-width: 175px
+    text-decoration: none
 
     &:not(#why-us .card-wrap .card)
         justify-content: space-between
@@ -746,8 +901,17 @@ footer nav div, .contact-btn-wrap
         @extend %trans
         color: $gold-light
         text-underline-offset: .25rem
+
+        svg
+            path
+                transition: all .3s
+
         &:hover
             color: white
+
+            svg
+                path
+                    fill: white
 
     .card-icon
         width: 54px
@@ -857,6 +1021,7 @@ footer nav div, .contact-btn-wrap
     max-width: 100vw
     display: none
     position: fixed
+    overflow-y: scroll
     background-color: $grey-main-100
 
 dialog
@@ -995,11 +1160,12 @@ noscript
         display: flex
         flex-direction: column
         justify-content: space-between
+        gap: 1.5rem
 
         ul
             list-style-type: none
 
-        a:not(.nav-btn-wrap > a)
+        a:not(.nav-btn-wrap > a), span
             text-decoration: none
             font-size: 2.5rem
 
@@ -1014,13 +1180,26 @@ noscript
             gap: 1rem
 
         .mm-list-item
-            a
+            a, span
                 font-family: 'bask'
                 font-weight: 400
                 font-style: italic
 
+
+            .nested-link
+                font-size: 1rem
+
+            .nested-list
+                margin: .5rem 0 0 0
+                padding: 1rem 0 0 0
+                border-top: 1px solid $grey-acc2-100
+
+                li
+                    a
+                        font-size: 1.25rem
+
     header
-        padding: 10px 5% 
+        padding: 10px 20px 
         width: 100vw
         nav
             width: 100%
@@ -1034,12 +1213,13 @@ noscript
                 height: 50px
 
     footer
-        padding: 50px 5%
-
-    footer nav
+        padding: 50px 20px
         flex-direction: column
         align-items: center
         gap: 2rem
+
+        nav
+            align-items: center
 
         a
             width: fit-content
@@ -1105,7 +1285,7 @@ noscript
         font-size: 2.5rem
 
     section
-        padding-top: 70px
+        padding-top: 40px
 
         &#hero
             background-image: none
@@ -1124,7 +1304,7 @@ noscript
             width: 100%
 
     .contact-btn-wrap
-        ul
+        ul.contact.flex-h
             display: flex
             flex-direction: column
             align-items: center
@@ -1147,3 +1327,8 @@ noscript
                 .cta
                     width: 100%
                     text-align: center
+
+    #review
+        .review
+            min-width: 0px
+            width: 100%

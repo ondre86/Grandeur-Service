@@ -16,19 +16,19 @@
   font-weight: 600;
   font-style: normal;
 }
-.hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul li, .contact-btn-wrap ul li, footer nav nav ul, footer nav, footer, form label, .button, header nav .nav-btn-wrap, header nav ul, header nav, .flex, dialog .dialog-content .close, .flex-h, dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, header, .flex-v {
+.card, .hero-content-wrap, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer div ul.contact li, .contact-btn-wrap ul.contact li, footer .footer-nav ul, footer .footer-nav, footer, form label, #review .person .person-meta, #review .person, #review .review, #review .review-wrap, #review .stars, .button, header nav .nav-btn-wrap, header nav ul, header nav, .flex, dialog .dialog-content .close, footer div ul.contact.flex-h, .contact-btn-wrap ul.contact.flex-h, .flex-h, dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, form fieldset, form div, form, #review .review-header, section, main, header, .flex-v {
   display: flex;
 }
 
-dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, .card, footer nav div ul, .contact-btn-wrap ul, footer nav nav, form fieldset, form div, form, section, main, header, .flex-v {
+dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, .card, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, footer .footer-nav ul, form fieldset, form div, form, #review .person .person-meta, #review .review, #review .review-header, section, main, header, .flex-v {
   flex-direction: column;
 }
 
-dialog .dialog-content .close, .flex-h {
+dialog .dialog-content .close, footer div ul.contact.flex-h, .contact-btn-wrap ul.contact.flex-h, #review .person, .flex-h {
   flex-direction: row;
 }
 
-dialog .dialog-meta, dialog .dialog-content .close, .card.staff-card, .card-wrap.staff-card-wrap .card, .hero-content-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul, footer nav nav, footer, section#hero, main, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .center {
+dialog .dialog-meta, dialog .dialog-content .close, .card.staff-card, .card-wrap.staff-card-wrap .card, .hero-content-wrap, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer .footer-nav ul, #review .person, #review .stars, section#hero, main, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .center {
   justify-content: center;
   align-items: center;
 }
@@ -42,43 +42,43 @@ section {
   gap: 0.5rem;
 }
 
-dialog .dialog-meta, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav div ul, .contact-btn-wrap ul, form div, header nav .nav-btn-wrap {
+dialog .dialog-meta, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer div ul.contact, .contact-btn-wrap ul.contact, form div, #review .person, #review .review, #review .review-header, header nav .nav-btn-wrap {
   gap: 1rem;
 }
 
-dialog .dialog-text, .card, .card-wrap, form fieldset, form {
+dialog .dialog-text, .card, .card-wrap, form fieldset, form, #review .review-wrap {
   gap: 2rem;
 }
 
-footer nav nav, section {
+footer .footer-nav, section {
   gap: 3rem;
 }
 
-.hero-content-wrap, footer nav, section#faq, header nav, header, .full-width {
+.hero-content-wrap, footer .footer-nav, section#faq, header nav, header, .full-width {
   width: 100%;
 }
 
-dialog .cta, footer nav div ul li a, .contact-btn-wrap ul li a, .fit-width {
+dialog .cta, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, .fit-width {
   width: fit-content;
 }
 
-dialog .dialog-content .close, footer nav nav ul, .button, header nav ul, header nav {
+dialog .dialog-content .close, footer .footer-nav ul, .button, header nav ul, header nav {
   height: fit-content;
 }
 
-dialog .dialog-content, footer nav, header nav {
+dialog .dialog-content, footer .footer-nav, header nav {
   max-width: 1600px;
 }
 
-dialog .cta, dialog .dialog-content .close, .about-text a, .card.staff-card button, .card a, .card, .card-wrap, footer nav div ul li a, .contact-btn-wrap ul li a, footer nav nav ul a, form input[type=submit], form textarea[type=submit], form label, video, details p a, details ul a, details, section, .button svg path, .button, header nav ul a {
+dialog .cta, dialog .dialog-content .close, .about-text a, .card.staff-card button, .card a, .card, .card-wrap, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer .footer-nav .footer-cta, form input[type=submit], form textarea[type=submit], form label, video, details p a, details ul a, details, section, .button svg path, .button, header nav ul a {
   transition: all 0.3s;
 }
 
-footer nav div ul li a:hover, .contact-btn-wrap ul li a:hover, details:hover {
-  box-shadow: 0px 0px 6px 3px rgb(85, 85, 85);
+footer div ul.contact li a:hover, .contact-btn-wrap ul.contact li a:hover, #review .review #external-link:hover, details:hover {
+  box-shadow: 0px 0px 16px 3px rgb(85, 85, 85);
 }
 
-.txt-center {
+.text-center {
   text-align: center;
 }
 
@@ -158,23 +158,36 @@ html.lenis, html.lenis body {
 a {
   color: inherit;
 }
-a:visited:not(nav a, .cta) {
+a:visited:not(nav a, .cta, .button, a:hover) {
   color: rgb(234, 197, 123);
+}
+a:has(.card) {
+  text-decoration: none;
+}
+
+.link-like {
+  color: rgb(234, 197, 123);
+  text-decoration: underline;
+  vertical-align: bottom;
+  display: inline-flex;
+  width: fit-content;
 }
 
 h1 {
   font-size: 3.5rem;
   font-family: "bask";
+  line-height: 125%;
 }
 
 h2 {
   font-size: 2.5rem;
+  line-height: 125%;
   font-family: "bask";
 }
 
 h3 {
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.5px;
   width: fit-content;
 }
@@ -212,6 +225,7 @@ header {
   top: 0;
   z-index: 99999;
   background-color: rgb(35, 35, 35);
+  border-bottom: 1px solid rgb(85, 85, 85);
 }
 header nav {
   justify-content: space-between;
@@ -231,11 +245,46 @@ header nav ul a {
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 0.35rem;
+  cursor: pointer;
 }
 header nav ul a:hover {
   background-color: rgb(42, 42, 42);
   border-color: white;
 }
+li:has(.dropdown) {
+  position: relative;
+}
+
+.dropdown {
+  visibility: hidden;
+  position: absolute;
+  top: 200%;
+  left: 50%;
+  transform: translate(-50%);
+  opacity: 0;
+  background-color: rgb(35, 35, 35);
+  width: fit-content;
+  border: 1px solid rgb(85, 85, 85);
+  border-radius: 0.5rem;
+}
+.dropdown ul {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  align-items: flex-start;
+}
+.dropdown li {
+  width: 100%;
+  height: fit-content;
+}
+.dropdown li a {
+  display: flex;
+  width: 100%;
+  min-width: max-content;
+}
+
 .button {
   padding: 0.75rem 1rem;
   font-size: 1.1rem;
@@ -253,6 +302,17 @@ header nav ul a:hover {
   background-color: transparent;
   color: rgb(234, 197, 123);
   border-color: rgb(234, 197, 123);
+}
+.button.btn-fill {
+  background-color: rgb(234, 197, 123);
+  border-color: rgb(234, 197, 123);
+  color: black;
+}
+.button.btn-fill:hover, .button.btn-fill:focus {
+  background-color: white;
+}
+.button.btn-fill svg path {
+  fill: black;
 }
 .button:hover, .button:focus {
   background-color: rgb(234, 197, 123);
@@ -375,8 +435,8 @@ details {
   cursor: pointer;
 }
 details summary {
-  padding: 1rem 0.5rem;
-  font-size: 1.5rem;
+  padding: 1.5rem 0.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 details summary::marker, details summary::-webkit-details-marker {
@@ -395,11 +455,65 @@ details p a:hover, details ul a:hover {
 
 video {
   width: 80%;
+  min-width: 600px;
   max-width: 100vw;
   border-radius: 1rem;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 video:focus {
   outline: 0px solid transparent;
+}
+
+#review .rating-wrap {
+  font-size: 12px;
+}
+#review .stars .star-small {
+  height: 20px;
+}
+#review .review-wrap {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+#review .review-wrap a {
+  text-decoration: none;
+}
+#review .review {
+  background-color: rgb(42, 42, 42);
+  border: 1px solid rgb(85, 85, 85);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  align-items: flex-start;
+  transition: all 0.3s;
+  position: relative;
+  min-width: 350px;
+  max-width: 500px;
+}
+#review .review #external-link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+}
+#review .person {
+  font-size: 1.25rem;
+}
+#review .person .person-meta {
+  align-items: flex-start;
+}
+#review .person .avatar img {
+  width: 36px;
+  height: 36px;
+}
+#review .review-text {
+  font-size: 0.85rem;
+  max-width: 330px;
+}
+#review .review-image-wrap img {
+  width: 100%;
+  max-width: 170px;
 }
 
 form {
@@ -412,7 +526,7 @@ form {
 }
 form label {
   width: 100%;
-  font-weight: 600;
+  font-weight: 500;
 }
 form label[for=i-type5] {
   align-items: center;
@@ -545,61 +659,72 @@ form fieldset legend {
 footer {
   background-color: rgb(35, 35, 35);
   padding: 2.5% 10%;
-}
-footer nav {
+  border-top: 1px solid rgb(85, 85, 85);
   justify-content: space-between;
 }
-footer nav #footer-home:focus, footer nav #footer-home:focus-visible, footer nav #footer-home:focus-within {
+footer .footer-nav {
+  justify-content: space-between;
+}
+footer .footer-nav #footer-home {
+  width: fit-content;
+}
+footer .footer-nav #footer-home:focus, footer .footer-nav #footer-home:focus-visible, footer .footer-nav #footer-home:focus-within {
   outline: 1px solid rgb(182, 143, 64);
   outline-offset: 0.35rem;
   border-radius: 0.5rem;
 }
-footer nav nav ul {
+footer .footer-nav ul {
   list-style-type: none;
   gap: 1rem;
+  align-items: flex-start;
 }
-footer nav nav ul a {
+footer .footer-nav ul a {
+  color: rgb(234, 197, 123);
+}
+footer .footer-nav .footer-cta {
   padding: 1rem;
   font-size: 1.1rem;
   text-decoration: none;
-  border: 1px solid transparent;
+  border: 1px solid rgb(234, 197, 123);
   border-radius: 0.35rem;
   background-color: rgb(42, 42, 42);
+  width: fit-content;
+  height: fit-content;
 }
-footer nav nav ul a:hover {
+footer .footer-nav .footer-cta:hover {
   border-color: white;
 }
-footer nav nav ul:first-of-type a {
+footer .footer-nav ul:first-of-type a {
   border-color: rgb(182, 143, 64);
 }
-footer nav nav ul:first-of-type a:hover {
+footer .footer-nav ul:first-of-type a:hover {
   background-color: rgb(106, 84, 37);
 }
 
-footer nav div ul, .contact-btn-wrap ul {
+footer div ul.contact, .contact-btn-wrap ul.contact {
   list-style-type: none;
 }
-footer nav div ul li, .contact-btn-wrap ul li {
+footer div ul.contact li, .contact-btn-wrap ul.contact li {
   justify-content: end;
 }
-footer nav div ul li a, .contact-btn-wrap ul li a {
+footer div ul.contact li a, .contact-btn-wrap ul.contact li a {
   text-decoration: none;
   padding: 1rem;
   background-color: rgb(42, 42, 42);
   border: 1px solid white;
   border-radius: 0.35rem;
 }
-footer nav div ul li a:hover, footer nav div ul li a:focus, .contact-btn-wrap ul li a:hover, .contact-btn-wrap ul li a:focus {
+footer div ul.contact li a:hover, footer div ul.contact li a:focus, .contact-btn-wrap ul.contact li a:hover, .contact-btn-wrap ul.contact li a:focus {
   border-color: rgb(182, 143, 64);
   background-color: rgb(106, 84, 37);
 }
-footer nav div ul li a img, .contact-btn-wrap ul li a img {
+footer div ul.contact li a img, .contact-btn-wrap ul.contact li a img {
   width: 20px;
 }
-footer nav div ul li a span, .contact-btn-wrap ul li a span {
+footer div ul.contact li a span, .contact-btn-wrap ul.contact li a span {
   font-size: 1rem;
 }
-footer nav div span, .contact-btn-wrap span {
+footer div span, .contact-btn-wrap span {
   font-size: 0.8rem;
 }
 
@@ -663,6 +788,9 @@ footer nav div span, .contact-btn-wrap span {
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(25px);
 }
+.hero-content-wrap .hero-text a {
+  color: rgb(234, 197, 123);
+}
 .hero-content-wrap .hero-img-wrap img {
   width: 100%;
   transform: rotateY(180deg);
@@ -685,6 +813,9 @@ footer nav div span, .contact-btn-wrap span {
 .card-wrap.fleet-card-wrap .card {
   max-width: 335px;
 }
+.card-wrap a:has(.card) {
+  display: flex;
+}
 
 .card {
   background-color: rgb(35, 35, 35);
@@ -692,6 +823,7 @@ footer nav div span, .contact-btn-wrap span {
   border: 1px solid rgb(85, 85, 85);
   border-radius: 1rem;
   min-width: 175px;
+  text-decoration: none;
 }
 .card:not(#why-us .card-wrap .card) {
   justify-content: space-between;
@@ -700,8 +832,14 @@ footer nav div span, .contact-btn-wrap span {
   color: rgb(234, 197, 123);
   text-underline-offset: 0.25rem;
 }
+.card a svg path {
+  transition: all 0.3s;
+}
 .card a:hover {
   color: white;
+}
+.card a:hover svg path {
+  fill: white;
 }
 .card .card-icon {
   width: 54px;
@@ -811,6 +949,7 @@ footer nav div span, .contact-btn-wrap span {
   max-width: 100vw;
   display: none;
   position: fixed;
+  overflow-y: scroll;
   background-color: rgb(35, 35, 35);
 }
 
@@ -946,11 +1085,12 @@ noscript iframe {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 1.5rem;
   }
   .mm-list ul {
     list-style-type: none;
   }
-  .mm-list a:not(.nav-btn-wrap > a) {
+  .mm-list a:not(.nav-btn-wrap > a), .mm-list span {
     text-decoration: none;
     font-size: 2.5rem;
   }
@@ -964,13 +1104,24 @@ noscript iframe {
     flex-direction: column;
     gap: 1rem;
   }
-  .mm-list .mm-list-item a {
+  .mm-list .mm-list-item a, .mm-list .mm-list-item span {
     font-family: "bask";
     font-weight: 400;
     font-style: italic;
   }
+  .mm-list .mm-list-item .nested-link {
+    font-size: 1rem;
+  }
+  .mm-list .mm-list-item .nested-list {
+    margin: 0.5rem 0 0 0;
+    padding: 1rem 0 0 0;
+    border-top: 1px solid rgb(42, 42, 42);
+  }
+  .mm-list .mm-list-item .nested-list li a {
+    font-size: 1.25rem;
+  }
   header {
-    padding: 10px 5%;
+    padding: 10px 20px;
     width: 100vw;
   }
   header nav {
@@ -987,17 +1138,18 @@ noscript iframe {
     height: 50px;
   }
   footer {
-    padding: 50px 5%;
-  }
-  footer nav {
+    padding: 50px 20px;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
   }
-  footer nav a {
+  footer nav {
+    align-items: center;
+  }
+  footer a {
     width: fit-content;
   }
-  footer nav div ul li {
+  footer div ul li {
     justify-content: center;
   }
 }
@@ -1057,7 +1209,7 @@ noscript iframe {
     font-size: 2.5rem;
   }
   section {
-    padding-top: 70px;
+    padding-top: 40px;
   }
   section#hero {
     background-image: none;
@@ -1076,7 +1228,7 @@ noscript iframe {
   .hero-btn-wrap a {
     width: 100%;
   }
-  .contact-btn-wrap ul {
+  .contact-btn-wrap ul.contact.flex-h {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1095,5 +1247,9 @@ noscript iframe {
   dialog .dialog-content .dialog-meta .cta {
     width: 100%;
     text-align: center;
+  }
+  #review .review {
+    min-width: 0px;
+    width: 100%;
   }
 }/*# sourceMappingURL=index.css.map */
