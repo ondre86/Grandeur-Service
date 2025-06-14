@@ -16,15 +16,15 @@
   font-weight: 600;
   font-style: normal;
 }
-.card, .hero-content-wrap, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer div ul.contact li, .contact-btn-wrap ul.contact li, footer .footer-nav ul, footer .footer-nav, footer, form label, #review .person .person-meta, #review .person, #review .review, #review .review-wrap, #review .stars, .button, header nav .nav-btn-wrap, header nav ul, header nav, .flex, dialog .dialog-content .close, footer div ul.contact.flex-h, .contact-btn-wrap ul.contact.flex-h, .flex-h, dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, form fieldset, form div, form, #review .review-header, section, main, header, .flex-v {
+.card, .hero-content-wrap, .contact-btn-wrap, .information, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer div ul.contact li, .contact-btn-wrap ul.contact li, footer .footer-nav ul, footer .footer-nav, footer, form label, #review .person .person-meta, #review .person, #review .review, #review .review-wrap, #review .stars, .button, header nav .nav-btn-wrap, header nav ul, header nav, .flex, dialog .dialog-content .close, footer div ul.contact.flex-h:not(.center), .contact-btn-wrap ul.contact.flex-h:not(.center), .flex-h, dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, form fieldset, form div, form, #review .review-header, section, main, header, .flex-v {
   display: flex;
 }
 
-dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, .card, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, footer .footer-nav ul, form fieldset, form div, form, #review .person .person-meta, #review .review, #review .review-header, section, main, header, .flex-v {
+dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, .card, .contact-btn-wrap, .information, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, footer .footer-nav ul, form fieldset, form div, form, #review .person .person-meta, #review .review, #review .review-header, section, main, header, .flex-v {
   flex-direction: column;
 }
 
-dialog .dialog-content .close, footer div ul.contact.flex-h, .contact-btn-wrap ul.contact.flex-h, #review .person, .flex-h {
+dialog .dialog-content .close, footer div ul.contact.flex-h:not(.center), .contact-btn-wrap ul.contact.flex-h:not(.center), #review .person, .flex-h {
   flex-direction: row;
 }
 
@@ -50,7 +50,7 @@ dialog .dialog-text, .card, .card-wrap, form fieldset, form, #review .review-wra
   gap: 2rem;
 }
 
-footer .footer-nav, section {
+.information, footer .footer-nav, section {
   gap: 3rem;
 }
 
@@ -701,6 +701,9 @@ footer .footer-nav ul:first-of-type a:hover {
   background-color: rgb(106, 84, 37);
 }
 
+footer div ul.contact.flex-h:not(.center), .contact-btn-wrap ul.contact.flex-h:not(.center) {
+  justify-content: flex-end;
+}
 footer div ul.contact, .contact-btn-wrap ul.contact {
   list-style-type: none;
 }
@@ -728,6 +731,16 @@ footer div span, .contact-btn-wrap span {
   font-size: 0.8rem;
 }
 
+.contact-btn-wrap span.credit {
+  margin: 3rem 0 0 0;
+}
+
+.contact-btn-wrap {
+  justify-content: space-between;
+}
+.contact-btn-wrap span {
+  text-align: right;
+}
 .contact-btn-wrap ul {
   flex-direction: row;
 }
@@ -768,9 +781,16 @@ footer div span, .contact-btn-wrap span {
 }
 .full-screen-img picture img {
   width: 100%;
+  height: 100%;
   max-width: none;
   object-position: 0px 0px;
   object-fit: cover;
+}
+.full-screen-img.flat-bottom {
+  margin-bottom: 0px;
+}
+.full-screen-img.flat-bottom::after {
+  content: none;
 }
 
 .hero-content-wrap {
@@ -1141,16 +1161,25 @@ noscript iframe {
     padding: 50px 20px;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
   }
   footer nav {
-    align-items: center;
+    align-items: flex-start;
   }
   footer a {
     width: fit-content;
   }
   footer div ul li {
     justify-content: center;
+  }
+  footer ul.contact {
+    align-items: center;
+  }
+  footer .information {
+    align-items: center;
+  }
+  .contact-btn-wrap span.credit {
+    text-align: center;
   }
 }
 @media (max-width: 900px) {
@@ -1206,7 +1235,7 @@ noscript iframe {
     text-align: center;
   }
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
   section {
     padding-top: 40px;
@@ -1251,5 +1280,8 @@ noscript iframe {
   #review .review {
     min-width: 0px;
     width: 100%;
+  }
+  #review .review-image-wrap img {
+    max-width: 100%;
   }
 }/*# sourceMappingURL=index.css.map */

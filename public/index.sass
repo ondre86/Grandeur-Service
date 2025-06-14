@@ -756,8 +756,10 @@ footer
                     background-color: $gold-dark
 
 footer div, .contact-btn-wrap
-    ul.contact.flex-h
+    ul.contact.flex-h:not(.center)
         @extend %flex-h
+        justify-content: flex-end
+
     ul.contact.flex-v
         @extend %flex-v
     ul.contact
@@ -788,7 +790,19 @@ footer div, .contact-btn-wrap
     span
         font-size: .80rem
 
+.contact-btn-wrap span.credit
+    margin: 3rem 0 0 0
+
+.information
+    @extend %flex, %flex-v, %gap3
+
 .contact-btn-wrap
+    @extend %flex, %flex-v
+    justify-content: space-between
+
+    span
+        text-align: right
+
     ul
         flex-direction: row
 
@@ -828,9 +842,17 @@ footer div, .contact-btn-wrap
 
         img
             width: 100%
+            height: 100%
             max-width: none
             object-position: 0px 0px
             object-fit: cover
+
+    &.flat-bottom
+        margin-bottom: 0px
+
+        &::after    
+            content: none
+
 
         
 
@@ -1216,10 +1238,10 @@ noscript
         padding: 50px 20px
         flex-direction: column
         align-items: center
-        gap: 2rem
+        gap: 3rem
 
         nav
-            align-items: center
+            align-items: flex-start
 
         a
             width: fit-content
@@ -1228,6 +1250,16 @@ noscript
             ul
                 li
                     justify-content: center
+
+        ul.contact
+            align-items: center
+
+        .information
+            align-items: center
+
+    .contact-btn-wrap span.credit
+        text-align: center
+
 
 @media (max-width: 900px)
     section
@@ -1282,7 +1314,7 @@ noscript
         text-align: center
 
     h1
-        font-size: 2.5rem
+        font-size: 2.25rem
 
     section
         padding-top: 40px
@@ -1332,3 +1364,7 @@ noscript
         .review
             min-width: 0px
             width: 100%
+
+        .review-image-wrap
+            img
+                max-width: 100%
