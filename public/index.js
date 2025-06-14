@@ -112,8 +112,8 @@ addEventListener("DOMContentLoaded", () => {
                 })
                 .from(".hero-img-wrap", {
                     opacity: 0,
-                    x: 100,
-                    duration: 1
+                    x: 70,
+                    duration: 1.3
                 })
 
             scrollInStagger("#why-us .card-wrap .card")
@@ -123,20 +123,20 @@ addEventListener("DOMContentLoaded", () => {
 
             break
 
-        case "/about/":
-            // for (button of $('.staff-card button')){
-            //     createFlipAnimation(button)
-            // }
+        case "/about":
+            for (button of $(".staff-card button")) {
+                createFlipAnimation(button)
+            }
             scrollInStagger("#staff .card-wrap .card")
             scrollInStagger("#fleet .card-wrap .card")
             break
 
-        case "/contact/":
+        case "/contact":
             scrollInStagger("#contact div")
 
             break
 
-        case "/book/":
+        case "/book":
             scrollInStagger("#book div")
 
             break

@@ -96,6 +96,19 @@ app.use((req, res, next) => {
     })(req, res, next)
 })
 
+app.use((req, res, next) => {
+    const hasTrailingSlash = req.path.length > 1 && req.path.endsWith("/")
+    if (hasTrailingSlash) {
+        const noSlash = req.path.slice(0, -1)
+        res.redirect(
+            301,
+            noSlash + (req.url.includes("?") ? "?" + req.url.split("?")[1] : "")
+        )
+    } else {
+        next()
+    }
+})
+
 app.get("/", (req, res) => {
     let html = fs.readFileSync(
         path.join(__dirname, "public/index.html"),
@@ -104,7 +117,7 @@ app.get("/", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
-app.get("/about/", (req, res) => {
+app.get("/about", (req, res) => {
     let html = fs.readFileSync(
         path.join(__dirname, "public/about/index.html"),
         "utf-8"
@@ -112,7 +125,7 @@ app.get("/about/", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
-app.get("/contact/", (req, res) => {
+app.get("/contact", (req, res) => {
     let html = fs.readFileSync(
         path.join(__dirname, "public/contact/index.html"),
         "utf-8"
@@ -120,7 +133,7 @@ app.get("/contact/", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
-app.get("/book/", (req, res) => {
+app.get("/book", (req, res) => {
     let html = fs.readFileSync(
         path.join(__dirname, "public/book/index.html"),
         "utf-8"
@@ -128,7 +141,7 @@ app.get("/book/", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
-app.get("/services/black-car-limo-memphis/", (req, res) => {
+app.get("/services/black-car-limo-memphis", (req, res) => {
     let html = fs.readFileSync(
         path.join(
             __dirname,
@@ -139,7 +152,7 @@ app.get("/services/black-car-limo-memphis/", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
-app.get("/services/airport-transfer-memphis/", (req, res) => {
+app.get("/services/airport-transfer-memphis", (req, res) => {
     let html = fs.readFileSync(
         path.join(
             __dirname,
@@ -150,7 +163,7 @@ app.get("/services/airport-transfer-memphis/", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
-app.get("/services/corporate-travel-memphis/", (req, res) => {
+app.get("/services/corporate-travel-memphis", (req, res) => {
     let html = fs.readFileSync(
         path.join(
             __dirname,
@@ -161,7 +174,7 @@ app.get("/services/corporate-travel-memphis/", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
-app.get("/services/event-transportation-memphis/", (req, res) => {
+app.get("/services/event-transportation-memphis", (req, res) => {
     let html = fs.readFileSync(
         path.join(
             __dirname,
@@ -172,7 +185,7 @@ app.get("/services/event-transportation-memphis/", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
-app.get("/services/long-distance-memphis/", (req, res) => {
+app.get("/services/long-distance-memphis", (req, res) => {
     let html = fs.readFileSync(
         path.join(
             __dirname,
@@ -183,7 +196,7 @@ app.get("/services/long-distance-memphis/", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
-app.get("/services/town-car-memphis/", (req, res) => {
+app.get("/services/town-car-memphis", (req, res) => {
     let html = fs.readFileSync(
         path.join(__dirname, "public/services/town-car-memphis/index.html"),
         "utf-8"
@@ -197,9 +210,6 @@ app.get("/sitemap.xml", (req, res) => {
 
 app.use(express.static(path.join(__dirname, "public")))
 
-app.post("/", upload.none(), (req, res) => {
-    formatAndSendEmail(req, res)
-})
 app.post("/contact", upload.none(), (req, res) => {
     formatAndSendEmail(req, res)
 })

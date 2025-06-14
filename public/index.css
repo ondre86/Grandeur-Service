@@ -16,19 +16,19 @@
   font-weight: 600;
   font-style: normal;
 }
-.card, .hero-content-wrap, .contact-btn-wrap, .information, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer div ul.contact li, .contact-btn-wrap ul.contact li, footer .footer-nav ul, footer .footer-nav, footer, form label, #review .person .person-meta, #review .person, #review .review, #review .review-wrap, #review .stars, .button, header nav .nav-btn-wrap, header nav ul, header nav, .flex, dialog .dialog-content .close, footer div ul.contact.flex-h:not(.center), .contact-btn-wrap ul.contact.flex-h:not(.center), .flex-h, dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, form fieldset, form div, form, #review .review-header, section, main, header, .flex-v {
+.card, .hero-content-wrap, .contact-btn-wrap, .information, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer div ul.contact li, .contact-btn-wrap ul.contact li, footer .footer-nav ul, footer .footer-nav, footer, form label, #review .person .person-meta, #review .person, #review .review, #review .review-wrap, #review .stars, section h1, .breadcrumb, .button, header nav .nav-btn-wrap, header nav ul, header nav, .flex, dialog .dialog-content .close, footer div ul.contact.flex-h:not(.center), .contact-btn-wrap ul.contact.flex-h:not(.center), .flex-h, dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, form fieldset, form div, form, #review .review-header, section, main, header, .flex-v {
   display: flex;
 }
 
-dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, .card, .contact-btn-wrap, .information, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, footer .footer-nav ul, form fieldset, form div, form, #review .person .person-meta, #review .review, #review .review-header, section, main, header, .flex-v {
+dialog .dialog-text, dialog .dialog-meta, .hamburger-box, .about-text ul, .card.staff-card, .card, .contact-btn-wrap, .information, footer div ul.contact.flex-v, .contact-btn-wrap ul.contact.flex-v, footer .footer-nav ul, form fieldset, form div, form, #review .person .person-meta, #review .review, #review .review-header, section h1, section, main, header, .flex-v {
   flex-direction: column;
 }
 
-dialog .dialog-content .close, footer div ul.contact.flex-h:not(.center), .contact-btn-wrap ul.contact.flex-h:not(.center), #review .person, .flex-h {
+dialog .dialog-content .close, footer div ul.contact.flex-h:not(.center), .contact-btn-wrap ul.contact.flex-h:not(.center), #review .person, .breadcrumb, .flex-h {
   flex-direction: row;
 }
 
-dialog .dialog-meta, dialog .dialog-content .close, .card.staff-card, .card-wrap.staff-card-wrap .card, .hero-content-wrap, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer .footer-nav ul, #review .person, #review .stars, section#hero, main, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .center {
+dialog .dialog-meta, dialog .dialog-content .close, .card.staff-card, .card-wrap.staff-card-wrap .card, .hero-content-wrap, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer .footer-nav ul, #review .person, #review .stars, section#hero, section h1, main, .button, header nav .nav-btn-wrap, header nav ul, header nav, header, .center {
   justify-content: center;
   align-items: center;
 }
@@ -42,7 +42,7 @@ section {
   gap: 0.5rem;
 }
 
-dialog .dialog-meta, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer div ul.contact, .contact-btn-wrap ul.contact, form div, #review .person, #review .review, #review .review-header, header nav .nav-btn-wrap {
+dialog .dialog-meta, footer div ul.contact li a, .contact-btn-wrap ul.contact li a, footer div ul.contact, .contact-btn-wrap ul.contact, form div, #review .person, #review .review, #review .review-header, section h1, .breadcrumb, header nav .nav-btn-wrap {
   gap: 1rem;
 }
 
@@ -82,6 +82,14 @@ footer div ul.contact li a:hover, .contact-btn-wrap ul.contact li a:hover, #revi
   text-align: center;
 }
 
+.p-max {
+  max-width: 700px;
+}
+
+.p-max a {
+  color: rgb(234, 197, 123);
+}
+
 .gap-5 {
   gap: 0.5rem;
 }
@@ -114,6 +122,11 @@ footer div ul.contact li a:hover, .contact-btn-wrap ul.contact li a:hover, #revi
 }
 .italic * {
   font-family: italic;
+}
+
+.smaller-text {
+  font-size: 0.8rem;
+  line-height: 0.8rem;
 }
 
 * {
@@ -158,7 +171,7 @@ html.lenis, html.lenis body {
 a {
   color: inherit;
 }
-a:visited:not(nav a, .cta, .button, a:hover) {
+a:visited:not(nav a, .cta, .button, a:hover, .hero-text a, .p-max a) {
   color: rgb(234, 197, 123);
 }
 a:has(.card) {
@@ -328,6 +341,19 @@ main {
   position: relative;
 }
 
+.breadcrumb {
+  list-style-type: none;
+  width: 100vw;
+  padding: 1.5rem 10%;
+  font-size: 0.8rem;
+}
+.breadcrumb a {
+  transition: all 0.3s;
+}
+.breadcrumb a:hover {
+  color: rgb(234, 197, 123);
+}
+
 section {
   padding: 100px;
   font-size: clamp(18px, 1rem, 24px);
@@ -341,6 +367,15 @@ section h1 {
   font-style: italic;
   padding: 0 0 1rem 0;
   border-bottom: 1px solid rgb(85, 85, 85);
+  word-wrap: break-word;
+  max-width: 900px;
+}
+section .small-h1 {
+  font-family: "bask";
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-style: italic;
   word-wrap: break-word;
 }
 section h2 {
@@ -399,7 +434,7 @@ section.contact-page {
 section#staff, section#fleet {
   padding-top: 0px;
 }
-section#fleet span {
+section#fleet span:not(.smaller-text) {
   font-size: 1.5rem;
 }
 section#video {
@@ -418,7 +453,7 @@ section#video {
 }
 
 #bg-logo-2 {
-  bottom: 10%;
+  bottom: 30%;
   left: 0;
 }
 
@@ -502,6 +537,14 @@ video:focus {
 }
 #review .person .person-meta {
   align-items: flex-start;
+}
+#review .person .avatar {
+  height: 36px;
+  width: 36px;
+  background-image: url("/assets/placeholder.jpg");
+  background-size: cover;
+  border-radius: 9999px;
+  overflow: hidden;
 }
 #review .person .avatar img {
   width: 36px;
@@ -604,7 +647,6 @@ form select {
 }
 form fieldset {
   border: none;
-  padding: 2rem 0;
 }
 form fieldset:first-of-type {
   margin-top: 1rem;
@@ -792,10 +834,19 @@ footer div span, .contact-btn-wrap span {
 .full-screen-img.flat-bottom::after {
   content: none;
 }
+.full-screen-img.flat-bottom-2 {
+  margin-bottom: 0px;
+}
+.full-screen-img.flat-bottom-2::before {
+  height: 55%;
+}
+.full-screen-img.flat-bottom-2::after {
+  content: none;
+}
 
 .hero-content-wrap {
   display: grid;
-  grid-template-columns: 45% 40%;
+  grid-template-columns: 50% 35%;
   grid-template-rows: auto;
   gap: 15%;
   padding: 5%;
@@ -809,6 +860,10 @@ footer div span, .contact-btn-wrap span {
   -webkit-backdrop-filter: blur(25px);
 }
 .hero-content-wrap .hero-text a {
+  color: white;
+  transition: all 0.3s;
+}
+.hero-content-wrap .hero-text a:hover {
   color: rgb(234, 197, 123);
 }
 .hero-content-wrap .hero-img-wrap img {
@@ -823,9 +878,6 @@ footer div span, .contact-btn-wrap span {
 }
 .card-wrap.staff-card-wrap {
   max-width: 914px;
-}
-.card-wrap.staff-card-wrap .card {
-  opacity: 0;
 }
 .card-wrap.fleet-card-wrap {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -935,6 +987,9 @@ footer div span, .contact-btn-wrap span {
   box-shadow: 0px 0px 20px 2px rgb(85, 85, 85);
 }
 
+.about-text p {
+  max-width: 700px;
+}
 .about-text a {
   color: rgb(234, 197, 123);
   text-underline-offset: 0.25rem;
@@ -943,7 +998,7 @@ footer div span, .contact-btn-wrap span {
   color: white;
 }
 .about-text ul {
-  padding: 1rem 0 0 1rem;
+  padding: 2rem 0 2rem 1rem;
 }
 .about-text ul li {
   font-style: italic;
@@ -1072,6 +1127,25 @@ noscript iframe {
   visibility: hidden;
 }
 
+@media (max-width: 1280px) and (min-width: 900px) {
+  .hero-content-wrap {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    position: relative;
+    overflow: visible;
+  }
+  .hero-text {
+    max-width: 700px;
+  }
+  .hero-img-wrap {
+    position: absolute;
+    bottom: -18%;
+    right: -3%;
+    max-width: 300px;
+    z-index: 999;
+    overflow: visible;
+  }
+}
 @media (max-width: 1024px) {
   main {
     margin: 70px 0 0 0;
@@ -1228,6 +1302,9 @@ noscript iframe {
   }
 }
 @media (max-width: 500px) {
+  .breadcrumb {
+    padding: 20px;
+  }
   main:has(#hero) {
     margin: 70px 0 0 0;
   }
@@ -1236,6 +1313,10 @@ noscript iframe {
   }
   h1 {
     font-size: 2.25rem;
+  }
+  section .small-h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
   section {
     padding-top: 40px;

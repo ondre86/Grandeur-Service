@@ -98,6 +98,10 @@ $grey-acc3-100:rgba(85,85,85,1)
     @extend %center
 .text-center
     text-align: center
+.p-max
+    max-width: 700px
+.p-max a
+    color: $gold-light
 
 .gap-5
     gap: .5rem
@@ -123,6 +127,10 @@ $grey-acc3-100:rgba(85,85,85,1)
     font-style: italic
     *
         font-family: italic
+
+.smaller-text
+    font-size: 0.8rem
+    line-height: 0.8rem
 
 // ELEMENTS
 
@@ -169,7 +177,7 @@ html.lenis, html.lenis body
 a
     color: inherit
 
-    &:visited:not(nav a, .cta, .button, &:hover)
+    &:visited:not(nav a, .cta, .button, &:hover, .hero-text a, .p-max a)
         color: $gold-light
 
     &:has(.card)
@@ -354,6 +362,19 @@ main
     margin: 94.5px 0 0 0
     position: relative
 
+.breadcrumb
+    @extend %flex, %flex-h, %gap1
+    list-style-type: none
+    width: 100vw
+    padding: 1.5rem 10%
+    font-size: .8rem
+
+    a
+        transition: all .3s
+
+        &:hover
+            color: $gold-light
+
 section 
     @extend %flex-v, %gap3, %topCenter, %trans
     padding: 100px
@@ -364,10 +385,20 @@ section
         max-width: 1600px
 
     h1
+        @extend %flex, %flex-v, %center, %gap1
         font-weight: 400
         font-style: italic
         padding: 0 0 1rem 0
         border-bottom: 1px solid $grey-acc3-100
+        word-wrap: break-word
+        max-width: 900px
+
+    .small-h1
+        font-family: 'bask'
+        font-weight: 400
+        font-size: 2rem
+        line-height: 3rem
+        font-style: italic
         word-wrap: break-word
     h2
         font-weight: 500
@@ -429,7 +460,7 @@ section
         padding-top: 0px
 
     &#fleet
-        span
+        span:not(.smaller-text)
             font-size: 1.5rem
 
     &#video
@@ -445,7 +476,7 @@ section
     right: 0
 
 #bg-logo-2
-    bottom: 10%
+    bottom: 30%
     left: 0
 
 #bg-logo-3
@@ -541,6 +572,13 @@ video
             align-items: flex-start
 
         .avatar
+            height: 36px
+            width: 36px
+            background-image: url('/assets/placeholder.jpg')
+            background-size: cover
+            border-radius: 9999px
+            overflow: hidden
+
             img
                 width: 36px
                 height: 36px
@@ -655,7 +693,7 @@ form
     fieldset
         @extend %flex-v, %gap2
         border: none
-        padding: 2rem 0
+        // padding: 2rem 0
 
         &:first-of-type
             margin-top: 1rem
@@ -853,6 +891,14 @@ footer div, .contact-btn-wrap
         &::after    
             content: none
 
+    &.flat-bottom-2
+        margin-bottom: 0px
+
+        &::before    
+            height: 55%
+        &::after    
+            content: none
+
 
         
 
@@ -861,7 +907,7 @@ footer div, .contact-btn-wrap
 .hero-content-wrap
     @extend %fullWidth, %flex, %center
     display: grid
-    grid-template-columns: 45% 40%
+    grid-template-columns: 50% 35%
     grid-template-rows: auto
     gap: 15%
     padding: 5%
@@ -878,7 +924,11 @@ footer div, .contact-btn-wrap
 
     .hero-text
         a
-            color: $gold-light
+            color: white
+            transition: all .3s
+
+            &:hover
+                color: $gold-light
 
     .hero-img-wrap
         img
@@ -896,7 +946,7 @@ footer div, .contact-btn-wrap
 
         .card
             @extend %center
-            opacity: 0
+            // opacity: 0
 
     &.fleet-card-wrap
         grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) )
@@ -1012,6 +1062,8 @@ footer div, .contact-btn-wrap
 
 
 .about-text
+    p
+        max-width: 700px
     a 
         @extend %trans
         color: $gold-light
@@ -1020,7 +1072,8 @@ footer div, .contact-btn-wrap
             color: white
     ul
         @extend %flex-v, %gap-5
-        padding: 1rem 0 0 1rem
+        padding: 2rem 0 2rem 1rem
+
 
         li
             font-style: italic
@@ -1147,6 +1200,25 @@ noscript
     iframe
         display: none
         visibility: hidden
+
+@media (max-width: 1280px) and (min-width: 900px)
+    .hero-content-wrap
+        grid-template-columns: auto
+        grid-template-rows: auto
+        position: relative
+        overflow: visible
+
+    .hero-text
+        max-width: 700px
+
+    .hero-img-wrap
+        position: absolute
+        bottom: -18%
+        right: -3%
+        max-width: 300px
+        z-index: 999
+        overflow: visible
+
 
 @media (max-width: 1024px)
     main 
@@ -1307,6 +1379,9 @@ noscript
 
 
 @media (max-width: 500px)
+    .breadcrumb
+        padding: 20px
+
     main:has(#hero)
         margin: 70px 0 0 0
 
@@ -1315,6 +1390,10 @@ noscript
 
     h1
         font-size: 2.25rem
+
+    section .small-h1
+        font-size: 1.5rem
+        line-height: 2rem
 
     section
         padding-top: 40px
