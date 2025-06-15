@@ -103,6 +103,9 @@ $grey-acc3-100:rgba(85,85,85,1)
 .p-max a
     color: $gold-light
 
+.relative
+    position: relative
+
 .gap-5
     gap: .5rem
 .gap1
@@ -127,6 +130,9 @@ $grey-acc3-100:rgba(85,85,85,1)
     font-style: italic
     *
         font-family: italic
+
+.no-italic
+    font-style: normal
 
 .smaller-text
     font-size: 0.8rem
@@ -374,6 +380,9 @@ main
 
         &:hover
             color: $gold-light
+
+    li[aria-current="page"]
+        opacity: 0.5
 
 section 
     @extend %flex-v, %gap3, %topCenter, %trans
@@ -899,7 +908,17 @@ footer div, .contact-btn-wrap
         &::after    
             content: none
 
+.dark-overlay
+    width: 700px
+    filter: brightness(0.9) saturate(0.8)
 
+#shirt
+    height: 400px
+    width: 700px
+    min-width: 100%
+    max-width: 700px
+    object-fit: cover
+    object-position: 0px -555px
         
 
 // classes
@@ -1075,7 +1094,7 @@ footer div, .contact-btn-wrap
         padding: 2rem 0 2rem 1rem
 
 
-        li
+        li:not(.no-italic)
             font-style: italic
 
 .mobile-menu
@@ -1200,6 +1219,38 @@ noscript
     iframe
         display: none
         visibility: hidden
+
+.blur-container
+    width: fit-content
+    height: fit-content
+    position: relative
+    border-radius: 4rem
+    overflow: hidden
+
+.blur-vignette
+  --radius: 36px
+  --inset: 18px
+  --transition-length: 52px
+  --blur: 8px
+
+
+  position: absolute
+  inset: 0
+  border-radius: var(--radius)
+  -webkit-backdrop-filter: blur(var(--blur))
+  backdrop-filter: blur(var(--blur))
+  --r: max(var(--transition-length), calc(var(--radius) - var(--inset)))
+  --corner-size: calc(var(--r) + var(--inset)) calc(var(--r) + var(--inset))
+  --corner-gradient: transparent 0px, transparent calc(var(--r) - var(--transition-length)), black var(--r)
+  --fill-gradient: black, black var(--inset), transparent calc(var(--inset) + var(--transition-length)), transparent calc(100% - var(--transition-length) - var(--inset)), black calc(100% - var(--inset))
+  --fill-narrow-size: calc(100% - (var(--inset) + var(--r)) * 2)
+  --fill-farther-position: calc(var(--inset) + var(--r))
+  -webkit-mask-image: linear-gradient(to right, var(--fill-gradient)), linear-gradient(to bottom, var(--fill-gradient)), radial-gradient(at bottom right, var(--corner-gradient)), radial-gradient(at bottom left, var(--corner-gradient)), radial-gradient(at top left, var(--corner-gradient)), radial-gradient(at top right, var(--corner-gradient))
+  -webkit-mask-size: 100% var(--fill-narrow-size), var(--fill-narrow-size) 100%, var(--corner-size), var(--corner-size), var(--corner-size), var(--corner-size)
+  -webkit-mask-position: 0 var(--fill-farther-position), var(--fill-farther-position) 0, 0 0, 100% 0, 100% 100%, 0 100%
+  -webkit-mask-repeat: no-repeat
+
+  
 
 @media (max-width: 1280px) and (min-width: 900px)
     .hero-content-wrap
