@@ -141,6 +141,14 @@ app.get("/book", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
+app.get("/services", (req, res) => {
+    let html = fs.readFileSync(
+        path.join(__dirname, "public/services/index.html"),
+        "utf-8"
+    )
+    html = html.replaceAll("{{nonce}}", res.locals.nonce)
+    res.send(html)
+})
 app.get("/services/black-car-limo-memphis", (req, res) => {
     let html = fs.readFileSync(
         path.join(

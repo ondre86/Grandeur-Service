@@ -843,7 +843,7 @@ footer div, .contact-btn-wrap
     @extend %flex, %flex-v
     justify-content: space-between
 
-    span
+    span:not(.text-center)
         text-align: right
 
     ul
@@ -1386,6 +1386,8 @@ noscript
 
 
 @media (max-width: 900px)
+    h2
+        font-size: 1.9rem
     section
         &#why-us
             padding: 100px 5%

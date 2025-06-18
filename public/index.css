@@ -791,7 +791,7 @@ footer div span, .contact-btn-wrap span {
 .contact-btn-wrap {
   justify-content: space-between;
 }
-.contact-btn-wrap span {
+.contact-btn-wrap span:not(.text-center) {
   text-align: right;
 }
 .contact-btn-wrap ul {
@@ -1318,6 +1318,9 @@ noscript iframe {
   }
 }
 @media (max-width: 900px) {
+  h2 {
+    font-size: 1.9rem;
+  }
   section#why-us {
     padding: 100px 5%;
   }
