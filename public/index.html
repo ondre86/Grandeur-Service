@@ -40,118 +40,6 @@
     <script nonce="{{nonce}}" src="ScrollTrigger.min.js"></script>
     <script nonce="{{nonce}}" src="index.js" type="text/javascript"></script>
     <script nonce="{{nonce}}" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Grandeur Service",
-            "image": "https://grandeurservice.com/assets/grandeur-social-avatar.png",
-            "url": "https://grandeurservice.com",
-            "telephone": "(901) 562-7605",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "516 Tennessee St. Suite 133",
-                "addressLocality": "Memphis",
-                "addressRegion": "TN",
-                "postalCode": "38103",
-                "addressCountry": "US"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 35.1331895,
-                "longitude": -90.0627986
-            },
-            "hasMap": "https://g.co/kgs/FasbkZq",
-            "openingHours": "24/7",
-            "priceRange": "$$",
-            "sameAs": [
-                "https://www.facebook.com/people/Grandeur-Service-Inc/61568090194346/",
-                "https://www.instagram.com/grandeurservice"
-            ],
-            "description": "Luxury black car and chauffeur service in Memphis. Airport transfers, personal or corporate travel, long-distance trips, and event transportation with professional drivers.",
-            "services": [
-                {
-                "@type": "Service",
-                "name": "Black Car Service",
-                "url": "https://grandeurservice.com/services/black-car-limo-memphis"
-                },
-                {
-                "@type": "Service",
-                "name": "Long-Distance Trips",
-                "url": "https://grandeurservice.com/services/long-distance-memphis"
-                },
-                {
-                "@type": "Service",
-                "name": "Airport Transfer",
-                "url": "https://grandeurservice.com/services/airport-transfer-memphis"
-                },
-                {
-                "@type": "Service",
-                "name": "Event Transportation",
-                "url": "https://grandeurservice.com/services/event-transportation-memphis"
-                },
-                {
-                "@type": "Service",
-                "name": "Corporate Travel",
-                "url": "https://grandeurservice.com/services/corporate-travel-memphis"
-                }
-            ],
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "5",
-                "reviewCount": "10"
-            },
-            "serviceArea": [
-                {
-                "@type": "Place",
-                "name": "Memphis, TN",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Memphis",
-                    "addressRegion": "TN",
-                    "addressCountry": "US"
-                }
-                },
-                {
-                "@type": "Place",
-                "name": "Shelby County, TN",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressRegion": "TN",
-                    "addressCountry": "US"
-                }
-                },
-                {
-                "@type": "Place",
-                "name": "DeSoto County, MS",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressRegion": "MS",
-                    "addressCountry": "US"
-                }
-                },
-                {
-                "@type": "Place",
-                "name": "West Memphis, AR",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "West Memphis",
-                    "addressRegion": "AR",
-                    "addressCountry": "US"
-                }
-                }
-            ],
-            "areaServed": {
-                "@type": "GeoCircle",
-                "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "latitude": 35.1331895,
-                "longitude": -90.0627986
-                },
-                "geoRadius": 482803
-            }
-        }
-    </script>
 
 </head>
 
@@ -234,7 +122,7 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li class="dropdown-wrap">
-                    <a>Services</a>
+                    <a tabindex="0" id="dropdown">Services</a>
                     <div class="dropdown">
                         <ul>
                             <li><a href="/services/black-car-limo-memphis">Black Car / Limousine</a></li>
@@ -284,8 +172,8 @@
                             We specialize in <a href="/services/airport-transfer-memphis/">airport transfers</a>,
                             <a href="/services/event-transportation-memphis/">event transportation</a>, <a
                                 href="/services/corporate-travel-memphis/">corporate travel</a>, <a
-                                href="/services/long-distance-memphis/">long-distance</a>
-                            trips, and <a href="/services/town-car-memphis/">town car service</a>.
+                                href="/services/long-distance-memphis/">long-distance trips</a>, and <a
+                                href="/services/town-car-memphis/">town car service</a>.
                         </p>
                     </div>
                     <div class="flex gap2 hero-btn-wrap">
@@ -345,7 +233,7 @@
                 </div>
             </div>
         </section>
-        <section id="use-case">
+        <section id="services">
             <h2 class="text-center">Professional Chauffeur Services for Every Occasion</h2>
             <div class="card-wrap">
                 <div class="card">
@@ -482,30 +370,7 @@
                 </div>
             </div>
             <div class="review-wrap">
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Emily Golden"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "The service that we received was beyond amazing for my son’s prom! From the beginning of
-                            the booking process to dropping him and his date off at home, everything was perfect.
-                            If you ever need a quality car service, this is the only choice in my opinion. Thank you
-                            for making this night so memorable for us!",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-04-27"
-                    }
-                </script>
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -577,10 +442,9 @@
                         <img src="https://lh3.googleusercontent.com/geougc-cs/AB3l90DnSPXn06KCs0oEq2I9FlSNpH0qJqw6rixGoQ12LfsDnVF1b6gLypDehBcBVY_DT3a5RF3Ts3WSUP1h8ZBGeLAB0i6O_Dn97SjTKVx_27gNMpEBJTKBfrqMojILtulKmZk_gOYy5A=s480-w480-h423-k-p"
                             alt="a white luxury Mercedez-Benz SUV with a long red carpet awaiting the backseat passengers arriving at their high school prom in Memphis">
                     </div>
-                    <a href="https://g.co/kgs/Q385bYP" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/Q385bYP" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -598,30 +462,7 @@
                         </svg>
                     </a>
                 </div>
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Deborah Townsend"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "Absolutely outstanding service! From the easy booking to the seamless pick-up and
-                            drop-off, Grandeur car service exceeded all expectations.
-                            Our driver, Keith, is on time, incredibly professional and friendly, making the entire
-                            experience a breeze. No hassles, just exemplary service. Highly recommend!",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-05-05"
-                    }
-                </script>
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -688,10 +529,9 @@
                             Highly recommend!
                         </p>
                     </div>
-                    <a href="https://g.co/kgs/izYdVrq" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/izYdVrq" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -709,29 +549,7 @@
                         </svg>
                     </a>
                 </div>
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Kimberly Owens"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "The experience with Grandeur Service was EXCELLENT!!! They were timely and VERY
-                            professional. The vehicle was immaculate and the perfect mode of transportation to get
-                            my daughter to her event and back safely. I highly recommend them and will be using them again.",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-05-07"
-                    }
-                </script>
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -796,10 +614,9 @@
                             I highly recommend them and will be using them again.
                         </p>
                     </div>
-                    <a href="https://g.co/kgs/T9Dhv2a" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/T9Dhv2a" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -817,28 +634,7 @@
                         </svg>
                     </a>
                 </div>
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Bombshell Sisi"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "Thanks for the timely service and professionalism with our precious jewels! We will
-                            definitely book again!",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-05-09"
-                    }
-                </script>
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -907,10 +703,9 @@
                         <img src="https://lh3.googleusercontent.com/geougc-cs/AB3l90B_80oTRIPgd3wrNampn0oEPtZ0xTR-Fqukp3u2QJMQ_tjYsC8mM5l7TMaHauo3hJo72lyG33jbe2w1SheIOI5eoYEwrQe6D0yS2csOA3gpAcAdQT0khEYBW-WfmXovnEFUC5w=s440-w440-h388-k-p"
                             alt="a black luxury SUV">
                     </div>
-                    <a href="https://g.co/kgs/UQeEKD5" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/UQeEKD5" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -928,28 +723,7 @@
                         </svg>
                     </a>
                 </div>
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Ty'ara Jones"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "I HIGHLY recommend Grandeur! They are top tier! My husband and I used their services for
-                                our wedding night and I am glad we did! The ride was peaceful and they took care of our every need! Our vehicle was very clean and felt presidential.",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-04-12"
-                    }
-                </script>
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -1014,10 +788,9 @@
                             and felt presidential.
                         </p>
                     </div>
-                    <a href="https://g.co/kgs/P36fwoS" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/P36fwoS" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -1035,27 +808,7 @@
                         </svg>
                     </a>
                 </div>
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Malinda Tyson"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "Service was excellent and they arrived ahead of time. Book them!",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-02-07"
-                    }
-                </script>
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -1117,10 +870,9 @@
                             Service was excellent and they arrived ahead of time. Book them!
                         </p>
                     </div>
-                    <a href="https://g.co/kgs/c7T9VLL" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/c7T9VLL" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -1138,27 +890,7 @@
                         </svg>
                     </a>
                 </div>
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Shelby Rodgers"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "Best service I’ve had! Couldn’t imagine using another car service while I’m in town.",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-02-07"
-                    }
-                </script>
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -1220,10 +952,9 @@
                             Best service I’ve had! Couldn’t imagine using another car service while I’m in town.
                         </p>
                     </div>
-                    <a href="https://g.co/kgs/qCsPphw" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/qCsPphw" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -1242,28 +973,7 @@
                     </a>
                 </div>
                 </a>
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Ashley Thompson"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "Excellent service and our driver was very pleasant. The owner/company communicated well
-                            about arrival time and notified me when my daughter arrived to her destination.",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-04-02"
-                    }
-                </script>
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -1326,10 +1036,9 @@
                             about arrival time and notified me when my daughter arrived to her destination.
                         </p>
                     </div>
-                    <a href="https://g.co/kgs/evvM9sQ" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/evvM9sQ" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -1347,27 +1056,8 @@
                         </svg>
                     </a>
                 </div>
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Shameeka Cross"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "10/10 Highly Recommend",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-04-15"
-                    }
-                </script>
+
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -1429,10 +1119,9 @@
                             10/10 Highly recommend
                         </p>
                     </div>
-                    <a href="https://g.co/kgs/bQY1K2Q" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/bQY1K2Q" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -1450,34 +1139,7 @@
                         </svg>
                     </a>
                 </div>
-                <script type="application/ld+json">
-                    {
-                    "@context": "https://schema.org",
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Ryan Robinson"
-                    },
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "reviewBody": "I was very happy with my experience they were so kind and Professional from start
-                            (booking & pickup) to finish (drop off) it was my Daughter’s prom and they made sure she
-                            and her friends were comfortable and they were very understanding to the event from the
-                            picture taking that took a little time to the many other things that come with an event
-                            like that.On time and very verbal with any issues that could happen if any as far as
-                            pick up was concerned. Im definitely going to use them again and I've already recommend
-                            them to several people! Great business owners that take pride in their customers and
-                            their satisfaction is so hard to find but they definitely nailed it! Thanks so much!",
-                    "itemReviewed": {
-                        "@type": "LocalBusiness",
-                        "name": "Grandeur Service"
-                    },
-                    "datePublished": "2025-04-10"
-                    }
-                </script>
+
                 <div class="review">
                     <div class="person">
                         <div class="avatar">
@@ -1548,10 +1210,9 @@
                             their satisfaction is so hard to find but they definitely nailed it! Thanks so much!
                         </p>
                     </div>
-                    <a href="https://g.co/kgs/YMu2LmU" target="_blank">
-                        <svg id="external-link" title="External Link to Google Review"
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" title="external link icon"
-                            viewBox="0 0 24 24">
+                    <a class="external-link" href="https://g.co/kgs/YMu2LmU" target="_blank">
+                        <svg title="External Link to Google Review" xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" title="external link icon" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2">
                                 <path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6">
@@ -1824,77 +1485,234 @@
                     </li>
                 </ul>
             </ul>
-            <span class="credit">Website by <a href="https://ondre.org" target="_blank">ondre.org</a></span>
+            <div class="flex flex-v gap1">
+                <span class="credit">Website by <a href="https://ondre.org" target="_blank">ondre.org</a></span>
+                <span>© 2025 Grandeur Service</span>
+            </div>
         </div>
     </footer>
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://grandeurservice.com/#business",
+        "name": "Grandeur Service",
+        "url": "https://grandeurservice.com",
+        "image": "https://grandeurservice.com/assets/grandeur-social-avatar.png",
+        "telephone": "+1-901-562-7605",
+        "description": "Luxury black car and chauffeur service in Memphis. Airport transfers, personal or corporate travel, long-distance trips, and event transportation with professional drivers.",
+        "priceRange": "$$",
+        "openingHours": "24/7",
+        "hasMap": "https://g.co/kgs/FasbkZq",
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 35.1331895,
+            "longitude": -90.0627986
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Memphis",
+            "addressRegion": "TN",
+            "addressCountry": "US"
+        },
+        "serviceArea": [
+            { "@type": "Place", "name": "Memphis, TN" },
+            { "@type": "Place", "name": "Shelby County, TN" },
+            { "@type": "Place", "name": "DeSoto County, MS" },
+            { "@type": "Place", "name": "West Memphis, AR" }
+        ],
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 35.1331895,
+            "longitude": -90.0627986
+            },
+            "geoRadius": 482803
+        },
+        "sameAs": [
+            "https://www.facebook.com/people/Grandeur-Service-Inc/61568090194346/",
+            "https://www.instagram.com/grandeurservice"
+        ],
+        "services": [
+            {
+            "@type": "Service",
+            "name": "Black Car Service",
+            "url": "https://grandeurservice.com/services/black-car-limo-memphis"
+            },
+            {
+            "@type": "Service",
+            "name": "Long-Distance Trips",
+            "url": "https://grandeurservice.com/services/long-distance-memphis"
+            },
+            {
+            "@type": "Service",
+            "name": "Airport Transfer",
+            "url": "https://grandeurservice.com/services/airport-transfer-memphis"
+            },
+            {
+            "@type": "Service",
+            "name": "Event Transportation",
+            "url": "https://grandeurservice.com/services/event-transportation-memphis"
+            },
+            {
+            "@type": "Service",
+            "name": "Corporate Travel",
+            "url": "https://grandeurservice.com/services/corporate-travel-memphis"
+            },
+            {
+            "@type": "Service",
+            "name": "Town Car",
+            "url": "https://grandeurservice.com/services/town-car-memphis"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "11"
+        },
+        "review": [
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Shameeka Cross" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "10/10 Highly Recommend",
+            "datePublished": "2025-04-15"
+            },
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Emily Golden" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "The service that we received was beyond amazing for my son’s prom! ...",
+            "datePublished": "2025-04-27"
+            },
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Deborah Townsend" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Absolutely outstanding service! ...",
+            "datePublished": "2025-05-05"
+            },
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Kimberly Owens" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "The experience with Grandeur Service was EXCELLENT!!! ...",
+            "datePublished": "2025-05-07"
+            },
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Bombshell Sisi" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Thanks for the timely service and professionalism ...",
+            "datePublished": "2025-05-09"
+            },
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Ty'ara Jones" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "I HIGHLY recommend Grandeur! ...",
+            "datePublished": "2025-04-12"
+            },
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Malinda Tyson" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Service was excellent and they arrived ahead of time. Book them!",
+            "datePublished": "2025-02-07"
+            },
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Shelby Rodgers" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Best service I’ve had! ...",
+            "datePublished": "2025-02-07"
+            },
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Ashley Thompson" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Excellent service and our driver was very pleasant. ...",
+            "datePublished": "2025-04-02"
+            },
+            {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Ryan Robinson" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "I was very happy with my experience... They definitely nailed it! Thanks so much!",
+            "datePublished": "2025-04-10"
+            }
+        ]
+        }
+    </script>
     <script type="application/ld+json">
         {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
             {
-            "@type": "Question",
-            "name": "How does the booking process work for black car service?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "New clients can use our online booking form to request a reservation. Once submitted, our Memphis-based dispatch team will confirm your black car or limo service details and provide next steps."
-            }
+                "@type": "Question",
+                "name": "How does the booking process work for black car service?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "New clients can use our online booking form to request a reservation. Once submitted, our Memphis-based dispatch team will confirm your black car or limo service details and provide next steps."
+                }
             },
             {
-            "@type": "Question",
-            "name": "How can I trust my chauffeur?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "All Grandeur Service drivers pass comprehensive background checks and are hand-selected for professionalism, driving record, and client satisfaction. You may request driver info after securing your reservation."
-            }
+                "@type": "Question",
+                "name": "How can I trust my chauffeur?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All Grandeur Service drivers pass comprehensive background checks and are hand-selected for professionalism, driving record, and client satisfaction. You may request driver info after securing your reservation."
+                }
             },
             {
-            "@type": "Question",
-            "name": "What happens if my preferred driver is unavailable?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Each client has a list of preferred chauffeurs. If your top choice isn’t available, we’ll assign the next most familiar, trusted driver to ensure consistent service."
-            }
+                "@type": "Question",
+                "name": "What happens if my preferred driver is unavailable?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Each client has a list of preferred chauffeurs. If your top choice isn’t available, we’ll assign the next most familiar, trusted driver to ensure consistent service."
+                }
             },
             {
-            "@type": "Question",
-            "name": "What ride policies should I know about?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "To maintain luxury conditions in all vehicles: No smoking, no eating. Additional cleaning or damage fees may apply if these rules are violated."
-            }
+                "@type": "Question",
+                "name": "What ride policies should I know about?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "To maintain luxury conditions in all vehicles: No smoking, no eating. Additional cleaning or damage fees may apply if these rules are violated."
+                }
             },
             {
-            "@type": "Question",
-            "name": "Are there any extra fees for long-distance or cleanup?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Extra fees may apply for: One-way rides over 300 miles (30¢ per extra mile), spills, and biohazards. Cleaning fees vary based on severity."
-            }
+                "@type": "Question",
+                "name": "Are there any extra fees for long-distance or cleanup?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Extra fees may apply for: One-way rides over 300 miles (30¢ per extra mile), spills, and biohazards. Cleaning fees vary based on severity."
+                }
             },
             {
-            "@type": "Question",
-            "name": "How often are vehicles cleaned?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We deep clean and detail our fleet regularly. Cleanliness is a top priority to ensure luxury comfort on every ride."
-            }
+                "@type": "Question",
+                "name": "How often are vehicles cleaned?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We deep clean and detail our fleet regularly. Cleanliness is a top priority to ensure luxury comfort on every ride."
+                }
             },
             {
-            "@type": "Question",
-            "name": "Why is there a two-hour minimum for reservations?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We’re not a taxi. Our two-hour minimum helps us deliver top-tier private chauffeur service in Memphis while covering operational costs."
-            }
+                "@type": "Question",
+                "name": "Why is there a two-hour minimum for reservations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We’re not a taxi. Our two-hour minimum helps us deliver top-tier private chauffeur service in Memphis while covering operational costs."
+                }
             },
             {
-            "@type": "Question",
-            "name": "Can I book a black car for out-of-town travel?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. We provide long-distance and intercity black car service from Memphis to nearby cities and beyond. Ideal for business or personal travel."
-            }
+                "@type": "Question",
+                "name": "Can I book a black car for out-of-town travel?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We provide long-distance and intercity black car service from Memphis to nearby cities and beyond. Ideal for business or personal travel."
+                }
             }
         ]
         }

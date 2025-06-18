@@ -5,26 +5,59 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-<url>
-  <loc>https://grandeurservice.com/</loc>
-  <lastmod>2025-01-09T15:04:48+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://grandeurservice.com/about/</loc>
-  <lastmod>2025-01-09T15:04:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://grandeurservice.com/contact/</loc>
-  <lastmod>2025-01-09T15:04:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://grandeurservice.com/book/</loc>
-  <lastmod>2025-01-09T15:04:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
+  <url>
+    <loc>https://grandeurservice.com/</loc>
+    <lastmod>2025-06-17T09:00:00+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
 
+  <url>
+    <loc>https://grandeurservice.com/about/</loc>
+    <lastmod>2025-06-17T09:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://grandeurservice.com/contact/</loc>
+    <lastmod>2025-06-17T09:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://grandeurservice.com/book/</loc>
+    <lastmod>2025-06-17T09:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Service Pages -->
+  <url>
+    <loc>https://grandeurservice.com/services/black-car-limo-memphis</loc>
+    <lastmod>2025-06-17T09:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://grandeurservice.com/services/airport-transfer-memphis</loc>
+    <lastmod>2025-06-17T09:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://grandeurservice.com/services/corporate-travel-memphis</loc>
+    <lastmod>2025-06-17T09:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://grandeurservice.com/services/event-transportation-memphis</loc>
+    <lastmod>2025-06-17T09:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://grandeurservice.com/services/long-distance-memphis</loc>
+    <lastmod>2025-06-17T09:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
 
 </urlset>

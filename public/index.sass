@@ -298,26 +298,20 @@ li
     border-radius: .5rem
 
     ul
-        display: grid
-        grid-template-columns: auto auto
-        grid-template-rows: auto auto auto
+        display: flex
+        flex-direction: column
         gap: 0.5rem
         padding: 0.5rem
         align-items: flex-start
 
     li
-        // padding: 1rem
         width: 100%
         height: fit-content
-        // border: 1px solid transparent
-        // border-radius: .25rem
-        // transition: all .3s
 
         a
            display: flex
            width: 100%
            min-width: max-content
-
 
 .button
     @extend %fitHeight, %trans, %flex, %center, %gap-5
@@ -412,6 +406,8 @@ section
     h2
         font-weight: 500
         font-style: italic
+        max-width: 800px
+
     p
         max-width: 960px
 
@@ -564,13 +560,13 @@ video
         min-width: 350px
         max-width: 500px
 
-        #external-link
+        .external-link
             @extend %card-hover
             position: absolute
             top: 20px
             right: 20px
-            width: 16px
-            height: 16px
+            width: 20px
+            height: 20px
 
     .person
         @extend %flex, %flex-h, %center, %gap1
@@ -758,17 +754,17 @@ footer
     border-top: 1px solid rgb(85, 85, 85)
     justify-content: space-between
 
+    #footer-home
+        width: fit-content
+        &:focus, &:focus-visible, &:focus-within
+            outline: 1px solid $gold
+            outline-offset: .35rem
+            border-radius: .5rem
+
 
     .footer-nav
         @extend %fullWidth, %maxWidth, %flex, %gap3
         justify-content: space-between
-
-        #footer-home
-            width: fit-content
-            &:focus, &:focus-visible, &:focus-within
-                outline: 1px solid $gold
-                outline-offset: .35rem
-                border-radius: .5rem
 
 
         ul  
@@ -912,13 +908,15 @@ footer div, .contact-btn-wrap
     width: 700px
     filter: brightness(0.9) saturate(0.8)
 
-#shirt
+#shirt, #truck
     height: 400px
     width: 700px
     min-width: 100%
     max-width: 700px
     object-fit: cover
-    object-position: 0px -555px
+
+#truck
+    height: 100%
         
 
 // classes
@@ -1224,11 +1222,11 @@ noscript
     width: fit-content
     height: fit-content
     position: relative
-    border-radius: 4rem
+    border-radius: 1rem
     overflow: hidden
 
 .blur-vignette
-  --radius: 36px
+  --radius: 16px
   --inset: 18px
   --transition-length: 52px
   --blur: 8px
@@ -1357,6 +1355,9 @@ noscript
                 width: 150px
                 height: 50px
 
+    .breadcrumb
+        padding: 20px
+
     footer
         padding: 50px 20px
         flex-direction: column
@@ -1427,6 +1428,11 @@ noscript
             grid-template-columns: 1fr
             grid-template-rows: auto auto 
             gap: 1.5rem
+
+    .blur-container
+        width: 100%
+    #shirt, #truck
+        width: 100%
 
 
 @media (max-width: 500px)

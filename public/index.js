@@ -117,9 +117,8 @@ addEventListener("DOMContentLoaded", () => {
                 })
 
             scrollInStagger("#why-us .card-wrap .card")
-            scrollInStagger("#use-case .card-wrap .card")
+            scrollInStagger("#services .card-wrap .card")
             scrollInStagger("details")
-            scrollInStagger("form div")
 
             break
 
@@ -298,16 +297,29 @@ addEventListener("DOMContentLoaded", () => {
     }
 
     // NAV
+    let nav = $("header nav")[0]
     let dropdown = $(".dropdown")[0]
-    let dropdownTrigger = $(".dropdown-wrap")[0]
+    let dropdownList = $(".dropdown ul")[0]
+    let dropdownTrigger = $("#dropdown")[0]
     let dropdownOpen = false
     let dropdownTL = gsap.timeline()
     dropdownTrigger.addEventListener("click", toggleDropdown)
+    nav.addEventListener("keyup", toggleDropdown)
+    nav.addEventListener("blur", toggleDropdown)
 
     function toggleDropdown(event) {
+        if (!event) return
+        if (event.type == "keyup" && event.key == " ") {
+            event.preventDefault()
+        }
+        if (event.type == "keyup" && event.key !== "Tab") {
+            return
+        }
+
         if (!dropdownOpen) {
+            if (event.target !== dropdownTrigger) return
             dropdownOpen = true
-            dropdown.style.display = "grid"
+            dropdown.style.display = "flex"
             dropdownTL.fromTo(
                 ".dropdown",
                 {
@@ -322,6 +334,15 @@ addEventListener("DOMContentLoaded", () => {
                 window.addEventListener("click", handleOutsideClick)
             }, 0)
         } else {
+            if (
+                event.type !== "click" &&
+                (event.target.parentElement.parentElement.parentElement ==
+                    dropdown ||
+                    event.target == dropdownTrigger)
+            ) {
+                return
+            }
+
             dropdownTL.to(".dropdown", {
                 autoAlpha: 0,
                 y: -20
@@ -333,11 +354,10 @@ addEventListener("DOMContentLoaded", () => {
     }
 
     function handleOutsideClick(event) {
-        if (
-            !dropdown.contains(event.target) &&
-            !dropdownTrigger.contains(event.target)
-        ) {
-            toggleDropdown()
+        console.log(event.target)
+        if (event.target !== dropdownList || event.target !== dropdownTrigger) {
+            console.log(event.target == dropdownList)
+            toggleDropdown(event)
             window.removeEventListener("click", handleOutsideClick)
         }
     }
