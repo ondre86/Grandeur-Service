@@ -230,23 +230,22 @@ addEventListener("DOMContentLoaded", () => {
         }
 
         if (is_touch_enabled()) {
-            const titleWrap = document.createElement("div")
-            titleWrap.classList.add("flex-v", "gap1", "center")
-            const videoHeader = $("#video h2")[0]
-            const tapNotice = document.createElement("span")
-            tapNotice.innerText = "Tap to play / pause"
-            tapNotice.classList.add("font2", "italic")
+            // const titleWrap = document.createElement("div")
+            // titleWrap.classList.add("flex-v", "gap1", "center")
+            // const videoHeader = $("#video h2")[0]
+            // const tapNotice = document.createElement("span")
+            // tapNotice.innerText = "Tap to play / pause"
+            // tapNotice.classList.add("font2", "italic")
 
-            titleWrap.appendChild(videoHeader)
-            titleWrap.appendChild(tapNotice)
-            $("#video")[0].insertAdjacentElement("afterbegin", titleWrap)
+            // titleWrap.appendChild(videoHeader)
+            // titleWrap.appendChild(tapNotice)
+            // $("#video")[0].insertAdjacentElement("afterbegin", titleWrap)
 
             $("video")[0].style.width = "100%"
 
             setTimeout(() => {
                 const videoHeight = $("video")[0].clientHeight
                 $("video")[0].height = videoHeight
-                console.log($("video")[0].height)
             }, 300)
         } else {
             video = gsap
