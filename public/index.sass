@@ -124,8 +124,10 @@ $grey-acc3-100:rgba(85,85,85,1)
 
 .font2
     font-family: bask
+    font-style: italic
     *
         font-family: bask
+        font-style: italic
 .italic
     font-style: italic
     *
@@ -791,12 +793,12 @@ footer
             &:hover
                 border-color: white
 
-        ul:first-of-type
-            a 
-                border-color: $gold
+        // ul:first-of-type
+        //     a 
+        //         border-color: $gold
 
-                &:hover
-                    background-color: $gold-dark
+        //         &:hover
+        //             background-color: $gold-dark
 
 footer div, .contact-btn-wrap
     ul.contact.flex-h:not(.center)
@@ -835,6 +837,10 @@ footer div, .contact-btn-wrap
 
 .contact-btn-wrap span.credit
     margin: 3rem 0 0 0
+
+.credit
+    a
+        color: $gold-light
 
 .information
     @extend %flex, %flex-v, %gap3
@@ -889,6 +895,7 @@ footer div, .contact-btn-wrap
             max-width: none
             object-position: 0px 0px
             object-fit: cover
+            display: block
 
     &.flat-bottom
         margin-bottom: 0px

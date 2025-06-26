@@ -116,9 +116,11 @@ footer div ul.contact li a:hover, .contact-btn-wrap ul.contact li a:hover, #revi
 
 .font2 {
   font-family: bask;
+  font-style: italic;
 }
 .font2 * {
   font-family: bask;
+  font-style: italic;
 }
 
 .italic {
@@ -747,12 +749,6 @@ footer .footer-nav .footer-cta {
 footer .footer-nav .footer-cta:hover {
   border-color: white;
 }
-footer .footer-nav ul:first-of-type a {
-  border-color: rgb(182, 143, 64);
-}
-footer .footer-nav ul:first-of-type a:hover {
-  background-color: rgb(106, 84, 37);
-}
 
 footer div ul.contact.flex-h:not(.center), .contact-btn-wrap ul.contact.flex-h:not(.center) {
   justify-content: flex-end;
@@ -786,6 +782,10 @@ footer div span, .contact-btn-wrap span {
 
 .contact-btn-wrap span.credit {
   margin: 3rem 0 0 0;
+}
+
+.credit a {
+  color: rgb(234, 197, 123);
 }
 
 .contact-btn-wrap {
@@ -838,6 +838,7 @@ footer div span, .contact-btn-wrap span {
   max-width: none;
   object-position: 0px 0px;
   object-fit: cover;
+  display: block;
 }
 .full-screen-img.flat-bottom {
   margin-bottom: 0px;
