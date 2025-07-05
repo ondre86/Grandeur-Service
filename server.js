@@ -212,6 +212,14 @@ app.get("/services/town-car-memphis", (req, res) => {
     html = html.replaceAll("{{nonce}}", res.locals.nonce)
     res.send(html)
 })
+app.get("/privacy", (req, res) => {
+    let html = fs.readFileSync(
+        path.join(__dirname, "public/privacy/index.html"),
+        "utf-8"
+    )
+    html = html.replaceAll("{{nonce}}", res.locals.nonce)
+    res.send(html)
+})
 app.get("/sitemap.xml", (req, res) => {
     res.sendFile(path.join(__dirname, "public/sitemap.xml"), "utf-8")
 })
