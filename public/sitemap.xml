@@ -35,6 +35,12 @@
     <priority>0.80</priority>
   </url>
 
+  <url>
+    <loc>https://grandeurservice.com/privacy</loc>
+    <lastmod>2025-07-01T09:00:00+00:00</lastmod>
+    <priority>0.20</priority>
+  </url>
+
   <!-- Service Pages -->
   <url>
     <loc>https://grandeurservice.com/services/black-car-limo-memphis</loc>
