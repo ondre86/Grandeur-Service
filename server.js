@@ -84,7 +84,9 @@ app.use((req, res, next) => {
                 ],
                 styleSrc: [
                     "'self'",
+                    "'unsafe-inline'",
                     "https://googletagmanager.com",
+                    "https://www.googletagmanager.com",
                     "https://tagmanager.google.com",
                     "https://fonts.googleapis.com",
                     "https://js.adsrvr.org"
