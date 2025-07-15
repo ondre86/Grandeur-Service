@@ -38,6 +38,7 @@ app.use((req, res, next) => {
                 imgSrc: [
                     "'self'",
                     "data:",
+                    "blob:",
                     "https://www.googletagmanager.com",
                     "https://googletagmanager.com",
                     "https://googleads.g.doubleclick.net",
@@ -289,7 +290,7 @@ async function formatAndSendEmail(req, res) {
     } else {
         let text = ""
         let mailOptions = {
-            from: "Website Booking",
+            from: "automated@ondre.org",
             to: "info@grandeurservice.com",
             subject: "",
             text: {}
